@@ -1,8 +1,1 @@
-(26/01/2023)If you were a soccer player, who would you choose as your strike partner? Messi, Cristiano Ronaldo, Neymar ou Benzema?
-Neymar
-(26/01/2023)What do you prefer? Travel around the world or explore new planets?
-Explore new planets
-(26/01/2023)What would you do if you were the protagonist of your favorite anime?
-I would fight against every kind of evil
-(26/01/2023)Do you prefer Marvel or DC?
-Marvel
+{"Entries":[{"Prompt":"How did I take care of my physical, emotional and mental well-being today?","Response":"None","Date":"2023-01-26T17:15:21.7172178-03:00"}]}
