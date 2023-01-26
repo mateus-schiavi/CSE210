@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         dailyJournal myJournal = new dailyJournal();
-        string file_name;
+        string archive;
         int card = 0;
 
         while(card!=6){
@@ -27,14 +27,14 @@ class Program
             else if(card==3)
             {
                 Console.WriteLine("Type the file name");
-                file_name = Console.ReadLine();
-                myJournal.save(file_name);
+                archive = Console.ReadLine();
+                myJournal.save(archive);
             }
             else if(card==4)
             {
                 Console.WriteLine("Type the file name");
-                file_name = Console.ReadLine();
-                myJournal.load(file_name);
+                archive = Console.ReadLine();
+                myJournal.load(archive);
             }
             else if(card==5)
             {
@@ -52,11 +52,11 @@ class Program
         {
             Entry _write = new Entry();
             _write.inputEntry();
-            
+            myAnswer.Add(_write);
         }
-        public void load(string file_name)
+        public void load(string archive)
         {
-            String[] ropes = System.IO.File.ReadAllLines(file_name);
+            String[] ropes = System.IO.File.ReadAllLines(archive);
             foreach(string key in ropes)
             {
                 Entry _word = new Entry();
@@ -64,9 +64,9 @@ class Program
                 myAnswer.Add(_word);
             }
         }
-        public void save(string file_name)
+        public void save(string archive)
         {
-            using (StreamWriter mywritings = new StreamWriter(file_name))
+            using (StreamWriter mywritings = new StreamWriter(archive))
             {
                 foreach(Entry _develop in myAnswer)
                 {
