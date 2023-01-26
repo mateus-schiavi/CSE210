@@ -91,7 +91,7 @@ class Program
         public class Entry
         {
             string _input;
-            string[] _questions={"What is your favorite color?\n","What is your favorite programming language?\n", "Do you love soccer or any other sport?\n", "What would you do if you were a power ranger?", "What is the best for you? Harry Potter or Lord of the Rings?\n"};
+            string[] _questions={"Do you like puzzle?\n", "Do you prefer Marvel or DC?\n", "What would you do if you were the protagonist of your favorite anime?\n", "What do you prefer? Travel around the world or explore new planets?\n","Do you prefer Pokémon or Digimon?\n", "If you were a soccer player, who would you choose as your strike partner? Messi, Cristiano Ronaldo, Neymar ou Benzema?\n","What is your favorite alien from Ben 10?", "Do you prefer Italian Food or Brazilian Food?"};
             public Entry(){}
             public void inputEntry()
             {
