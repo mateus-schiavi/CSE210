@@ -1,2 +1,4 @@
-(26/01/2023)What is the best for you? Harry Potter or Lord of the Rings?
-Lord of the Rings
+(26/01/2023)Do you love soccer or any other sport?
+Yes, I do
+(26/01/2023)What is your favorite programming language?
+C#
