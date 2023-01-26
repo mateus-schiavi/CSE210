@@ -8,7 +8,7 @@ class Program
         string archive;
         int card = 0;
 
-        while(card!=6){
+        while(card!=7){
             Console.WriteLine("1 - Write");
             Console.WriteLine("2 - Display");
             Console.WriteLine("3 - Load");
