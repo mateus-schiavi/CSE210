@@ -20,7 +20,7 @@ class Program
             //Add a question
             if(card==1)
             {
-                myJournal.addAsk();
+                myJournal.addJournalHelper();
             }
             else if(card==2)
             //display the question and the answer
@@ -66,15 +66,15 @@ class Program
 }
     public class dailyJournal{
         //List is a collection of objects that maintains the order in which they were added.
-        List<Ask> myAnswer = new List<Ask>();
+        List<JournalHelper> myAnswer = new List<JournalHelper>();
         //constructor method; a constructor method is characterized by having the same name of the class and no types, like: void, string, boolean or datatable
         public dailyJournal(){}
         //creation of a void method, when a method is void, it does not requires a return of a variable
-        public void addAsk()
+        public void addJournalHelper()
         {
             //when you give a new, you are instantiating a variable.
-            Ask _write = new Ask();
-            _write.inputAsk();
+            JournalHelper _write = new JournalHelper();
+            _write.inputJournalHelper();
             myAnswer.Add(_write);
         }
         public void load(string archive)
@@ -85,7 +85,7 @@ class Program
             foreach(string key in lines)
             {
                 //load the file, gathered with the informations the user has input
-                Ask _word = new Ask();
+                JournalHelper _word = new JournalHelper();
                 _word.loadfile(key);
                 myAnswer.Add(_word);
             }
@@ -96,7 +96,7 @@ class Program
             using (StreamWriter mywritings = new StreamWriter(archive))
             {
                 //condition which will verify each _develop in myAnswer
-                foreach(Ask _develop in myAnswer)
+                foreach(JournalHelper _develop in myAnswer)
                 {
                     mywritings.WriteLine(_develop.itsString());
                 }
@@ -105,20 +105,20 @@ class Program
         public void display()
         {
             //condition which will verify each keyWord in myAnswer
-            foreach(Ask keyword in myAnswer)
+            foreach(JournalHelper keyword in myAnswer)
             {
                 //display the answer
                 keyword.displayInput();
             }
         }
-        public class Ask
+        public class JournalHelper
         {
             //creation of a string
             string _inlet;
             string[] _questions={"Do you like puzzle?\n", "Do you prefer Marvel or DC?\n", "What would you do if you were the protagonist of your favorite anime?\n", "What do you prefer? Travel around the world or explore new planets?\n","Do you prefer Pokémon or Digimon?\n", "If you were a soccer player, who would you choose as your strike partner? Messi, Cristiano Ronaldo, Neymar ou Benzema?\n","What is your favorite alien from Ben 10?", "Do you prefer Italian Food or Brazilian Food?"};
             //constructor method
-            public Ask(){}
-            public void inputAsk()
+            public JournalHelper(){}
+            public void inputJournalHelper()
             {
                 //creation of a random function, this means that the questions will not come in order
                 var measure = new Random();
