@@ -84,7 +84,7 @@ class Program
         public class Entry
         {
             string _input;
-            string[] _questions={"Where are you from?/n","What is your favorite programming language?/n", "Do you love soccer or any other sport?/n", "What would you like to do? Swim with sharks or jump with a parachute?/n", "What is the best for you? Harry Potter or Lord of the Rings?/n"};
+            string[] _questions={"Where are you from?\n","What is your favorite programming language?\n", "Do you love soccer or any other sport?\n", "What would you like to do? Swim with sharks or jump with a parachute?\n", "What is the best for you? Harry Potter or Lord of the Rings?\n"};
             public Entry(){}
             public void inputEntry()
             {
