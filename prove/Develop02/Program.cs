@@ -14,7 +14,8 @@ class Program
             Console.WriteLine("3 - Load");
             Console.WriteLine("4 - Save");
             Console.WriteLine("5 - Special Message");
-            Console.WriteLine("6 - Quit");
+            Console.WriteLine("6 - Music");
+            Console.WriteLine("7 - Quit");
             card = int.Parse(Console.ReadLine());
             if(card==1)
             {
@@ -38,7 +39,18 @@ class Program
             }
             else if(card==5)
             {
-                Console.WriteLine("I love you teacher. Thanks for being such a nice guy. My dream is to become like you: AN excellent teacher");
+                Console.WriteLine("I love you teacher. Thanks for being such a nice guy. My dream is to become like you: an excellent teacher");
+            }
+            else if(card==6)
+            {
+                Console.WriteLine("♫Our whole universe was in a hot dense state");
+                Console.WriteLine("Then nearly fourteen billion years ago expansion started");
+                Console.WriteLine("Wait");
+                Console.WriteLine("The Earth began to cool, the autotrophs began to drool");
+                Console.WriteLine("Neanderthals developed tools, we built a wall (we built the pyramids)");
+                Console.WriteLine("Math, science, history, unraveling the mystery");
+                Console.WriteLine("That all started with the Big Bang (bang!)♪");
+                Console.WriteLine("Bazinga!");
             }
         }
         
@@ -84,12 +96,12 @@ class Program
         public class Entry
         {
             string _input;
-            string[] _questions={"Where are you from?\n","What is your favorite programming language?\n", "Do you love soccer or any other sport?\n", "What would you like to do? Swim with sharks or jump with a parachute?\n", "What is the best for you? Harry Potter or Lord of the Rings?\n"};
+            string[] _questions={"Do you like the tv series Me, my Wife and kids or do you prefer another tv series?\n","What is your favorite programming language?\n", "Do you love soccer or any other sport?\n", "What would you like to do? Swim with sharks or jump with a parachute?\n", "What is the best for you? Harry Potter or Lord of the Rings?\n"};
             public Entry(){}
             public void inputEntry()
             {
                 var measure = new Random();
-                _input = _questions[measure.Next(1,6)];
+                _input = _questions[measure.Next(1,7)];
                 Console.Write(_input);
                 _input = _input+Console.ReadLine();
                 DateTime today = DateTime.Now;
