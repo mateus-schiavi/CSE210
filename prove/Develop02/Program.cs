@@ -28,13 +28,13 @@ class Program
             {
                 Console.WriteLine("Type the file name");
                 archive = Console.ReadLine();
-                myJournal.save(archive);
+                myJournal.load(archive);
             }
             else if(card==4)
             {
                 Console.WriteLine("Type the file name");
                 archive = Console.ReadLine();
-                myJournal.load(archive);
+                myJournal.save(archive);
             }
             else if(card==5)
             {
