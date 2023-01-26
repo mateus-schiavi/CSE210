@@ -18,7 +18,7 @@ class Program
             card = int.Parse(Console.ReadLine());
             if(card==1)
             {
-                myJournal.addEntry();
+                myJournal.addAsk();
             }
             else if(card==2)
             {
@@ -39,12 +39,19 @@ class Program
             else if(card==5)
             {
                 Console.WriteLine("♫Our whole universe was in a hot dense state");
+                Console.WriteLine("");
                 Console.WriteLine("Then nearly fourteen billion years ago expansion started");
+                Console.WriteLine("");
                 Console.WriteLine("Wait");
+                Console.WriteLine("");
                 Console.WriteLine("The Earth began to cool, the autotrophs began to drool");
+                Console.WriteLine("");
                 Console.WriteLine("Neanderthals developed tools, we built a wall (we built the pyramids)");
+                Console.WriteLine("");
                 Console.WriteLine("Math, science, history, unraveling the mystery");
+                Console.WriteLine("");
                 Console.WriteLine("That all started with the Big Bang (bang!)♪");
+                Console.WriteLine("");
                 Console.WriteLine("Bazinga!");
             }
         }
@@ -52,13 +59,13 @@ class Program
     }
 }
     public class dailyJournal{
-        List<Entry> myAnswer = new List<Entry>();
+        List<Ask> myAnswer = new List<Ask>();
         public dailyJournal(){}
 
-        public void addEntry()
+        public void addAsk()
         {
-            Entry _write = new Entry();
-            _write.inputEntry();
+            Ask _write = new Ask();
+            _write.inputAsk();
             myAnswer.Add(_write);
         }
         public void load(string archive)
@@ -66,7 +73,7 @@ class Program
             String[] ropes = System.IO.File.ReadAllLines(archive);
             foreach(string key in ropes)
             {
-                Entry _word = new Entry();
+                Ask _word = new Ask();
                 _word.loadfile(key);
                 myAnswer.Add(_word);
             }
@@ -75,7 +82,7 @@ class Program
         {
             using (StreamWriter mywritings = new StreamWriter(archive))
             {
-                foreach(Entry _develop in myAnswer)
+                foreach(Ask _develop in myAnswer)
                 {
                     mywritings.WriteLine(_develop.itsString());
                 }
@@ -83,17 +90,17 @@ class Program
         }
         public void display()
         {
-            foreach(Entry keyword in myAnswer)
+            foreach(Ask keyword in myAnswer)
             {
                 keyword.displayInput();
             }
         }
-        public class Entry
+        public class Ask
         {
             string _input;
             string[] _questions={"Do you like puzzle?\n", "Do you prefer Marvel or DC?\n", "What would you do if you were the protagonist of your favorite anime?\n", "What do you prefer? Travel around the world or explore new planets?\n","Do you prefer Pokémon or Digimon?\n", "If you were a soccer player, who would you choose as your strike partner? Messi, Cristiano Ronaldo, Neymar ou Benzema?\n","What is your favorite alien from Ben 10?", "Do you prefer Italian Food or Brazilian Food?"};
-            public Entry(){}
-            public void inputEntry()
+            public Ask(){}
+            public void inputAsk()
             {
                 var measure = new Random();
                 _input = _questions[measure.Next(1,6)];
