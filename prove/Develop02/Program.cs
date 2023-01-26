@@ -8,14 +8,13 @@ class Program
         string archive;
         int card = 0;
 
-        while(card!=7){
+        while(card!=6){
             Console.WriteLine("1 - Write");
             Console.WriteLine("2 - Display");
             Console.WriteLine("3 - Load");
             Console.WriteLine("4 - Save");
-            Console.WriteLine("5 - Special Message");
-            Console.WriteLine("6 - Music");
-            Console.WriteLine("7 - Quit");
+            Console.WriteLine("5 - Music");
+            Console.WriteLine("6 - Quit");
             card = int.Parse(Console.ReadLine());
             if(card==1)
             {
@@ -38,10 +37,6 @@ class Program
                 myJournal.save(archive);
             }
             else if(card==5)
-            {
-                Console.WriteLine("I love you teacher. Thanks for being such a nice guy. My dream is to become like you: an excellent teacher");
-            }
-            else if(card==6)
             {
                 Console.WriteLine("♫Our whole universe was in a hot dense state");
                 Console.WriteLine("Then nearly fourteen billion years ago expansion started");
@@ -101,7 +96,7 @@ class Program
             public void inputEntry()
             {
                 var measure = new Random();
-                _input = _questions[measure.Next(1,7)];
+                _input = _questions[measure.Next(1,6)];
                 Console.Write(_input);
                 _input = _input+Console.ReadLine();
                 DateTime today = DateTime.Now;
