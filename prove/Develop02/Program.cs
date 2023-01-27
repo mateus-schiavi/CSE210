@@ -61,7 +61,7 @@ namespace Develop02
             Console.WriteLine("2. Display journal");
             Console.WriteLine("3. Add entry");
             Console.WriteLine("4. Save journal as...");
-            Console.Write("5. Show Music: ");
+            Console.WriteLine("5. Show Music: ");
             Console.WriteLine("6. Exit");
             Console.WriteLine();
         }
