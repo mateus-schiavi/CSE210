@@ -55,14 +55,14 @@ namespace Develop02
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Journal App");
-            Console.WriteLine("Current journal: " + actualDiary);
+            Console.WriteLine("Actual File: " + actualDiary);
             Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("1. Load journal");
-            Console.WriteLine("2. Display journal");
-            Console.WriteLine("3. Add entry");
-            Console.WriteLine("4. Save journal as...");
+            Console.WriteLine("1. Load File");
+            Console.WriteLine("2. Show file at the terminal");
+            Console.WriteLine("3. Add an answer to a qustion");
+            Console.WriteLine("4. Save file as ");
             Console.WriteLine("5. Show Music: ");
-            Console.WriteLine("6. Exit");
+            Console.WriteLine("6. Leave the program");
             Console.WriteLine();
         }
 
