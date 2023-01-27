@@ -59,7 +59,7 @@ namespace Develop02
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("1. Load File");
             Console.WriteLine("2. Show file at the terminal");
-            Console.WriteLine("3. Add an answer to a qustion");
+            Console.WriteLine("3. Add an answer to a question");
             Console.WriteLine("4. Save file as ");
             Console.WriteLine("5. Show Music: ");
             Console.WriteLine("6. Leave the program");
