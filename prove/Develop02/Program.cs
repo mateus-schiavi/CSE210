@@ -137,9 +137,6 @@ namespace Develop02
             JournalHelper.SaveFile(Diary, actualDiary);
         }
 
-        // DisplayJournal() method displays the current journal file to the user.
-        // If the current file does not exist or is empty, an error message is displayed.
-        // This program exceeds requirments with the use of JSON for storage
         static void DisplayFile()
         {
             string fileName = actualDiary;
@@ -163,8 +160,6 @@ namespace Develop02
             Diary.DisplayInput();
         }
 
-        // SaveJournal() method prompts the user to enter a file name and saves the current journal to that file.
-        // It then displays a message indicating that the journal has been saved to the specified file.
         static void SaveFile()
         {
             Console.WriteLine();
