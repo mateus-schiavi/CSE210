@@ -61,7 +61,8 @@ namespace Develop02
             Console.WriteLine("2. Display journal");
             Console.WriteLine("3. Add entry");
             Console.WriteLine("4. Save journal as...");
-            Console.WriteLine("5. Exit");
+            Console.Write("5. Show Music: ");
+            Console.WriteLine("6. Exit");
             Console.WriteLine();
         }
 
@@ -70,11 +71,11 @@ namespace Develop02
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("Enter option: ");
             int option;
-            while (!int.TryParse(Console.ReadLine(), out option) || option < 1 || option > 5)
+            while (!int.TryParse(Console.ReadLine(), out option) || option < 1 || option > 6)
             {
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid input. Please enter a number between 1 and 5.");
+                Console.WriteLine("Invalid input. Please enter a number between 1 and 6.");
             }
             return option;
         }
