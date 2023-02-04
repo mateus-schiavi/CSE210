@@ -26,9 +26,6 @@ class Program
     {
         Scripture[] scripts = new Scripture[]
         {
-            new Scripture("For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.", "John 3:16"),
-            new Scripture("Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.", "Proverbs 3:5-6"),
-            new Scripture("Do not be afraid, for I am with you; I will bring your children from the east and gather you from the west.", "Isaiah 43:5"),
             new Scripture("Genesis 1:1-2", "In the beginning God created the heaven and earth. And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters."),
             new Scripture("Job 1:1", "There was a man in the land of Uz, whose name was Job; and that man was perfect and upright, and one that feared God, and eschewed evil."),
             new Scripture("Isaiah 8:13", "Sanctify the Lord of hosts himself; and let him be your fear, and let him be your dread"),
