@@ -1,10 +1,34 @@
 using System;
 
+class Scripture
+{
+    public string Quotation { get; set; }
+    public string Reference { get; set; }
+
+    public Scripture(string quotation, string reference)
+    {
+        Quotation = quotation;
+        Reference = reference;
+    }
+}
+
+class Memorizing
+{
+    public void Begin()
+    {
+        Console.WriteLine("Starting memorization process...");
+    }
+}
+
 class Program
 {
     static void Main(string[] args)
     {
-        Scripture[] scripts = new Scripture[] {
+        Scripture[] scripts = new Scripture[]
+        {
+            new Scripture("For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.", "John 3:16"),
+            new Scripture("Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.", "Proverbs 3:5-6"),
+            new Scripture("Do not be afraid, for I am with you; I will bring your children from the east and gather you from the west.", "Isaiah 43:5"),
             new Scripture("Genesis 1:1-2", "In the beginning God created the heaven and earth. And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters."),
             new Scripture("Job 1:1", "There was a man in the land of Uz, whose name was Job; and that man was perfect and upright, and one that feared God, and eschewed evil."),
             new Scripture("Isaiah 8:13", "Sanctify the Lord of hosts himself; and let him be your fear, and let him be your dread"),
@@ -22,21 +46,22 @@ class Program
             new Scripture("Ether 13:4","Behold, Ether saw the days of Christ, and he spake concerning a New Jerusalem upon this land"), 
             new Scripture("Doctrines and Covenants 82:10","I, the Lord, am bound whe ye do what I say; but when ye do not waht I say, ye have no promise;")
         };
+
         Console.WriteLine("►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄");
         Console.WriteLine("Welcome to the Scripture Memorizer Program!");
         Console.WriteLine("Down below there is a list with some Scripture:");
-
         Console.WriteLine("►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄");
 
-        for(int x = 0; x < scripts.Length; x++)
+        for (int x = 0; x < scripts.Length; x++)
         {
-            Console.WriteLine($"{x + 1}. {scripts[x].Quotation}");        
+            Console.WriteLine($"{x + 1}. {scripts[x].Quotation}");
         }
+
         Console.WriteLine("►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄");
         Console.WriteLine("Choose a scripture to learn: ");
         int intChoice = int.Parse(Console.ReadLine());
         Scripture scrSelectedScripture = scripts[intChoice - 1];
-    
+
         Memorizing objMemorize = new Memorizing();
 
         objMemorize.Begin();
