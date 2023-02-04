@@ -1,44 +1,17 @@
 
-class Scriptures
+public class Scripture
 {
-    private string _mention;
-    private string _quotation;
+    public string Mention { get; set; }
+    public string Quotation { get; set; }
 
-    public Scriptures()
+    public Scripture(string mention, string quotation)
     {
-
+        Mention = mention;
+        Quotation = quotation;
     }
 
-    public Scriptures(string _mention, string _quotation)
+    public string[] GetVersicles()
     {
-        setMention(_mention);
-        setQuotation(_quotation);
-    }
-
-    public void setMention(string strMention)
-    {
-        this._mention = strMention;
-    }
-
-    public void setQuotation(string strQuotation)
-    {
-        this._quotation = strQuotation;
-    }
-
-    public string Mention
-    {
-        get{return this._mention;}
-        set{this._mention = value;}
-    }
-
-    public string Quotation
-    {
-        get{return this._quotation;}
-        set{this._quotation = value;}
-    }
-
-    public string[] getVersicles()
-    {
-        return _quotation.Split("\n");
+        return Quotation.Split(new[] { "\n" }, StringSplitOptions.None);
     }
 }

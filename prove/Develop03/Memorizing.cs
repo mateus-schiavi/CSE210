@@ -1,6 +1,6 @@
 class Memorizing
 {
-    private Scriptures _script;
+    private Scripture _script;
     private string[] _arguments;
     private string[] _unseenArguments;
     private Random _randomic;
