@@ -1,5 +1,7 @@
 using System;
-
+/*
+Exceeds requirements with the use of try/catch
+*/
 class Scripture
 {
     public string Quotation { get; set; }
