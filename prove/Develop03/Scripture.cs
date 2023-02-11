@@ -1,8 +1,7 @@
 using System;
 class Scripture
 {
-    private string _quotation;
-    private string _reference;
+    private string _quotation, _reference;
     public Scripture()
     {
 
