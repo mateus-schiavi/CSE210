@@ -2,27 +2,6 @@ using System;
 /*
 Exceeds requirements with the use of try/catch
 */
-class Scripture
-{
-    public string Quotation { get; set; }
-    public string Reference { get; set; }
-
-    public Scripture(string quotation, string reference)
-    {
-        Quotation = quotation;
-        Reference = reference;
-    }
-}
-
-class Memorizing
-{
-    public void Begin(Scripture scripture)
-    {
-        Console.WriteLine("Starting memorization process for:");
-        Console.WriteLine(scripture.Quotation);
-        Console.WriteLine("Reference: " + scripture.Reference);
-    }
-}
 
 class Program
 {
