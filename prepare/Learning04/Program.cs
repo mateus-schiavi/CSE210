@@ -78,7 +78,7 @@ class Program
                 Console.WriteLine("In the example above, the values will be stored in two variables: quotation and reference, as it is not possible to access it directly, it's possible to access their values through the Scripture method");
             }
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
             
             throw new Exception("An Error Has Occurred =>" + ex.Message);
