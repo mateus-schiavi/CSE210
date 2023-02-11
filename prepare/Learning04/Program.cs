@@ -72,7 +72,8 @@ class Program
                 Console.WriteLine("public string Reference");
                 Console.WriteLine("{");
                 Console.WriteLine("get{return this._reference;}");
-                Console.WriteLine("set{this._reference = value;}");   
+                Console.WriteLine("set{this._reference = value;}");
+                Console.WriteLine("}");   
 
                 Console.WriteLine("In the example above, the values will be stored in two variables: quotation and reference, as it is not possible to access it directly, it's possible to access their values through the Scripture method");
             }
