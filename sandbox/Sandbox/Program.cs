@@ -3,7 +3,6 @@ using System;
 class Program
 {
     static string _decision;
-    static string _answer;
     static void Main(string[] args)
     {
         try
@@ -82,17 +81,7 @@ class Program
             {
                 Console.WriteLine("Option not available");
             }
-            Console.WriteLine("Would you like to learn about other topic? y/n");
-            string _answer = Console.ReadLine();
 
-            while(_answer == "y")
-            {
-                Console.WriteLine("Encapsulation");
-                Console.WriteLine("a. Principles");
-                Console.WriteLine("b. Benefits");
-                Console.WriteLine("c. Application");
-                Console.WriteLine("d. Example of Encapsulation");
-            }
         }
         catch (Exception ex)
         {
