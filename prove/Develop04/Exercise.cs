@@ -1,81 +1,55 @@
-public class Exercise
+public abstract class Exercise
 {
-    protected string _exerciseResume;
     protected string _exerciseName;
+    protected string _exerciseResume;
+    protected int _initialTime;
+    protected int _finalTime;
 
-    protected int _exerciseTime;
-    protected DateTime _finalTime;
-    protected DateTime _initialTime;
-
-    public Exercise()
+    public string ExerciseName
     {
-
+        get { return _exerciseName; }
     }
 
-    public Exercise(string exerciseResume, string exerciseName)
+    public string ExerciseResume
     {
-        _exerciseName = exerciseName;
-        _exerciseResume = exerciseResume;
+        get { return _exerciseResume; }
     }
 
-    public void InitialNotice()
+    protected void InitialNotice()
     {
-        Console.WriteLine($"Welcome to the {_exerciseName} Exercise\n");
-        Console.WriteLine($"{_exerciseResume}");
-    }
-
-    public void SetExerciseTime()
-    {
-        Console.WriteLine("How many time, in seconds, would you like to spend in this exercise?");
-        _exerciseTime = int.Parse(Console.ReadLine());
         Console.Clear();
+        Console.WriteLine($"Get ready for the {_exerciseName} exercise!");
+        Console.WriteLine($"{_exerciseResume}\n");
     }
 
-    public void FinalNotice()
+    protected void FinalNotice()
     {
-        Console.WriteLine();
-        Console.WriteLine("Very well!");
-        Console.WriteLine($"You have finished another {_exerciseTime} seconds of the {_exerciseName}");
+        Console.WriteLine($"\nGreat job! You completed the {_exerciseName} exercise!");
     }
 
-    public void SetClock()
+    protected void SetExerciseTime()
     {
-        DateTime initialPeriod = DateTime.Now;
-        _finalTime = initialPeriod.AddSeconds(_exerciseTime);
+        Console.WriteLine("How many minutes would you like to spend on this exercise?");
+        int time = int.Parse(Console.ReadLine());
+        _initialTime = 0;
+        _finalTime = time * 60;
     }
 
-    public void UpdateClock()
+    protected void SetClock()
     {
-        _initialTime = DateTime.Now;
-    }
-
-    public void PokeballAnimation()
-    {
-        Console.CursorVisible = false;
-        string[] pokeball = { 
-            "    _____    ",
-            "  //     \\\\  ",
-            " //       \\\\ ",
-            "//         \\\\",
-            "||  /     \\ ||",
-            "|| |       | ||",
-            "|| |       | ||",
-            "|| |       | ||",
-            "||  \\     /  ||",
-            " \\\\       // ",
-            "  \\\\_____//  "
-        };
-        for (int i = 0; i < pokeball.Length; i++)
+        Console.WriteLine("\nStarting in...");
+        for (int counter = 3; counter >= 1; counter--)
         {
-            Console.WriteLine(pokeball[i]);
-            Thread.Sleep(100);
+            Console.WriteLine($"{counter}...");
+            Thread.Sleep(1000);
         }
+        Console.WriteLine("Go!");
     }
 
-    public void GetReady()
+    protected void UpdateClock()
     {
-        Console.WriteLine("Get ready...");
-        PokeballAnimation();
-        Console.WriteLine("\n");
+        _initialTime += 10;
+        Console.WriteLine($"Time left: {_finalTime % 60} seconds");
+        Thread.Sleep(10000);
     }
 }

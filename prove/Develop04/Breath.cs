@@ -62,4 +62,10 @@ public class Breath : Exercise
 
         FinalNotice();
     }
+
+    private void GetReady()
+    {
+        Console.WriteLine("Get ready to start breathing...");
+        Thread.Sleep(5000);
+    }
 }

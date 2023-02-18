@@ -25,11 +25,11 @@ public class Reflection : Exercise
         using (StreamWriter outputFile = new StreamWriter("prompts.txt", true))
         {
             outputFile.WriteLine($"[{DateTime.Now}] Exercise: {_exerciseName}");
-            outputFile.WriteLine($"Exercise Time: {_exerciseTime}");
+            outputFile.WriteLine($"Exercise Time: {_finalTime}");
             outputFile.WriteLine($"Exercise Resume: {_exerciseResume}\n");
         }
 
-        GetReady();
+        SetClock();
 
         Random random = new Random();
 
