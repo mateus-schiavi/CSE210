@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 public class Listing : Exercise
 {
-    private string _message = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.";
+    private string _message = "This activity will help you reflect on the good things in your life by having you answer a prompt about a certain area.";
     private List<string> _prompts = new List<string>()
     {
         "Who are people that you appreciate?",
@@ -35,25 +36,44 @@ public class Listing : Exercise
             Console.WriteLine(_message);
             Console.WriteLine();
 
-            foreach (string prompt in _prompts)
+            string prompt = _prompts[random.Next(_prompts.Count)];
+            Console.WriteLine(prompt);
+
+            Console.WriteLine("Please type your answer below:");
+            string answer = Console.ReadLine();
+
+            Console.WriteLine();
+            Console.WriteLine("You entered:");
+            Console.WriteLine(answer);
+            Console.WriteLine();
+
+            Console.WriteLine("Would you like to save your answer to a file? (Y/N)");
+            string saveToFile = Console.ReadLine();
+
+            if (saveToFile.ToLower() == "y")
             {
-                Console.WriteLine(prompt);
-                Console.WriteLine("Press any key to continue...");
-                Console.ReadKey();
-                Console.WriteLine();
-                Console.WriteLine("Why was this experience meaningful to you?");
-                Console.WriteLine("Have you ever done anything like this before?");
-                Console.WriteLine("How did you get started?");
-                Console.WriteLine("How did you feel when it was complete?");
-                Console.WriteLine("What made this time different than other times when you were not as successful?");
-                Console.WriteLine("What is your favorite thing about this experience?");
-                Console.WriteLine("What could you learn from this experience that applies to other situations?");
-                Console.WriteLine("What did you learn about yourself through this experience?");
-                Console.WriteLine("How can you keep this experience in mind in the future?");
-                Console.WriteLine("Press any key to continue...");
-                Console.ReadKey();
-                Console.WriteLine();
+                Console.WriteLine("Please enter the file name to save your answer (including file extension):");
+                string fileName = Console.ReadLine();
+
+                try
+                {
+                    using (StreamWriter writer = new StreamWriter(fileName))
+                    {
+                        writer.WriteLine(answer);
+                    }
+
+                    Console.WriteLine("Your answer has been saved to the file successfully.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred while saving the file: " + ex.Message);
+                }
             }
+
+            Console.WriteLine();
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+            Console.WriteLine();
 
             UpdateClock();
         }
