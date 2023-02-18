@@ -23,7 +23,7 @@ public class Breath : Exercise
         {
             Console.CursorVisible = false;
             Console.WriteLine($"{_breathIn}");
-            for (int counter = 4; counter >= 0; counter--)
+            for (int counter = 2; counter >= 0; counter--)
             {
                 if (counter == 0)
                 {
@@ -41,7 +41,7 @@ public class Breath : Exercise
             Console.WriteLine();
 
             Console.WriteLine($"{_breathOut}");
-            for (int counter = 6; counter >= 0; counter--)
+            for (int counter = 4; counter >= 0; counter--)
             {
                 if (counter == 0)
                 {
