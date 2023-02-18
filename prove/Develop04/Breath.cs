@@ -29,8 +29,8 @@ public class Breath : Exercise
             Console.WriteLine($"{_breathOut}");
             Thread.Sleep(2000);
 
-            UpdateClock();
             Console.WriteLine();
+            UpdateClock();
         }
 
         FinalNotice();
