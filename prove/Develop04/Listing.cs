@@ -59,7 +59,8 @@ public class Listing : Exercise
                 {
                     using (StreamWriter writer = new StreamWriter(fileName))
                     {
-                        writer.WriteLine(answer);
+                        writer.WriteLine("Question: " + prompt);
+                        writer.WriteLine("Answer: " + answer);
                     }
 
                     Console.WriteLine("Your answer has been saved to the file successfully.");
