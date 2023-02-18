@@ -22,42 +22,15 @@ public class Breath : Exercise
         while (_initialTime < _finalTime)
         {
             Console.CursorVisible = false;
-            Console.WriteLine($"{_breathIn}");
-            for (int counter = 2; counter >= 0; counter--)
-            {
-                if (counter == 0)
-                {
-                    Console.CursorLeft = _breathIn.Length;
-                    Console.Write(" ");
-                }
-                else
-                {
-                    Console.CursorLeft = _breathOut.Length;
-                    Console.Write(counter);
-                    Thread.Sleep(1000);
-                }
-            }
 
-            Console.WriteLine();
+            Console.WriteLine($"{_breathIn}");
+            Thread.Sleep(2000);
 
             Console.WriteLine($"{_breathOut}");
-            for (int counter = 4; counter >= 0; counter--)
-            {
-                if (counter == 0)
-                {
-                    Console.CursorLeft = _breathOut.Length;
-                    Console.Write(" ");
-                }
-                else
-                {
-                    Console.CursorLeft = _breathOut.Length;
-                    Console.Write("{0}", counter);
-                    Thread.Sleep(1000);
-                }
-            }
+            Thread.Sleep(2000);
 
-            Console.WriteLine("\n");
             UpdateClock();
+            Console.WriteLine();
         }
 
         FinalNotice();
