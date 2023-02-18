@@ -1,19 +1,9 @@
 public abstract class Exercise
 {
-    protected string _exerciseName;
-    protected string _exerciseResume;
-    protected int _initialTime;
-    protected int _finalTime;
-
-    public string ExerciseName
-    {
-        get { return _exerciseName; }
-    }
-
-    public string ExerciseResume
-    {
-        get { return _exerciseResume; }
-    }
+    public string _exerciseName { get; protected set; }
+    public string _exerciseResume { get; protected set; }
+    protected int _initialTime { get; set; }
+    protected int _finalTime { get; set; }
 
     protected void InitialNotice()
     {
@@ -29,10 +19,10 @@ public abstract class Exercise
 
     protected void SetExerciseTime()
     {
-        Console.WriteLine("How many minutes would you like to spend on this exercise?");
+        Console.WriteLine("How many seconds would you like to spend on this exercise?");
         int time = int.Parse(Console.ReadLine());
         _initialTime = 0;
-        _finalTime = time * 60;
+        _finalTime = time;
     }
 
     protected void SetClock()
@@ -49,7 +39,7 @@ public abstract class Exercise
     protected void UpdateClock()
     {
         _initialTime += 10;
-        Console.WriteLine($"Time left: {_finalTime % 60} seconds");
+        Console.WriteLine($"Time left: {_finalTime - _initialTime} seconds");
         Thread.Sleep(10000);
     }
 }
