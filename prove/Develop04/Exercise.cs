@@ -10,6 +10,31 @@ public abstract class Exercise
         Console.Clear();
         Console.WriteLine($"Get ready for the {_exerciseName} exercise!");
         Console.WriteLine($"{_exerciseResume}\n");
+
+        // Set up the animation
+        int finalSize = 50;
+        int delay = 200;
+        int sizeIncrease = finalSize / 10;
+        int currentSize = 1;
+        int currentDelay = 0;
+
+        // Loop through increasing font size and slowing the animation
+        while (currentSize <= finalSize)
+        {
+            Console.SetCursorPosition(0, Console.CursorTop - 2);
+            Console.WriteLine(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, Console.CursorTop - 1);
+            Console.WriteLine($"Get ready for the {_exerciseName} exercise!");
+            Console.WriteLine($"{_exerciseResume}\n");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.SetCursorPosition(0, Console.CursorTop - 1);
+            Console.WriteLine(new string(' ', currentSize));
+            Console.ResetColor();
+            currentSize += sizeIncrease;
+            currentDelay += delay / finalSize;
+            Thread.Sleep(delay - currentDelay);
+        }
     }
 
     protected void FinalNotice()
