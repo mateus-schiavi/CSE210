@@ -29,6 +29,7 @@ public class Listing : Exercise
         SetClock();
 
         Random random = new Random();
+        int count = 1;
 
         while (_initialTime < _finalTime)
         {
@@ -37,7 +38,7 @@ public class Listing : Exercise
             Console.WriteLine();
 
             string prompt = _prompts[random.Next(_prompts.Count)];
-            Console.WriteLine(prompt);
+            Console.WriteLine(count + ". " + prompt);
 
             Console.WriteLine("Please type your answer below:");
             string answer = Console.ReadLine();
@@ -57,10 +58,10 @@ public class Listing : Exercise
 
                 try
                 {
-                    using (StreamWriter writer = new StreamWriter(fileName))
+                    using (StreamWriter writer = new StreamWriter(fileName, true))
                     {
-                        writer.WriteLine("Question: " + prompt);
-                        writer.WriteLine("Answer: " + answer);
+                        writer.WriteLine(count + ". " + prompt);
+                        writer.WriteLine(answer);
                     }
 
                     Console.WriteLine("Your answer has been saved to the file successfully.");
@@ -76,6 +77,7 @@ public class Listing : Exercise
             Console.ReadKey();
             Console.WriteLine();
 
+            count++;
             UpdateClock();
         }
 
