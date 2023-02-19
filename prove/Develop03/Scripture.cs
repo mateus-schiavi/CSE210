@@ -1,45 +1,22 @@
-using System;
-
 class Scripture
 {
-    private string _quotation;
-    private string _reference;
-    private string[] _words;
+    public string Reference { get; set; }
+    public string[,] Words { get; set; }
 
-    public Scripture(string quotation, string reference, string[] words)
+    public Scripture(string reference, string[,] words)
     {
-        _quotation = quotation;
-        _reference = reference;
-        _words = words;
+        Reference = reference;
+        Words = words;
     }
 
-    public string GetQuotation()
+    public string GetText()
     {
-        return _quotation;
-    }
-
-    public void SetQuotation(string quotation)
-    {
-        _quotation = quotation;
-    }
-
-    public string GetReference()
-    {
-        return _reference;
-    }
-
-    public void SetReference(string reference)
-    {
-        _reference = reference;
-    }
-
-    public string[] GetWords()
-    {
-        return _words;
-    }
-
-    public void SetWords(string[] words)
-    {
-        _words = words;
+        string text = "";
+        foreach (string word in Words)
+        {
+            text += word + " ";
+            Thread.Sleep(100);
+        }
+        return text;
     }
 }

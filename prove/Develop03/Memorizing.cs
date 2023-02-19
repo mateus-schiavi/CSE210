@@ -1,19 +1,39 @@
+using System;
+
 class Memorizing
 {
-    public void Begin(Scripture scripture)
+    private Scripture _scripture;
+
+    public Scripture Scripture
     {
-        Console.WriteLine($"Memorize the following scripture:\n{scripture.GetQuotation()}\n");
+        get { return _scripture; }
+        set { _scripture = value ?? throw new ArgumentNullException(nameof(value)); }
+    }
 
-        string[] words = scripture.GetWords();
-
-        foreach (string word in words)
+    public void Begin()
+    {
+        if (_scripture == null)
         {
-            foreach (char letter in word)
+            throw new InvalidOperationException("Scripture is not set.");
+        }
+
+        Console.WriteLine($"Memorize the following scripture:\n{Scripture.Reference}\n");
+
+        string[,] words = Scripture.Words;
+        string scriptureText = "";
+
+        for (int i = 0; i < words.GetLength(0); i++)
+        {
+            for (int j = 0; j < words.GetLength(1); j++)
             {
-                Console.Write(letter);
-                System.Threading.Thread.Sleep(100); // pause for 100 milliseconds
+                scriptureText += words[i, j] + " ";
             }
-            Console.Write(" "); // add a space between words
+        }
+
+        foreach (char letter in scriptureText)
+        {
+            Console.Write(letter);
+            System.Threading.Thread.Sleep(100); // pause for 100 milliseconds
         }
 
         Console.WriteLine("\n\nYou have finished memorizing the scripture!");
