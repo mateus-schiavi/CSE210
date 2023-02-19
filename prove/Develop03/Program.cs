@@ -18,7 +18,7 @@ class Program
                 new Scripture("James 1:4","But let patience have her perfect work, that ye may be perfect and entire, wanting nothing", new string[] {"But", "let","patience","have","her","perfect","work,","that","ye","may","be","perfect","and","entire", "wanting","nothing"}),
                 new Scripture("Revelations 22:21", "The grace of our Lord Jesus Christ be with you all, amen.", new string[] {"The", "grace", "of", "our", "Lord", "Jesus", "Christ", "be", "with","you", "all", "amen."}),
                 new Scripture("Isaiah 1:19","If ye be willing and obedient, ye shall eat the good of the land", new string[]{"If","ye","be","willing","and","obedient","ye","shall","eat","the","good","of","the","land"})
-
+                
             };
 
             Console.WriteLine("Welcome to the Scripture Memorizer Program!");
@@ -40,13 +40,30 @@ class Program
             Memorizing objMemorize = new Memorizing();
             objMemorize.Begin(selectedScripture);
 
-            // Ask the user if they would like to memorize another scripture
-            Console.WriteLine("Would you like to memorize another scripture? (y/n)");
-            string repeat = Console.ReadLine();
-
             while (true)
             {
-                Console.WriteLine("Please choose a scripture to memorize (Enter the number), or type 'quit' to exit: ");
+                Console.WriteLine("Would you like to memorize another scripture? (y/n)");
+                string repeat = Console.ReadLine();
+
+                if (repeat != "y")
+                {
+                    Console.WriteLine("Would you like to save this scripture to a file? (y/n)");
+                    string saveToFile = Console.ReadLine();
+
+                    if (saveToFile == "y")
+                    {
+                        Console.WriteLine("Please enter the name of the file to save the scripture to: ");
+                        string fileName = Console.ReadLine();
+                        string filePath = Path.Combine(Environment.CurrentDirectory, fileName);
+                        File.WriteAllText(filePath, selectedScripture.GetQuotation());
+                        Console.WriteLine($"The scripture has been saved to {filePath}.");
+                    }
+
+                    Console.WriteLine("Goodbye!");
+                    break;
+                }
+
+                Console.WriteLine("Please choose a scripture to memorize (Enter the number): ");
 
                 string input = Console.ReadLine();
                 if (input == "quit")
@@ -59,27 +76,8 @@ class Program
                 Scripture selectedNumber = scriptures[number - 1];
 
                 objMemorize.Begin(selectedNumber);
-
-                Console.WriteLine("Would you like to save this scripture to a file? (y/n)");
-                string saveToFile = Console.ReadLine();
-                if (saveToFile == "y")
-                {
-                    Console.WriteLine("Please enter the name of the file to save the scripture to: ");
-                    string fileName = Console.ReadLine();
-                    string filePath = Path.Combine(Environment.CurrentDirectory, fileName);
-                    File.WriteAllText(filePath, selectedNumber.GetQuotation());
-                    Console.WriteLine($"The scripture has been saved to {filePath}.");
-                }
-
-                Console.WriteLine("Would you like to memorize another scripture? (y/n)");
-                string again = Console.ReadLine();
-                if (again != "y")
-                {
-                    Console.WriteLine("Goodbye!");
-                    break;
-                }
+                selectedScripture = selectedNumber;
             }
-
         }
         catch (Exception ex)
         {
