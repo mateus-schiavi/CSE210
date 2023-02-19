@@ -1,43 +1,43 @@
 class Word
-{
-    private string _value;
-    private bool _isHidden;
-
-    public Word(string value)
     {
-        _value = value;
-        _isHidden = true; // By default, the word is hidden
-    }
+        private char _character;
+        private bool _hidden;
 
-    public string GetValue()
-    {
-        if (_isHidden)
+        public Word(char character, bool hidden)
         {
-            return "****"; // Return a string of asterisks if the word is hidden
+            _character = character;
+            _hidden = hidden;
         }
-        else
+
+        public char GetCharacter()
         {
-            return _value;
+            return _character;
+        }
+
+        public void SetCharacter(char character)
+        {
+            _character = character;
+        }
+
+        public bool IsHidden()
+        {
+            return _hidden;
+        }
+
+        public void SetHidden(bool hidden)
+        {
+            _hidden = hidden;
+        }
+
+        public string GetWord()
+        {
+            if (_hidden)
+            {
+                return "_";
+            }
+            else
+            {
+                return _character.ToString();
+            }
         }
     }
-
-    public void Show()
-    {
-        _isHidden = false; // Set the word to be shown
-    }
-
-    public void Hide()
-    {
-        _isHidden = true; // Set the word to be hidden
-    }
-
-    public int GetLength()
-    {
-        return _value.Length; // Return the length of the word
-    }
-
-    public string GetWord()
-    {
-        return _value; // Return the word
-    }
-}

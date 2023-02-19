@@ -43,30 +43,30 @@ class Program
             string repeat = Console.ReadLine();
 
             while (true)
-        {
-            Console.WriteLine("Please choose a scripture to memorize (Enter the number), or type 'quit' to exit: ");
-
-            string input = Console.ReadLine();
-            if (input == "quit")
             {
-                Console.WriteLine("Goodbye!");
-                break;
+                Console.WriteLine("Please choose a scripture to memorize (Enter the number), or type 'quit' to exit: ");
+
+                string input = Console.ReadLine();
+                if (input == "quit")
+                {
+                    Console.WriteLine("Goodbye!");
+                    break;
+                }
+
+                int number = int.Parse(input);
+                Scripture selectedNumber = scriptures[number - 1];
+
+                Memorizing objMemo = new Memorizing();
+                objMemorize.Begin(selectedScripture);
+
+                Console.WriteLine("Would you like to memorize another scripture? (y/n)");
+                string Again = Console.ReadLine();
+                if (Again != "y")
+                {
+                    Console.WriteLine("Goodbye!");
+                    break;
+                }
             }
-
-            int number = int.Parse(input);
-            Scripture selectedNumber = scriptures[choice - 1];
-
-            Memorizing objMemo = new Memorizing();
-            objMemorize.Begin(selectedScripture);
-
-            Console.WriteLine("Would you like to memorize another scripture? (y/n)");
-            string Again = Console.ReadLine();
-            if (Again != "y")
-            {
-                Console.WriteLine("Goodbye!");
-                break;
-            }
-        }
 
         }
         catch (Exception ex)
