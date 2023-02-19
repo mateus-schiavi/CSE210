@@ -86,18 +86,10 @@ class Program
                     }
 
                     string filePath = Path.Combine(Environment.CurrentDirectory, fileName);
-                    using (StreamWriter sw = File.AppendText(filePath))
+                    using (StreamWriter sw = new StreamWriter(filePath, true))
                     {
                         sw.WriteLine(selectedNumber.GetQuotation());
                     }
-                    Console.WriteLine($"The scripture has been saved to {filePath}.");
-                }
-
-                Console.WriteLine("Would you like to memorize another scripture? (y/n)");
-                string rehearse = Console.ReadLine();
-                if (repeat == "n")
-                {
-                    break;
                 }
             }
 
