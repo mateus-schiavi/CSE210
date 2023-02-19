@@ -60,8 +60,18 @@ class Program
 
                 objMemorize.Begin(selectedNumber);
 
-                Console.WriteLine("Would you like to save this scripture to a file? (y/n)");
-                string saveToFile = Console.ReadLine();
+                string saveToFile = "";
+                while (true)
+                {
+                    Console.WriteLine("Would you like to save this scripture to a file? (y/n)");
+                    saveToFile = Console.ReadLine();
+                    if (saveToFile == "y" || saveToFile == "n")
+                    {
+                        break;
+                    }
+                    Console.WriteLine("Invalid input. Please enter 'y' or 'n'.");
+                }
+
                 if (saveToFile == "y")
                 {
                     if (isFirst)
@@ -88,6 +98,7 @@ class Program
                 }
             }
         }
+
         catch (Exception ex)
         {
             Console.WriteLine("An Error Occurred" + ex.Message);
