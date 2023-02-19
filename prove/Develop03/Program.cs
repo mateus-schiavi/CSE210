@@ -57,7 +57,7 @@ class Program
                 Scripture selectedNumber = scriptures[number - 1];
 
                 Memorizing objMemo = new Memorizing();
-                objMemorize.Begin(selectedScripture);
+                objMemo.Begin(selectedNumber);
 
                 Console.WriteLine("Would you like to memorize another scripture? (y/n)");
                 string Again = Console.ReadLine();
@@ -67,7 +67,6 @@ class Program
                     break;
                 }
             }
-
         }
         catch (Exception ex)
         {
@@ -75,3 +74,5 @@ class Program
         }
     }
 }
+
+  

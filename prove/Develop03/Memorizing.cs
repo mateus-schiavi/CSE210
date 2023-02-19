@@ -1,28 +1,21 @@
-using System;
-
 class Memorizing
 {
     public void Begin(Scripture scripture)
     {
-        Console.WriteLine("Starting memorization process for:");
-        Console.WriteLine(scripture.GetQuotation());
-        Console.WriteLine("Reference: " + scripture.GetReference());
-        
-        // Memorization logic here...
+        Console.WriteLine($"Memorize the following scripture:\n{scripture.GetQuotation()}\n");
+
         string[] words = scripture.GetWords();
-        for (int i = 0; i < words.Length; i++)
+
+        foreach (string word in words)
         {
-            Console.WriteLine("Please repeat: " + words[i]);
-            string response = Console.ReadLine();
-            
-            // Compare response with expected word
-            if (response.ToLower() != words[i].ToLower())
+            foreach (char letter in word)
             {
-                Console.WriteLine("Incorrect response, please try again.");
-                i--;
+                Console.Write(letter);
+                System.Threading.Thread.Sleep(100); // pause for 100 milliseconds
             }
+            Console.Write(" "); // add a space between words
         }
-        
-        Console.WriteLine("Congratulations, you have memorized the scripture!");
+
+        Console.WriteLine("\n\nYou have finished memorizing the scripture!");
     }
 }
