@@ -1,47 +1,45 @@
 using System;
+
 class Scripture
 {
-    private string _quotation, _reference;
-    public Scripture()
-    {
+    private string _quotation;
+    private string _reference;
+    private string[] _words;
 
+    public Scripture(string quotation, string reference, string[] words)
+    {
+        _quotation = quotation;
+        _reference = reference;
+        _words = words;
     }
 
-    public Scripture(string strquotation, string strreference)
+    public string GetQuotation()
     {
-        setQuotation(strquotation);
-        setReference(strreference);
+        return _quotation;
     }
 
-    public string getQuotation()
+    public void SetQuotation(string quotation)
     {
-        return this._quotation;
+        _quotation = quotation;
     }
 
-    public string getReference()
+    public string GetReference()
     {
-        return this._reference;
+        return _reference;
     }
 
-    public void setQuotation(string strquotation)
+    public void SetReference(string reference)
     {
-        this._quotation = strquotation;
+        _reference = reference;
     }
 
-    public void setReference(string strreference)
+    public string[] GetWords()
     {
-        this._reference = strreference;
+        return _words;
     }
 
-    public string Quotation
+    public void SetWords(string[] words)
     {
-        get{return this._quotation;}
-        set{this._quotation = value;}
-    }
-
-    public string Reference
-    {
-        get{return this._reference;}
-        set{this._reference = value;}
+        _words = words;
     }
 }

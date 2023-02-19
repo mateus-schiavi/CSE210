@@ -1,68 +1,60 @@
 using System;
-/*
-Exceeds requirements with the use of try/catch
-*/
 
 class Program
 {
     static void Main(string[] args)
     {
         try
+        {
+            // Create an array of Scripture objects
+            Scripture[] scriptures = new Scripture[]
             {
-                {
-            Scripture[] scripts = new Scripture[]
-            {
-                new Scripture("Isaiah 8:13", "Sanctify the Lord of hosts himself; and let him be your fear, and let him be your dread"),
-                new Scripture("Ecclesiastes 3:1", "To every thing there is a season, and a time to every purpose under the heaven"),
-                new Scripture("Psalms 1:5", "For the Lord knoweth the way of the righteous; but the way of the ungodly shall perish"),
-                new Scripture("Matthew 5:8","Blessed are the pure in heart: for they shall see God"),
-                new Scripture("John 1:1", "In the beginning was the Word, and the Word was with God, and the Word was God"),
-                new Scripture("Luke 11:3", "Give us day by day our daily bread"),
-                new Scripture("Ether 13:4","Behold, Ether saw the days of Christ, and he spake concerning a New Jerusalem upon this land"), 
-                new Scripture("Doctrines and Covenants 82:10","I, the Lord, am bound when ye do what I say; but when ye do not what I say, ye have no promise;"),
-                new Scripture("Abraham 4:1","And the the Lor said: Let us go down. And they went down at the beginninh, and they, that is the Gods, organized and formed"),
-                new Scripture("Joseph Smith - Matthew 1:12","When you, therefore, shall see the abomination of desolation, spoken of by Daniel the prophet, concerning the destruction of Jerusalem, then you shall stand in the holy place; whoso readeth let him understand"),
-                new Scripture("Articles of Faith 1:13", "We believe in being honest, true, chaste, benevolent, virtuous, and in doing good to all men; indeed, we may say that we follow the admonition of Paul--We believe all things, we hope all things, we have endured many things, and hope to be able to endure all things. If there is anything virtuous, lovely, or of good report or praiseworthy, we seek after these things"),
-                new Scripture("Doctrine & Covenants 1:2","For verily the voice of the Lord is unto all men, and there is none to escape; and there is no eye that shall not see, neither ear that shall not hear, neither heart that shall not be penetrated."),
-                new Scripture("Doctrine & Covenants 4:1","Now behold, a marvelous work is about to come forth among the children of men.")              
+                new Scripture("Isaiah 8:13", "Sanctify the Lord of hosts himself; and let him be your fear, and let him be your dread", new string[] {"Sanctify", "the", "Lord", "of", "hosts", "himself;", "and", "let", "him", "be", "your", "fear,", "and", "let", "him", "be", "your", "dread."}),
+                new Scripture("1 Peter 5:7", "Casting all your care upon him; for he careth for you.", new string[] {"Casting", "all", "your", "care", "upon", "him;", "for", "he", "careth", "for", "you."}),
+                new Scripture("John 3:16", "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.", new string[] {"For", "God", "so", "loved", "the", "world,", "that", "he", "gave", "his", "only", "begotten", "Son,", "that", "whosoever", "believeth", "in", "him", "should", "not", "perish,", "but", "have", "everlasting", "life."}),
+                new Scripture("Genesis 1:1", "In the Beginning, God created the heaven and the earth", new string[] {"In", "the", "beginning,", "God", "created", "the", "hevaen", "and", "the", "earth"}),
+                new Scripture("Genesis 1:1", "In the Beginning, God created the heaven and the earth", new string[] {"In", "the", "beginning,", "God", "created", "the", "hevaen", "and", "the", "earth"}),
+                new Scripture("James 1:4","But let patience have her perfect work, that ye may be perfect and entire, wanting nothing", new string[] {"But", "let","patience","have","her","perfect","work,","that","ye","may","be","perfect","and","entire", "wanting","nothing"}),
+                new Scripture("Revelations 22:21", "The grace of our Lord Jesus Christ be with you all, amen.", new string[] {"The", "grace", "of", "our", "Lord", "Jesus", "Christ", "be", "with","you", "all", "amen."}),
+                new Scripture("Isaiah 1:19","If ye be willing and obedient, ye shall eat the good of the land", new string[]{"If","ye","be","willing","and","obedien","ye","shall","eat","the","good","of","the","land"})
             };
 
             Console.WriteLine("Welcome to the Scripture Memorizer Program!");
             Console.WriteLine("Below is a list of some scriptures:");
             Console.WriteLine("►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄");
 
-            for (int i = 0; i < scripts.Length; i++)
+            // Display a numbered list of available scriptures
+            for (int i = 0; i < scriptures.Length; i++)
             {
-                Console.WriteLine($"{i + 1}. {scripts[i].Quotation}");
+                Console.WriteLine($"{i + 1}. {scriptures[i].GetQuotation()}");
             }
 
             Console.WriteLine("►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄");
             Console.WriteLine("Please choose a scripture to memorize (Enter the number): ");
 
             int choice = int.Parse(Console.ReadLine());
-            Scripture selectedScripture = scripts[choice - 1];
+            Scripture selectedScripture = scriptures[choice - 1];
 
             Memorizing objMemorize = new Memorizing();
             objMemorize.Begin(selectedScripture);
 
+            // Ask the user if they would like to memorize another scripture
             Console.WriteLine("Would you like to memorize another scripture? (y/n)");
             string repeat = Console.ReadLine();
 
-                while (repeat == "y")
-                {
-            Console.WriteLine("Please choose another scripture to memorize (Enter the number): ");
-            choice = int.Parse(Console.ReadLine());
-            selectedScripture = scripts[choice - 1];
-            objMemorize.Begin(selectedScripture);
-            Console.WriteLine("Would you like to memorize another scripture? (y/n)");
-            repeat = Console.ReadLine();
-
-                }
+            while (repeat == "y")
+            {
+                Console.WriteLine("Please choose another scripture to memorize (Enter the number): ");
+                choice = int.Parse(Console.ReadLine());
+                selectedScripture = scriptures[choice - 1];
+                objMemorize.Begin(selectedScripture);
+                Console.WriteLine("Would you like to memorize another scripture? (y/n)");
+                repeat = Console.ReadLine();
             }
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Console.WriteLine("An Error Has Occurred " + ex.Message);
         }
     }
-}    
+}
