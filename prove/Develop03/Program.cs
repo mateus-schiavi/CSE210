@@ -85,7 +85,7 @@ class Program
                         using (StreamWriter writer = new StreamWriter(filePath))
                         {
                             writer.WriteLine(selectedNumber.GetReference());
-                            writer.WriteLine(selectedNumber.GetQuotation());
+                            
                         }
                         Console.WriteLine("Scripture saved to file successfully!");
                     }
