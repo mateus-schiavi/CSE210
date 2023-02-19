@@ -16,7 +16,7 @@ class Program
                 new Scripture("Genesis 1:1", "In the Beginning, God created the heaven and the earth", new string[] {"In", "the", "beginning,", "God", "created", "the", "hevaen", "and", "the", "earth"}),
                 new Scripture("James 1:4","But let patience have her perfect work, that ye may be perfect and entire, wanting nothing", new string[] {"But", "let","patience","have","her","perfect","work,","that","ye","may","be","perfect","and","entire", "wanting","nothing"}),
                 new Scripture("Revelations 22:21", "The grace of our Lord Jesus Christ be with you all, amen.", new string[] {"The", "grace", "of", "our", "Lord", "Jesus", "Christ", "be", "with","you", "all", "amen."}),
-                new Scripture("Isaiah 1:19","If ye be willing and obedient, ye shall eat the good of the land", new string[]{"If","ye","be","willing","and","obedien","ye","shall","eat","the","good","of","the","land"})
+                new Scripture("Isaiah 1:19","If ye be willing and obedient, ye shall eat the good of the land", new string[]{"If","ye","be","willing","and","obedient","ye","shall","eat","the","good","of","the","land"})
             };
 
             Console.WriteLine("Welcome to the Scripture Memorizer Program!");
