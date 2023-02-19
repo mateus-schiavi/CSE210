@@ -42,8 +42,6 @@ class Program
             Console.WriteLine("Would you like to memorize another scripture? (y/n)");
             string repeat = Console.ReadLine();
 
-            string fileName = "";
-            bool isFirst = true;
             while (true)
             {
                 Console.WriteLine("Please choose a scripture to memorize (Enter the number), or type 'quit' to exit: ");
@@ -62,39 +60,9 @@ class Program
                 }
 
                 Scripture selectedNumber = scriptures[number - 1];
-                objMemorize.Begin(selectedNumber);
-
-                string saveToFile = "";
-                while (true)
-                {
-                    Console.WriteLine("Would you like to save this scripture to a file? (y/n)");
-                    saveToFile = Console.ReadLine();
-                    if (saveToFile == "y" || saveToFile == "n")
-                    {
-                        break;
-                    }
-                    Console.WriteLine("Invalid input. Please enter 'y' or 'n'.");
-                }
-
-                if (saveToFile == "y")
-                {
-                    if (isFirst)
-                    {
-                        Console.WriteLine("Please enter the name of the file to save the scriptures to: ");
-                        fileName = Console.ReadLine();
-                        isFirst = false;
-                    }
-
-                    string filePath = Path.Combine(Environment.CurrentDirectory, fileName);
-                    using (StreamWriter sw = new StreamWriter(filePath, true))
-                    {
-                        sw.WriteLine(selectedNumber.GetQuotation());
-                    }
-                }
+                objMemorize.Begin(selectedNumber);             
             }
-
         }
-
         catch (Exception ex)
         {
             Console.WriteLine("An Error Occurred" + ex.Message);
