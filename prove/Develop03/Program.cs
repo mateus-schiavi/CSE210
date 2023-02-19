@@ -55,7 +55,7 @@ class Program
                 }
 
                 int number = int.Parse(input);
-                Scripture selectedNumber = scriptures[number - 1];
+                Scripture selectedNumber = scriptures[number - 7];
 
                 objMemorize.Begin(selectedNumber);
 
