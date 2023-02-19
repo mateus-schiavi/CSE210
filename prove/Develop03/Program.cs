@@ -24,13 +24,16 @@ class Program
 
             // Display a numbered list of available scriptures
             // Display a numbered list of available scriptures
+            // Display a numbered list of available scriptures
+            Console.WriteLine("Here is a list of available scriptures:");
+
             for (int i = 0; i < scriptures.Length; i++)
             {
-                Console.WriteLine($"{i + 1}. {scriptures[i].GetQuotation()}");
+                Console.WriteLine($"{i + 1}. {scriptures[i].GetReference()}");
             }
 
-            Console.WriteLine("►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄►◄");
-            Console.WriteLine("Please choose a scripture to memorize (Enter the number): ");
+            // Memorize the selected scripture
+            Console.WriteLine("Please choose a scripture to memorize (enter the number): ");
 
             int choice = int.Parse(Console.ReadLine());
             Scripture selectedScripture = scriptures[choice - 1];
@@ -39,29 +42,61 @@ class Program
             objMemorize.Begin(selectedScripture);
 
             // Ask the user if they would like to memorize another scripture
-            Console.WriteLine("Would you like to memorize another scripture? (y/n)");
-            string repeat = Console.ReadLine();
-
+            // Ask the user if they would like to memorize another scripture
             while (true)
             {
-                Console.WriteLine("Please choose a scripture to memorize (Enter the number), or type 'quit' to exit: ");
+                Console.WriteLine("Would you like to memorize another scripture? (y/n)");
+                string repeat = Console.ReadLine().ToLower();
 
-                string input = Console.ReadLine();
-                if (input == "quit")
+                if (repeat == "n")
                 {
                     Console.WriteLine("Goodbye!");
                     break;
                 }
-
-                if (!int.TryParse(input, out int number) || number < 1 || number > scriptures.Length)
+                else if (repeat == "y")
                 {
-                    Console.WriteLine("Invalid input. Please enter a number between 1 and {0}.", scriptures.Length);
+                    Console.WriteLine("Please choose a scripture to memorize (enter the number), or type 'quit' to exit: ");
+
+                    string input = Console.ReadLine().ToLower();
+
+                    if (input == "quit")
+                    {
+                        Console.WriteLine("Goodbye!");
+                        break;
+                    }
+
+                    if (!int.TryParse(input, out int number) || number < 1 || number > scriptures.Length)
+                    {
+                        Console.WriteLine("Invalid input. Please enter a number between 1 and {0}.", scriptures.Length);
+                        continue;
+                    }
+
+                    Scripture selectedNumber = scriptures[number - 1];
+                    objMemorize.Begin(selectedNumber);
+
+                    Console.WriteLine("Would you like to save this scripture to a file? (y/n)");
+                    string saveToFile = Console.ReadLine().ToLower();
+
+                    if (saveToFile == "y")
+                    {
+                        Console.WriteLine("Please enter the file name:");
+                        string fileName = Console.ReadLine();
+                        string filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
+                        using (StreamWriter writer = new StreamWriter(filePath))
+                        {
+                            writer.WriteLine(selectedNumber.GetReference());
+                            writer.WriteLine(selectedNumber.GetQuotation());
+                        }
+                        Console.WriteLine("Scripture saved to file successfully!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter 'y' or 'n'.");
                     continue;
                 }
-
-                Scripture selectedNumber = scriptures[number - 1];
-                objMemorize.Begin(selectedNumber);             
             }
+
         }
         catch (Exception ex)
         {
