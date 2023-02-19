@@ -55,9 +55,13 @@ class Program
                     break;
                 }
 
-                int number = int.Parse(input);
-                Scripture selectedNumber = scriptures[number - 1];
+                if (!int.TryParse(input, out int number) || number < 1 || number > scriptures.Length)
+                {
+                    Console.WriteLine("Invalid input. Please enter a number between 1 and {0}.", scriptures.Length);
+                    continue;
+                }
 
+                Scripture selectedNumber = scriptures[number - 1];
                 objMemorize.Begin(selectedNumber);
 
                 string saveToFile = "";
@@ -90,13 +94,13 @@ class Program
                 }
 
                 Console.WriteLine("Would you like to memorize another scripture? (y/n)");
-                string again = Console.ReadLine();
-                if (again != "y")
+                string rehearse = Console.ReadLine();
+                if (repeat == "n")
                 {
-                    Console.WriteLine("Goodbye!");
                     break;
                 }
             }
+
         }
 
         catch (Exception ex)
