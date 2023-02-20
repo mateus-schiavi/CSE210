@@ -30,7 +30,7 @@ class Memorizing
         for (int i = 0; i < verseText.Length; i++)
         {
             Console.Write(verseText[i]);
-            Thread.Sleep(200);
+            Thread.Sleep(128);
         }
     }
 }
