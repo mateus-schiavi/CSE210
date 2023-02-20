@@ -54,10 +54,10 @@ class Program
                         string fileName = Console.ReadLine();
 
                         // Create or append to the file with the given name and write the memorized scripture to it
-                        using (System.IO.StreamWriter file = new System.IO.StreamWriter($"{fileName}.txt", true))
+                        using (StreamWriter file = new StreamWriter($"{fileName}.txt", true))
                         {
                             file.WriteLine($"{selection}. {scriptures[selection - 1].Reference}");
-                            file.WriteLine($"{memorizing.Scripture}");
+                            file.WriteLine(string.Join(" ", scriptures[selection - 1].Reference));
                             file.WriteLine();
                         }
 
@@ -67,29 +67,27 @@ class Program
                     {
                         Console.WriteLine("Invalid input. The memorized scripture will not be saved to a file.");
                     }
+
+                    // Ask if the user wants to memorize another scripture
+                    Console.Write("Do you want to memorize another scripture? (y/n): ");
+                    string answer = Console.ReadLine().ToLower();
+                    if (answer == "n")
+                    {
+                        quit = true;
+                    }
+                    else if (answer != "y")
+                    {
+                        Console.WriteLine("Invalid input. Exiting program.");
+                        quit = true;
+                    }
+                    Console.WriteLine();
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine("An Error Occurred: " + ex.Message);
                 }
-
-                // Ask if the user wants to memorize another scripture
-                Console.Write("Do you want to memorize another scripture? (y/n): ");
-                string answer = Console.ReadLine().ToLower();
-                if (answer == "n")
-                {
-                    quit = true;
-                }
-                else if (answer != "y")
-                {
-                    Console.WriteLine("Invalid input. Exiting program.");
-                    quit = true;
-                }
-                else
-                {
-                    Console.WriteLine();
-                }
             } while (!quit);
+
             Console.WriteLine("Thank you for using the Scripture Memorizer Program. Goodbye!");
         }
         catch (Exception ex)
