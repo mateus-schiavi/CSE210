@@ -4,3 +4,6 @@ Scripture
 4. Genesis 1:1
 Scripture
 
+7. System.String[,]
+Scripture
+
