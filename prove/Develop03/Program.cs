@@ -27,19 +27,20 @@ class Program
 
             // Display a numbered list of available scriptures
             Console.WriteLine("Here is a list of available scriptures:");
-            bool quit = false;
+            // Display a numbered list of available scriptures
+            Console.WriteLine("Here is a list of available scriptures:");
+            for (int i = 0; i < scriptures.Length; i++)
+            {
+                Console.WriteLine($"{i + 1}. {scriptures[i].Reference}");
+            }
+
             int count = 1;
+            bool quit = false;
+
             do
             {
                 try
                 {
-                    // Display a numbered list of available scriptures
-                    Console.WriteLine("Here is a list of available scriptures:");
-                    for (int i = 0; i < scriptures.Length; i++)
-                    {
-                        Console.WriteLine($"{i + 1}. {scriptures[i].Reference}");
-                    }
-
                     Console.Write("Enter the number of the scripture you want to memorize: ");
                     int selection = int.Parse(Console.ReadLine());
 
@@ -48,26 +49,22 @@ class Program
                     memorizing.Scripture = scriptures[selection - 1];
                     memorizing.Begin();
 
-                    // Ask if the user wants to save the memorized scripture to a file
-                    Console.Write("Do you want to save the memorized scripture to a file? (y/n): ");
-                    string saveAnswer = Console.ReadLine().ToLower();
-                    if (saveAnswer == "y")
+                    // Save the memorized scripture to a file
+                    string fileName = "scriptures.txt";
+                    using (StreamWriter sw = File.AppendText(fileName))
                     {
-                        string fileName = $"Scripture{count}.txt";
-                        using (StreamWriter sw = new StreamWriter(fileName))
+                        sw.WriteLine($"Scripture {count}: {memorizing.Scripture.Reference}");
+                        for (int i = 0; i < memorizing.Scripture.Words.GetLength(0); i++)
                         {
-                            for (int i = 0; i < memorizing.Scripture.Words.GetLength(0); i++)
+                            for (int j = 0; j < memorizing.Scripture.Words.GetLength(1); j++)
                             {
-                                for (int j = 0; j < memorizing.Scripture.Words.GetLength(1); j++)
-                                {
-                                    sw.Write(memorizing.Scripture.Words[i, j] + " ");
-                                }
-                                sw.WriteLine();
+                                sw.Write(memorizing.Scripture.Words[i, j] + " ");
                             }
-                            Console.WriteLine($"The scripture has been saved to {fileName}");
+                            sw.WriteLine();
                         }
-                        count++;
+                        sw.WriteLine(new string('-', 50));
                     }
+                    count++;
 
                     Console.Write("Do you want to memorize another scripture? (y/n): ");
                     string answer = Console.ReadLine().ToLower();
@@ -81,6 +78,7 @@ class Program
                     Console.WriteLine("Error: " + ex.Message);
                 }
             } while (!quit);
+
 
         }
         catch (Exception ex)
