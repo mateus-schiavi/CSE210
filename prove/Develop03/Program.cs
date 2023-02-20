@@ -28,6 +28,7 @@ class Program
             // Display a numbered list of available scriptures
             Console.WriteLine("Here is a list of available scriptures:");
             bool quit = false;
+            int count = 1;
             do
             {
                 try
@@ -52,7 +53,20 @@ class Program
                     string saveAnswer = Console.ReadLine().ToLower();
                     if (saveAnswer == "y")
                     {
-                        // ... (rest of the code is unchanged)
+                        string fileName = $"Scripture{count}.txt";
+                        using (StreamWriter sw = new StreamWriter(fileName))
+                        {
+                            for (int i = 0; i < memorizing.Scripture.Words.GetLength(0); i++)
+                            {
+                                for (int j = 0; j < memorizing.Scripture.Words.GetLength(1); j++)
+                                {
+                                    sw.Write(memorizing.Scripture.Words[i, j] + " ");
+                                }
+                                sw.WriteLine();
+                            }
+                            Console.WriteLine($"The scripture has been saved to {fileName}");
+                        }
+                        count++;
                     }
 
                     Console.Write("Do you want to memorize another scripture? (y/n): ");
@@ -67,7 +81,6 @@ class Program
                     Console.WriteLine("Error: " + ex.Message);
                 }
             } while (!quit);
-
 
         }
         catch (Exception ex)
