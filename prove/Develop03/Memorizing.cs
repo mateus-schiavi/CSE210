@@ -1,6 +1,6 @@
 class Memorizing
 {
-    private static readonly int DelayMilliseconds = 250;
+    private static readonly int DelayMilliseconds = 125;
 
     public Scripture Scripture { get; set; }
 
