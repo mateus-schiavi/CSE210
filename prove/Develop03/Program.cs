@@ -1,6 +1,6 @@
 using System;
 using System.Threading;
-
+using System.IO;
 class Program
 {
     static void Main(string[] args)
@@ -25,23 +25,82 @@ class Program
 
             // Display a numbered list of available scriptures
             Console.WriteLine("Here is a list of available scriptures:");
-            for (int i = 0; i < scriptures.Length; i++)
+            bool quit = false;
+            do
             {
-                Console.WriteLine($"{i + 1}. {scriptures[i].Reference}");
-            }
+                try
+                {
+                    // Display a numbered list of available scriptures
+                    Console.WriteLine("Here is a list of available scriptures:");
+                    for (int i = 0; i < scriptures.Length; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {scriptures[i].Reference}");
+                    }
 
-            Console.Write("Enter the number of the scripture you want to memorize: ");
-            int selection = int.Parse(Console.ReadLine());
+                    Console.Write("Enter the number of the scripture you want to memorize: ");
+                    int selection = int.Parse(Console.ReadLine());
 
-            // Display the selected scripture with an animation
-            Memorizing memorizing = new Memorizing();
-            memorizing.Scripture = scriptures[selection - 1];
-            memorizing.Begin();
+                    // Display the selected scripture with an animation
+                    Memorizing memorizing = new Memorizing();
+                    memorizing.Scripture = scriptures[selection - 1];
+                    memorizing.Begin();
+
+                    // Ask if the user wants to save the memorized scripture to a file
+                    Console.Write("Do you want to save the memorized scripture to a file? (y/n): ");
+                    string saveAnswer = Console.ReadLine().ToLower();
+                    if (saveAnswer == "y")
+                    {
+                        Console.Write("Enter the file name (without extension): ");
+                        string fileName = Console.ReadLine();
+
+                        // Create or append to the file with the given name and write the memorized scripture to it
+                        using (System.IO.StreamWriter file = new System.IO.StreamWriter($"{fileName}.txt", true))
+                        {
+                            file.WriteLine($"{selection}. {scriptures[selection - 1].Reference}");
+                            file.WriteLine($"{memorizing.Scripture}");
+                            file.WriteLine();
+                        }
+
+                        Console.WriteLine($"The memorized scripture has been saved to {fileName}.txt");
+                    }
+                    else if (saveAnswer != "n")
+                    {
+                        Console.WriteLine("Invalid input. The memorized scripture will not be saved to a file.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An Error Occurred: " + ex.Message);
+                }
+
+                // Ask if the user wants to memorize another scripture
+                Console.Write("Do you want to memorize another scripture? (y/n): ");
+                string answer = Console.ReadLine().ToLower();
+                if (answer == "n")
+                {
+                    quit = true;
+                }
+                else if (answer != "y")
+                {
+                    Console.WriteLine("Invalid input. Exiting program.");
+                    quit = true;
+                }
+                else
+                {
+                    Console.WriteLine();
+                }
+            } while (!quit);
+            Console.WriteLine("Thank you for using the Scripture Memorizer Program. Goodbye!");
+
+
+
+
+
         }
         catch (Exception ex)
         {
             Console.WriteLine("An Error Occurred: " + ex.Message);
         }
-   
+
     }
 }
