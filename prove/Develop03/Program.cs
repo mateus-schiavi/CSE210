@@ -56,7 +56,7 @@ class Program
                         // Create or append to the file with the given name and write the memorized scripture to it
                         using (StreamWriter file = new StreamWriter($"{fileName}.txt", true))
                         {
-                            file.WriteLine($"{selection}. {scriptures[selection - 1].Words}");
+                            file.WriteLine($"{selection}. {scriptures[selection - 1].Reference}");
                             file.WriteLine(string.Join(" ", scriptures[selection - 1].Reference));
                             file.WriteLine();
                         }
