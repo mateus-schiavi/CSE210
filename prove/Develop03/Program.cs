@@ -56,7 +56,7 @@ class Program
                         // Create or append to the file with the given name and write the memorized scripture to it
                         using (System.IO.StreamWriter file = new System.IO.StreamWriter($"{fileName}.txt", true))
                         {
-                            file.WriteLine($"{selection}. {scriptures[selection - 1].Reference}");
+                            file.WriteLine($"{selection}. {scriptures[selection - 1].Words}");
                             file.WriteLine($"{memorizing.Scripture}");
                             file.WriteLine();
                         }
@@ -91,16 +91,10 @@ class Program
                 }
             } while (!quit);
             Console.WriteLine("Thank you for using the Scripture Memorizer Program. Goodbye!");
-
-
-
-
-
         }
         catch (Exception ex)
         {
             Console.WriteLine("An Error Occurred: " + ex.Message);
         }
-
     }
 }
