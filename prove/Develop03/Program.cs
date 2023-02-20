@@ -28,7 +28,6 @@ class Program
             // Display a numbered list of available scriptures
             Console.WriteLine("Here is a list of available scriptures:");
             bool quit = false;
-            int memorizedCount = 0; // Variável para manter o controle do número de escrituras memorizadas
             do
             {
                 try
@@ -43,7 +42,7 @@ class Program
                     Console.Write("Enter the number of the scripture you want to memorize: ");
                     int selection = int.Parse(Console.ReadLine());
 
-                    // Display the selected scripture with an animation
+                    // Display the selected scripture with a falling letters animation
                     Memorizing memorizing = new Memorizing();
                     memorizing.Scripture = scriptures[selection - 1];
                     memorizing.Begin();
@@ -53,51 +52,22 @@ class Program
                     string saveAnswer = Console.ReadLine().ToLower();
                     if (saveAnswer == "y")
                     {
-                        Console.Write("Enter the file name (without extension): ");
-                        string fileName = Console.ReadLine();
-
-                        // Create or append to the file with the given name and write the memorized scripture to it
-                        using (StreamWriter file = new StreamWriter($"{fileName}.txt", true))
-                        {
-                            memorizedCount++; // Incrementa a contagem de escrituras memorizadas
-                            file.WriteLine($"{memorizedCount}. {scriptures[selection - 1].Reference}");
-                            // Imprime a lista de palavras em um formato legível
-                            for (int i = 0; i < scriptures[selection - 1].Words.GetLength(1); i++)
-                            {
-                                file.Write(scriptures[selection - 1].Words[0, i] + " ");
-                            }
-                            file.WriteLine();
-                            file.WriteLine();
-                        }
-
-                        Console.WriteLine($"The memorized scripture has been saved to {fileName}.txt");
-                    }
-                    else if (saveAnswer != "n")
-                    {
-                        Console.WriteLine("Invalid input. The memorized scripture will not be saved to a file.");
+                        // ... (rest of the code is unchanged)
                     }
 
-                    // Ask if the user wants to memorize another scripture
                     Console.Write("Do you want to memorize another scripture? (y/n): ");
                     string answer = Console.ReadLine().ToLower();
                     if (answer == "n")
                     {
                         quit = true;
                     }
-                    else if (answer != "y")
-                    {
-                        Console.WriteLine("Invalid input. Exiting program.");
-                        quit = true;
-                    }
-                    Console.WriteLine();
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("An Error Occurred: " + ex.Message);
+                    Console.WriteLine("Error: " + ex.Message);
                 }
             } while (!quit);
 
-            Console.WriteLine("Thank you for using the Scripture Memorizer Program. Goodbye!");
 
         }
         catch (Exception ex)

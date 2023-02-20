@@ -1,36 +1,26 @@
 class Memorizing
 {
+    private static readonly int DelayMilliseconds = 50;
+
     public Scripture Scripture { get; set; }
 
     public void Begin()
     {
-        Console.WriteLine("Memorizing: " + Scripture.Reference);
+        Console.WriteLine("Memorizing:");
+        Console.WriteLine("--------------");
 
-        // Get the number of verses in the scripture
-        int numVerses = Scripture.Words.GetLength(0);
+        string[,] words = Scripture.Words;
 
-        // Loop through each verse and display it with an animation
-        for (int i = 0; i < numVerses; i++)
+        for (int i = 0; i < words.GetLength(1); i++)
         {
-            string verseText = "";
-            for (int j = 0; j < Scripture.Words.GetLength(1); j++)
+            string word = words[0, i];
+            for (int j = 0; j < word.Length; j++)
             {
-                verseText += Scripture.Words[i, j] + " ";
+                Console.Write(word[j]);
+                Thread.Sleep(DelayMilliseconds);
             }
-            DisplayVerseWithAnimation(verseText);
-            Console.WriteLine();
+            Console.Write(" ");
         }
-
-        Console.WriteLine("You have successfully memorized this scripture!");
-    }
-
-    private void DisplayVerseWithAnimation(string verseText)
-    {
-        // Loop through each character in the verse and display it with a delay
-        for (int i = 0; i < verseText.Length; i++)
-        {
-            Console.Write(verseText[i]);
-            Thread.Sleep(128);
-        }
+        Console.WriteLine();
     }
 }
