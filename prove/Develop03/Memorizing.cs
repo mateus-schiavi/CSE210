@@ -1,41 +1,36 @@
-using System;
-
 class Memorizing
 {
-    private Scripture _scripture;
-
-    public Scripture Scripture
-    {
-        get { return _scripture; }
-        set { _scripture = value ?? throw new ArgumentNullException(nameof(value)); }
-    }
+    public Scripture Scripture { get; set; }
 
     public void Begin()
     {
-        if (_scripture == null)
+        Console.WriteLine("Memorizing: " + Scripture.Reference);
+
+        // Get the number of verses in the scripture
+        int numVerses = Scripture.Words.GetLength(0);
+
+        // Loop through each verse and display it with an animation
+        for (int i = 0; i < numVerses; i++)
         {
-            throw new InvalidOperationException("Scripture is not set.");
-        }
-
-        Console.WriteLine($"Memorize the following scripture:\n{Scripture.Reference}\n");
-
-        string[,] words = Scripture.Words;
-        string scriptureText = "";
-
-        for (int i = 0; i < words.GetLength(0); i++)
-        {
-            for (int j = 0; j < words.GetLength(1); j++)
+            string verseText = "";
+            for (int j = 0; j < Scripture.Words.GetLength(1); j++)
             {
-                scriptureText += words[i, j] + " ";
+                verseText += Scripture.Words[i, j] + " ";
             }
+            DisplayVerseWithAnimation(verseText);
+            Console.WriteLine();
         }
 
-        foreach (char letter in scriptureText)
+        Console.WriteLine("You have successfully memorized this scripture!");
+    }
+
+    private void DisplayVerseWithAnimation(string verseText)
+    {
+        // Loop through each character in the verse and display it with a delay
+        for (int i = 0; i < verseText.Length; i++)
         {
-            Console.Write(letter);
-            System.Threading.Thread.Sleep(100); // pause for 100 milliseconds
+            Console.Write(verseText[i]);
+            Thread.Sleep(50);
         }
-
-        Console.WriteLine("\n\nYou have finished memorizing the scripture!");
     }
 }
