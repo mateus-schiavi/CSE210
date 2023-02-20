@@ -10,3 +10,6 @@ Scripture
 7. System.Func`1[System.String]
 Scripture
 
+4. Genesis 1:1
+Genesis 1:1
+
