@@ -15,7 +15,7 @@ class Scripture
         foreach (string word in Words)
         {
             text += word + " ";
-            Thread.Sleep(500);
+            Thread.Sleep(250);
         }
         return text;
     }
