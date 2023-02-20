@@ -26,6 +26,7 @@ class Program
             // Display a numbered list of available scriptures
             Console.WriteLine("Here is a list of available scriptures:");
             bool quit = false;
+            int memorizedCount = 0; // Variável para manter o controle do número de escrituras memorizadas
             do
             {
                 try
@@ -56,8 +57,14 @@ class Program
                         // Create or append to the file with the given name and write the memorized scripture to it
                         using (StreamWriter file = new StreamWriter($"{fileName}.txt", true))
                         {
-                            file.WriteLine($"{selection}. {scriptures[selection - 1].Reference}");
-                            file.WriteLine(string.Join(" ", scriptures[selection - 1].Reference));
+                            memorizedCount++; // Incrementa a contagem de escrituras memorizadas
+                            file.WriteLine($"{memorizedCount}. {scriptures[selection - 1].Reference}");
+                            // Imprime a lista de palavras em um formato legível
+                            for (int i = 0; i < scriptures[selection - 1].Words.GetLength(1); i++)
+                            {
+                                file.Write(scriptures[selection - 1].Words[0, i] + " ");
+                            }
+                            file.WriteLine();
                             file.WriteLine();
                         }
 
@@ -89,6 +96,7 @@ class Program
             } while (!quit);
 
             Console.WriteLine("Thank you for using the Scripture Memorizer Program. Goodbye!");
+
         }
         catch (Exception ex)
         {
