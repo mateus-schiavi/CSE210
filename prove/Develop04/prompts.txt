@@ -42,3 +42,8 @@ Exercise Resume: This activity will guide you through a reflection exercise. You
 Prompt: Think of a time when you did something truly selfless.
 Prompt: Think of a time when you stood up for someone else.
 Prompt: Think of a time when you helped someone in need.
+[22/02/2023 15:23:57] Exercise: Reflection
+Exercise Time: 60
+Exercise Resume: This activity will guide you through a reflection exercise. You will be prompted with a question to reflect on, and then given some follow-up questions to consider.
+
+Prompt: Think of a time when you did something really difficult.
