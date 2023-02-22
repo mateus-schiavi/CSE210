@@ -29,8 +29,6 @@ public class Reflection : Exercise
             outputFile.WriteLine($"Exercise Resume: {_exerciseResume}\n");
         }
 
-        SetClock();
-
         Random random = new Random();
 
         while (_initialTime < _finalTime)
