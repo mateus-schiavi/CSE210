@@ -60,20 +60,6 @@ public class Reflection : Exercise
             Console.WriteLine("\nPress any key to continue...");
             Console.ReadKey();
 
-            using (StreamWriter outputFile = new StreamWriter("prompts.txt", true))
-            {
-                outputFile.WriteLine("Follow-up Questions:");
-                outputFile.WriteLine("- Why was this experience meaningful to you?");
-                outputFile.WriteLine("- Have you ever done anything like this before?");
-                outputFile.WriteLine("- How did you get started?");
-                outputFile.WriteLine("- How did you feel when it was complete?");
-                outputFile.WriteLine("- What made this time different than other times when you were not as successful?");
-                outputFile.WriteLine("- What is your favorite thing about this experience?");
-                outputFile.WriteLine("- What could you learn from this experience that applies to other situations?");
-                outputFile.WriteLine("- What did you learn about yourself through this experience?");
-                outputFile.WriteLine("- How can you keep this experience in mind in the future?");
-            }
-
             UpdateClock();
         }
 
