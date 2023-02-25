@@ -7,11 +7,29 @@ public class Listing : Exercise
     private string _message = "This activity will help you reflect on the good things in your life by having you answer a prompt about a certain area.";
     private List<string> _prompts = new List<string>()
     {
-        "Who are people that you appreciate?",
-        "What are personal strengths of yours?",
-        "Who are people that you have helped this week?",
-        "When have you felt the Holy Ghost this month?",
-        "Who are some of your personal heroes?"
+        "Think of a challenge you have faced recently. How did you overcome it?",
+        "What is something new you have learned recently?",
+        "What is a hobby or activity that brings you joy?",
+        "Who is someone you have forgiven, and how did it affect your relationship with them?",
+        "What is something you accomplished recently that you're proud of?",
+        "What is a book, movie, or TV show that has impacted you recently, and why?",
+        "Who is someone in your life that you need to thank or show appreciation to, and why?",
+        "What is something positive that happened to you today?",
+        "What is something that you're looking forward to in the near future?",
+        "What is a small act of kindness that someone has done for you recently?",
+        "What is something you're grateful for that you often take for granted?",
+        "What is a goal you're working towards, and what steps are you taking to achieve it?",
+        "What is a memory that always brings a smile to your face?",
+        "What is a quote or saying that inspires you, and why?",
+        "What is something you have been meaning to do, but keep putting off? How can you take steps to make it happen?",
+        "What is something about yourself that you're working to improve?",
+        "What is something you've done recently that made someone else's day better?",
+        "What is something that always puts you in a good mood?",
+        "What is something you appreciate about the natural world around you?",
+        "What is something that you are proud of that others might not know about?",
+        "What is something that you appreciate about your home or living space?",
+        "What is a quality you admire in others, and why?"
+
     };
 
     public Listing()
