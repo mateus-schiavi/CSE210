@@ -1,9 +1,33 @@
 public abstract class Exercise
 {
-    public string _exerciseName { get; protected set; }
-    public string _exerciseResume { get; protected set; }
-    protected int _initialTime { get; set; }
-    protected int _finalTime { get; set; }
+    public string _exerciseName;
+    public string _exerciseResume;
+    protected int _initialTime;
+    protected int _finalTime;
+
+    public string ExerciseName
+    {
+        get { return _exerciseName; }
+        protected set { _exerciseName = value; }
+    }
+
+    public string ExerciseResume
+    {
+        get { return _exerciseResume; }
+        protected set { _exerciseResume = value; }
+    }
+
+    protected int InitialTime
+    {
+        get { return _initialTime; }
+        set { _initialTime = value; }
+    }
+
+    protected int FinalTime
+    {
+        get { return _finalTime; }
+        set { _finalTime = value; }
+    }
 
     protected void InitialNotice()
     {
