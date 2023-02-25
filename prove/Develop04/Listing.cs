@@ -77,6 +77,7 @@ public class Listing : Exercise
                     using (StreamWriter writer = new StreamWriter(fileName, true))
                     {
                         writer.WriteLine(count + ". " + prompt);
+                        writer.WriteLine("Date and Time: " + DateTime.Now.ToString());
                         writer.WriteLine(answer);
                     }
 
