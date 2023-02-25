@@ -39,6 +39,6 @@ public class Breath : Exercise
     private void GetReady()
     {
         Console.WriteLine("Get ready to start breathing...");
-        Thread.Sleep(4000);
+        Thread.Sleep(2000);
     }
 }
