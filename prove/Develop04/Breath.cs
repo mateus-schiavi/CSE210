@@ -1,14 +1,14 @@
 public class Breath : Exercise
 {
-    private string _breathIn;
-    private string _breathOut;
+    private string _breatheIn;
+    private string _breatheOut;
 
     public Breath()
     {
         _exerciseName = "Breathing";
         _exerciseResume = "This activity will help you to control your chakra by guiding you through breathing in and out slowly. Clear your mind and focus on your breathing";
-        _breathIn = "Breathe in...";
-        _breathOut = "Now breathe out...";
+        _breatheIn = "Breathe in...";
+        _breatheOut = "Now breathe out...";
     }
 
     public void DoBreathing()
@@ -23,11 +23,11 @@ public class Breath : Exercise
         {
             Console.CursorVisible = false;
 
-            Console.WriteLine($"{_breathIn}");
-            Thread.Sleep(2000);
+            Console.WriteLine($"{_breatheIn}");
+            Thread.Sleep(4000);
 
-            Console.WriteLine($"{_breathOut}");
-            Thread.Sleep(2000);
+            Console.WriteLine($"{_breatheOut}");
+            Thread.Sleep(4000);
 
             Console.WriteLine();
             UpdateClock();
@@ -39,6 +39,6 @@ public class Breath : Exercise
     private void GetReady()
     {
         Console.WriteLine("Get ready to start breathing...");
-        Thread.Sleep(2000);
+        Thread.Sleep(4000);
     }
 }
