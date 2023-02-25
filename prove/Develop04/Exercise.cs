@@ -40,6 +40,6 @@ public abstract class Exercise
     {
         _initialTime += 10;
         Console.WriteLine($"Time left: {_finalTime - _initialTime} seconds");
-        Thread.Sleep(3000);
+        Thread.Sleep(2000);
     }
 }
