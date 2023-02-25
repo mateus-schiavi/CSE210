@@ -6,8 +6,8 @@ public class Breath : Exercise
     public Breath()
     {
         _exerciseName = "Breathing";
-        _exerciseResume = "This activity will help you relax by guiding you through breathing in and out slowly. Clear your mind and focus on your breathing";
-        _breathIn = "Breath in...";
+        _exerciseResume = "This activity will help you to control your chakra by guiding you through breathing in and out slowly. Clear your mind and focus on your breathing";
+        _breathIn = "Breathe in...";
         _breathOut = "Now breathe out...";
     }
 
