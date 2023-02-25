@@ -4,17 +4,22 @@ public class Reflection : Exercise
     private string _currentPrompt;
 
     public Reflection()
+{
+    _exerciseName = "Reflection";
+    _exerciseResume = "This activity will guide you through a reflection exercise. You will be prompted with a question to reflect on, and then given some follow-up questions to consider.";
+    _prompts = new string[]
     {
-        _exerciseName = "Reflection";
-        _exerciseResume = "This activity will guide you through a reflection exercise. You will be prompted with a question to reflect on, and then given some follow-up questions to consider.";
-        _prompts = new string[]
-        {
-            "Think of a time when you stood up for someone else.",
-            "Think of a time when you did something really difficult.",
-            "Think of a time when you helped someone in need.",
-            "Think of a time when you did something truly selfless."
-        };
-    }
+        "Think of a time when you stood up for someone else.",
+        "Think of a time when you did something really difficult.",
+        "Think of a time when you helped someone in need.",
+        "Think of a time when you did something truly selfless.",
+        "What is something you're proud of accomplishing?",
+        "Think of a time when you faced a fear and overcame it.",
+        "What is something you learned recently that you found interesting?",
+        "What is a goal you're working towards right now?"
+    };
+}
+
 
     public void DoReflection()
     {
