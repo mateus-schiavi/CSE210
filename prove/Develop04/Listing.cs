@@ -44,8 +44,6 @@ public class Listing : Exercise
         SetExerciseTime();
         SetClock();
 
-        SetClock();
-
         Random random = new Random();
         int count = 1;
 
