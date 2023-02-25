@@ -4,3 +4,10 @@ Exercise Resume: This activity will guide you through a reflection exercise. You
 
 Prompt: Think of a time when you did something really difficult.
 Prompt: Think of a time when you did something really difficult.
+[25/02/2023 15:35:09] Exercise: Reflection
+Exercise Time: 30
+Exercise Resume: This activity will guide you through a reflection exercise. You will be prompted with a question to reflect on, and then given some follow-up questions to consider.
+
+Prompt: Think of a time when you did something really difficult.
+Prompt: Think of a time when you faced a fear and overcame it.
+Prompt: Think of a time when you did something truly selfless.
