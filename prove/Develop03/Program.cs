@@ -41,8 +41,16 @@ class Program
             {
                 try
                 {
-                    Console.Write("Enter the number of the scripture you want to memorize: ");
-                    int selection = int.Parse(Console.ReadLine());
+                    Console.Write("Enter the number of the scripture you want to memorize (or type 'quit' to exit): ");
+                    string input = Console.ReadLine();
+
+                    if (input.ToLower() == "quit")
+                    {
+                        quit = true;
+                        break;
+                    }
+
+                    int selection = int.Parse(input);
 
                     // Display the selected scripture with a falling letters animation
                     Memorizing memorizing = new Memorizing();
@@ -78,6 +86,7 @@ class Program
                     Console.WriteLine("Error: " + ex.Message);
                 }
             } while (!quit);
+
 
 
         }
