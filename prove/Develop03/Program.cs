@@ -7,8 +7,8 @@ class Program
     {
         try
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.BackgroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.BackgroundColor = ConsoleColor.Red;
             // Create an array of Scripture objects
             Scripture[] scriptures = new Scripture[]
             {
