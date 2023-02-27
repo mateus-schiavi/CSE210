@@ -88,8 +88,6 @@ class Program
                 }
             } while (!quit);
 
-            Console.ResetColor();
-
         }
         catch (Exception ex)
         {
