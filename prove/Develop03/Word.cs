@@ -1,12 +1,24 @@
 class Word
 {
-    public char Character { get; }
-    public bool IsHidden { get; }
+    private char character;
+    private bool isHidden;
 
-    public Word(char character, bool hidden)
+    public char Character
+    {
+        get { return character; }
+        set { character = value; }
+    }
+
+    public bool IsHidden
+    {
+        get { return isHidden; }
+        set { isHidden = value; }
+    }
+
+    public Word(char character, bool isHidden)
     {
         Character = character;
-        IsHidden = hidden;
+        IsHidden = isHidden;
     }
 
     public override string ToString()
