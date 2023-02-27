@@ -28,8 +28,6 @@ class Program
 
             // Display a numbered list of available scriptures
             Console.WriteLine("Here is a list of available scriptures:");
-            // Display a numbered list of available scriptures
-            Console.WriteLine("Here is a list of available scriptures:");
             for (int i = 0; i < scriptures.Length; i++)
             {
                 Console.WriteLine($"{i + 1}. {scriptures[i].Reference}");
