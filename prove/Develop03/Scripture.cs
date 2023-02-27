@@ -1,7 +1,21 @@
+using System.Threading;
+
 class Scripture
 {
-    public string Reference { get; set; }
-    public string[,] Words { get; set; }
+    private string reference;
+    private string[,] words;
+
+    public string Reference
+    {
+        get { return reference; }
+        set { reference = value; }
+    }
+
+    public string[,] Words
+    {
+        get { return words; }
+        set { words = value; }
+    }
 
     public Scripture(string reference, string[,] words)
     {
