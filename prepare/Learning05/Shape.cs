@@ -1,5 +1,3 @@
-// See the comment below about the abstract method. Because we have an abstract method,
-// this class must also be declared as an abstract class.
 public abstract class Shape
 {
     private string _color;
@@ -9,14 +7,15 @@ public abstract class Shape
         _color = color;
     }
 
+    public string Color
+    {
+        get { return _color; }
+        set { _color = value; }
+    }
+
     public string GetColor()
     {
         return _color;
-    }
-
-    public void SetColor(string color)
-    {
-        _color = color;
     }
 
     // Because it does not make sense to define a default body for this method in the
