@@ -45,11 +45,19 @@ namespace GoalTracker
 
         public override void DeleteGoal()
         {
-            Console.Write("Enter the index of the personal goal you want to delete: ");
-            int index = int.Parse(Console.ReadLine());
-            personalGoals.RemoveAt(index);
+            Console.Write("Enter the description of the personal goal you want to delete: ");
+            string description = Console.ReadLine();
+            PersonalGoal goalToDelete = personalGoals.Find(goal => goal.Description.Equals(description, StringComparison.OrdinalIgnoreCase));
+            if (goalToDelete == null)
+            {
+                Console.WriteLine($"Personal goal with description '{description}' not found.");
+                return;
+            }
+
+            personalGoals.Remove(goalToDelete);
             Console.WriteLine("Personal goal deleted successfully!");
         }
+
 
         public override void ViewAllGoals()
         {
