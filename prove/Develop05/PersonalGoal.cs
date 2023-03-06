@@ -66,12 +66,13 @@ namespace GoalTracker
         public override void ViewAllGoals()
         {
             Console.WriteLine("List of all personal goals:");
-            for (int i = 0; i < personalGoals.Count; i++)
+            foreach (PersonalGoal goal in personalGoals)
             {
-                string completedMarker = personalGoals[i].Completed ? "[o]" : "[ ]";
-                Console.WriteLine($"{completedMarker} [{i}] Category: {personalGoals[i].Category}, Description: {personalGoals[i].Description}");
+                string completedMarker = goal.Completed ? "[O]" : "[X]";
+                Console.WriteLine($"{completedMarker} Category: {goal.Category}, Description: {goal.Description}");
             }
         }
+
 
 
         public override void CreateNewGoal()
@@ -160,18 +161,27 @@ namespace GoalTracker
             string eventDescription = Console.ReadLine();
             goal.Events.Add(eventDescription);
 
-            Console.Write("Have you filled this goal? (yes/no): ");
-            string answer = Console.ReadLine().ToLower();
+            while (true)
+            {
+                Console.Write("Have you completed this goal? (yes/no): ");
+                string answer = Console.ReadLine().ToLower();
 
-            if (answer == "yes")
-            {
-                goal.Completed = true;
-                Console.WriteLine("Congratulations! You have completed a personal goal.");
-                Console.WriteLine("You have earned 100 points!");
-            }
-            else
-            {
-                Console.WriteLine("Event recorded successfully!");
+                if (answer == "yes")
+                {
+                    goal.Completed = true;
+                    Console.WriteLine("Congratulations! You have completed a personal goal.");
+                    Console.WriteLine("You have earned 100 points!");
+                    break;
+                }
+                else if (answer == "no")
+                {
+                    Console.WriteLine("Event recorded successfully!");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter either 'yes' or 'no'.");
+                }
             }
         }
 
