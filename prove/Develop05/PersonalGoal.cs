@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-
+/*When the user types yes, a true statement is shown in the .txt file
+And when the user types no, a false statement is shown in the .txt file
+*/
 namespace GoalTracker
 {
     class PersonalGoal : Goal
