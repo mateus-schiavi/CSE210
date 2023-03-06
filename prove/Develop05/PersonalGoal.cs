@@ -49,7 +49,7 @@ namespace GoalTracker
             Console.Write("Enter the description of the personal goal you want to delete: ");
             string description = Console.ReadLine();
 
-            PersonalGoal goalToDelete = personalGoals.Find(goal => goal.Description.Equals(description, StringComparison.OrdinalIgnoreCase));
+            PersonalGoal goalToDelete = personalGoals.FirstOrDefault(goal => goal.Description.Equals(description, StringComparison.OrdinalIgnoreCase));
             if (goalToDelete == null)
             {
                 Console.WriteLine($"Personal goal with description '{description}' not found.");
@@ -59,6 +59,7 @@ namespace GoalTracker
             personalGoals.Remove(goalToDelete);
             Console.WriteLine("Personal goal deleted successfully!");
         }
+
 
 
 
