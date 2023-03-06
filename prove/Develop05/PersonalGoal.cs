@@ -7,6 +7,7 @@ namespace GoalTracker
     class PersonalGoal : Goal
     {
         private List<PersonalGoal> personalGoals = new List<PersonalGoal>();
+
         private string filePath = "personal_goals.txt";
 
         public override void AddGoal()
@@ -47,6 +48,7 @@ namespace GoalTracker
         {
             Console.Write("Enter the description of the personal goal you want to delete: ");
             string description = Console.ReadLine();
+
             PersonalGoal goalToDelete = personalGoals.Find(goal => goal.Description.Equals(description, StringComparison.OrdinalIgnoreCase));
             if (goalToDelete == null)
             {
@@ -57,6 +59,7 @@ namespace GoalTracker
             personalGoals.Remove(goalToDelete);
             Console.WriteLine("Personal goal deleted successfully!");
         }
+
 
 
         public override void ViewAllGoals()
@@ -70,7 +73,7 @@ namespace GoalTracker
         }
 
 
-        public void CreateNewGoal()
+        public override void CreateNewGoal()
         {
             Console.Write("Enter description: ");
             string description = Console.ReadLine();
@@ -79,7 +82,7 @@ namespace GoalTracker
             Console.WriteLine("Personal goal added successfully!");
         }
 
-        public void ListGoals()
+        public override void ListGoals()
         {
             Console.WriteLine("List of all personal goals:");
             for (int i = 0; i < personalGoals.Count; i++)
@@ -88,7 +91,7 @@ namespace GoalTracker
             }
         }
 
-        public void SaveToFile()
+        public override void SaveToFile()
         {
             using (StreamWriter writer = new StreamWriter(filePath))
             {
@@ -100,7 +103,7 @@ namespace GoalTracker
             Console.WriteLine("Goals saved to file successfully!");
         }
 
-        public void LoadFromFile()
+        public override void LoadFromFile()
         {
             if (File.Exists(filePath))
             {
@@ -137,7 +140,7 @@ namespace GoalTracker
 
 
 
-        public void RecordEvent()
+        public override void RecordEvent()
         {
             Console.Write("Enter the description of the personal goal you want to record an event for: ");
             string description = Console.ReadLine();
@@ -170,7 +173,7 @@ namespace GoalTracker
             }
         }
 
-        public void Quit()
+        public override void Quit()
         {
             Console.WriteLine("Saving goals to file...");
             SaveToFile();

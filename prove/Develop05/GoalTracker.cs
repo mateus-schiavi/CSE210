@@ -37,5 +37,11 @@ namespace GoalTracker
         public abstract void DeleteGoal();
 
         public abstract void ViewAllGoals();
+        public abstract void CreateNewGoal();
+        public abstract void ListGoals();
+        public abstract void SaveToFile();
+        public abstract void LoadFromFile();
+        public abstract void RecordEvent();
+        public abstract void Quit();
     }
 }
