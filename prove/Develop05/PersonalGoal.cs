@@ -122,18 +122,28 @@ namespace GoalTracker
 
         public void RecordEvent()
         {
-            Console.Write("Enter the index of the personal goal you want to record an event for: ");
-            int index = int.Parse(Console.ReadLine());
-            Console.Write("Enter the event description: ");
+            Console.Write("Enter the description of the personal goal you want to record an event for: ");
             string description = Console.ReadLine();
-            personalGoals[index].Events.Add(description);
+
+            // Find the first personal goal with a matching description
+            PersonalGoal goal = personalGoals.FirstOrDefault(g => g.Description == description);
+
+            if (goal == null)
+            {
+                Console.WriteLine("No personal goal found with the given description.");
+                return;
+            }
+
+            Console.Write("Enter the event description: ");
+            string eventDescription = Console.ReadLine();
+            goal.Events.Add(eventDescription);
 
             Console.Write("Have you filled this goal? (yes/no): ");
             string answer = Console.ReadLine().ToLower();
 
             if (answer == "yes")
             {
-                personalGoals[index].Completed = true;
+                goal.Completed = true;
                 Console.WriteLine("Congratulations! You have completed a personal goal.");
                 Console.WriteLine("You have earned 100 points!");
             }
@@ -142,6 +152,7 @@ namespace GoalTracker
                 Console.WriteLine("Event recorded successfully!");
             }
         }
+
 
 
         public void Quit()
