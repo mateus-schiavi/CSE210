@@ -112,13 +112,21 @@ namespace GoalTracker
                         personalGoals.Add(goal);
                     }
                 }
+
                 Console.WriteLine("Goals loaded from file successfully!");
+                Console.WriteLine("List of all personal goals:");
+                for (int i = 0; i < personalGoals.Count; i++)
+                {
+                    string completedMarker = personalGoals[i].Completed ? "[o]" : "[ ]";
+                    Console.WriteLine($"{completedMarker} [{i}] Category: {personalGoals[i].Category}, Description: {personalGoals[i].Description}");
+                }
             }
             else
             {
                 Console.WriteLine("No saved goals found.");
             }
         }
+
 
         public void RecordEvent()
         {
@@ -152,8 +160,6 @@ namespace GoalTracker
                 Console.WriteLine("Event recorded successfully!");
             }
         }
-
-
 
         public void Quit()
         {
