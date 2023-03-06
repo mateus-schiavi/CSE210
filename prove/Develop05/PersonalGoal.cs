@@ -117,7 +117,7 @@ namespace GoalTracker
                 Console.WriteLine("List of all personal goals:");
                 for (int i = 0; i < personalGoals.Count; i++)
                 {
-                    string completedMarker = personalGoals[i].Completed ? "[o]" : "[ ]";
+                    string completedMarker = personalGoals[i].Completed ? "[O]" : "[X]";
                     Console.WriteLine($"{completedMarker} [{i}] Category: {personalGoals[i].Category}, Description: {personalGoals[i].Description}");
                 }
             }
@@ -126,6 +126,7 @@ namespace GoalTracker
                 Console.WriteLine("No saved goals found.");
             }
         }
+
 
 
         public void RecordEvent()
