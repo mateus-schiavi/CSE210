@@ -8,7 +8,12 @@ namespace GoalTracker
         private string category;
         private string description;
         private bool completed;
+        public List<string> Events { get; set; }
 
+        public Goal()
+        {
+            Events = new List<string>();
+        }
         public string Category
         {
             get { return category; }

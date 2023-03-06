@@ -6,8 +6,7 @@ namespace GoalTracker
     {
         static void Main(string[] args)
         {
-            Goal personalGoal = new PersonalGoal();
-            Goal professionalGoal = new ProfessionalGoal();
+            PersonalGoal personalGoal = new PersonalGoal();
 
             while (true)
             {
@@ -15,9 +14,9 @@ namespace GoalTracker
                 Console.WriteLine("1. Add a personal goal");
                 Console.WriteLine("2. Delete a personal goal");
                 Console.WriteLine("3. View all personal goals");
-                Console.WriteLine("4. Add a professional goal");
-                Console.WriteLine("5. Delete a professional goal");
-                Console.WriteLine("6. View all professional goals");
+                Console.WriteLine("4. Record an event for a personal goal");
+                Console.WriteLine("5. Save personal goals to file");
+                Console.WriteLine("6. Load personal goals from file");
                 Console.WriteLine("7. Exit");
                 Console.Write("Enter your choice: ");
                 int choice = int.Parse(Console.ReadLine());
@@ -37,19 +36,19 @@ namespace GoalTracker
                         break;
 
                     case 4:
-                        professionalGoal.AddGoal();
+                        personalGoal.RecordEvent();
                         break;
 
                     case 5:
-                        professionalGoal.DeleteGoal();
+                        personalGoal.SaveToFile();
                         break;
 
                     case 6:
-                        professionalGoal.ViewAllGoals();
+                        personalGoal.LoadFromFile();
                         break;
 
                     case 7:
-                        Environment.Exit(0);
+                        personalGoal.Quit();
                         break;
 
                     default:

@@ -1,19 +1,47 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace GoalTracker
 {
     class PersonalGoal : Goal
     {
         private List<PersonalGoal> personalGoals = new List<PersonalGoal>();
+        private string filePath = "personal_goals.txt";
 
         public override void AddGoal()
         {
+            Console.WriteLine("Select goal frequency:");
+            Console.WriteLine("1. Daily Goal");
+            Console.WriteLine("2. Weekly Goal");
+            Console.WriteLine("3. Monthly Goal");
+            int frequency = int.Parse(Console.ReadLine());
+
             Console.Write("Enter description: ");
             string description = Console.ReadLine();
-            PersonalGoal newGoal = new PersonalGoal() { Category = "Personal", Description = description, Completed = false };
+
+            PersonalGoal newGoal;
+
+            switch (frequency)
+            {
+                case 1:
+                    newGoal = new PersonalGoal() { Category = "Daily", Description = description, Completed = false };
+                    break;
+                case 2:
+                    newGoal = new PersonalGoal() { Category = "Weekly", Description = description, Completed = false };
+                    break;
+                case 3:
+                    newGoal = new PersonalGoal() { Category = "Monthly", Description = description, Completed = false };
+                    break;
+                default:
+                    Console.WriteLine("Invalid frequency selected.");
+                    return;
+            }
+
             personalGoals.Add(newGoal);
             Console.WriteLine("Personal goal added successfully!");
         }
+
 
         public override void DeleteGoal()
         {
@@ -28,8 +56,100 @@ namespace GoalTracker
             Console.WriteLine("List of all personal goals:");
             for (int i = 0; i < personalGoals.Count; i++)
             {
-                Console.WriteLine($"[{i}] Category: {personalGoals[i].Category}, Description: {personalGoals[i].Description}, Completed: {personalGoals[i].Completed}");
+                string completedMarker = personalGoals[i].Completed ? "[o]" : "[ ]";
+                Console.WriteLine($"{completedMarker} [{i}] Category: {personalGoals[i].Category}, Description: {personalGoals[i].Description}");
             }
+        }
+
+
+        public void CreateNewGoal()
+        {
+            Console.Write("Enter description: ");
+            string description = Console.ReadLine();
+            PersonalGoal newGoal = new PersonalGoal() { Category = "Personal", Description = description, Completed = false };
+            personalGoals.Add(newGoal);
+            Console.WriteLine("Personal goal added successfully!");
+        }
+
+        public void ListGoals()
+        {
+            Console.WriteLine("List of all personal goals:");
+            for (int i = 0; i < personalGoals.Count; i++)
+            {
+                Console.WriteLine($"[{i}] {personalGoals[i].Description} ({personalGoals[i].Category})");
+            }
+        }
+
+        public void SaveToFile()
+        {
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                foreach (PersonalGoal goal in personalGoals)
+                {
+                    writer.WriteLine($"{goal.Category},{goal.Description},{goal.Completed}");
+                }
+            }
+            Console.WriteLine("Goals saved to file successfully!");
+        }
+
+        public void LoadFromFile()
+        {
+            if (File.Exists(filePath))
+            {
+                personalGoals.Clear();
+                using (StreamReader reader = new StreamReader(filePath))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        string line = reader.ReadLine();
+                        string[] parts = line.Split(',');
+                        PersonalGoal goal = new PersonalGoal()
+                        {
+                            Category = parts[0],
+                            Description = parts[1],
+                            Completed = bool.Parse(parts[2])
+                        };
+                        personalGoals.Add(goal);
+                    }
+                }
+                Console.WriteLine("Goals loaded from file successfully!");
+            }
+            else
+            {
+                Console.WriteLine("No saved goals found.");
+            }
+        }
+
+        public void RecordEvent()
+        {
+            Console.Write("Enter the index of the personal goal you want to record an event for: ");
+            int index = int.Parse(Console.ReadLine());
+            Console.Write("Enter the event description: ");
+            string description = Console.ReadLine();
+            personalGoals[index].Events.Add(description);
+
+            Console.Write("Have you filled this goal? (yes/no): ");
+            string answer = Console.ReadLine().ToLower();
+
+            if (answer == "yes")
+            {
+                personalGoals[index].Completed = true;
+                Console.WriteLine("Congratulations! You have completed a personal goal.");
+                Console.WriteLine("You have earned 100 points!");
+            }
+            else
+            {
+                Console.WriteLine("Event recorded successfully!");
+            }
+        }
+
+
+        public void Quit()
+        {
+            Console.WriteLine("Saving goals to file...");
+            SaveToFile();
+            Console.WriteLine("Goodbye!");
+            Environment.Exit(0);
         }
     }
 }
