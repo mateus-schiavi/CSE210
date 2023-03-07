@@ -96,11 +96,12 @@ namespace GoalTracker
             {
                 foreach (PersonalGoal goal in personalGoals)
                 {
-                    writer.WriteLine($"{goal.Category} | {goal.Description} | {goal.Completed}");
+                    writer.WriteLine($"{goal.Category} | {goal.Description} | {goal.Completed} | {goal.Score}");
                 }
             }
             Console.WriteLine("Goals saved to file successfully!");
         }
+
 
         public override void LoadFromFile()
         {

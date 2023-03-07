@@ -8,6 +8,7 @@ namespace GoalTracker
         private string category;
         private string description;
         private bool completed;
+        private int score;
         public List<string> Events { get; set; }
 
         public Goal()
@@ -30,6 +31,11 @@ namespace GoalTracker
         {
             get { return completed; }
             set { completed = value; }
+        }
+        public int Score
+        {
+            get { return score; }
+            set { score = value; }
         }
 
         public abstract void AddGoal();
