@@ -1,2 +1,1 @@
-Daily  |  Read Magazine  | False | 0
 Daily | Watch Anime | True | 100
