@@ -127,10 +127,10 @@ namespace GoalTracker
 
                 Console.WriteLine("Goals loaded from file successfully!");
                 Console.WriteLine("List of all personal goals:");
-                for (int i = 0; i < personalGoals.Count; i++)
+                foreach (PersonalGoal goal in personalGoals)
                 {
-                    string completedMarker = personalGoals[i].Completed ? "[O]" : "[X]";
-                    Console.WriteLine($"{completedMarker} [{i}] Category: {personalGoals[i].Category}, Description: {personalGoals[i].Description}");
+                    string completedMarker = goal.Completed ? "[O]" : "[X]";
+                    Console.WriteLine($"{completedMarker} Description: {goal.Description}, Score: {goal.Score}");
                 }
             }
             else
@@ -138,7 +138,6 @@ namespace GoalTracker
                 Console.WriteLine("No saved goals found.");
             }
         }
-
 
         public override void RecordEvent()
         {
