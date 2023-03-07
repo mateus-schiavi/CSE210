@@ -193,9 +193,7 @@ namespace GoalTracker
 
         public override void Quit()
         {
-            Console.WriteLine("Saving goals to file...");
-            SaveToFile();
-            Console.WriteLine("Goodbye!");
+            Console.WriteLine("Exiting program...");
             Environment.Exit(0);
         }
     }
