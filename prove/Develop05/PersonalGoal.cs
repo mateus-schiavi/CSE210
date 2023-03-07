@@ -165,6 +165,7 @@ namespace GoalTracker
                 {
                     goal.Completed = true;
                     Console.WriteLine("Congratulations! You have completed a personal goal.");
+                    goal.Score = 100;
                     Console.WriteLine("You have earned 100 points!");
                     break;
                 }
@@ -178,7 +179,17 @@ namespace GoalTracker
                     Console.WriteLine("Invalid input. Please enter either 'yes' or 'no'.");
                 }
             }
+
+            // Save the score to the file
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                foreach (PersonalGoal g in personalGoals)
+                {
+                    writer.WriteLine($"{g.Category} | {g.Description} | {g.Completed} | {g.Score}");
+                }
+            }
         }
+
         public override void Quit()
         {
             Console.WriteLine("Saving goals to file...");
