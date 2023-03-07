@@ -92,6 +92,14 @@ namespace GoalTracker
 
         public override void SaveToFile()
         {
+            Console.WriteLine("Saving Goals...");
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(".");
+                Thread.Sleep(100);
+            }
+            Console.WriteLine();
+
             using (StreamWriter writer = new StreamWriter(filePath))
             {
                 writer.WriteLine("Category,Description,Completed,Score");
@@ -107,6 +115,14 @@ namespace GoalTracker
 
         public override void LoadFromFile()
         {
+            Console.WriteLine("Loading Goals...");
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(".");
+                Thread.Sleep(100);
+            }
+            Console.WriteLine();
+
             if (File.Exists(filePath))
             {
                 personalGoals.Clear();
