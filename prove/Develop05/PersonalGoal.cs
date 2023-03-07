@@ -93,9 +93,14 @@ namespace GoalTracker
         public override void SaveToFile()
         {
             Console.WriteLine("Saving Goals...");
+
+            // Display a spinner while saving the goals
+            string[] spinner = { "/", "-", "\\", "|" };
+            int spinnerIndex = 0;
             for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine(".");
+                Console.Write($"\r{spinner[spinnerIndex]}");
+                spinnerIndex = (spinnerIndex + 1) % spinner.Length;
                 Thread.Sleep(100);
             }
             Console.WriteLine();
@@ -116,9 +121,14 @@ namespace GoalTracker
         public override void LoadFromFile()
         {
             Console.WriteLine("Loading Goals...");
+
+            // Display a spinner while loading the goals
+            string[] spinner = { "/", "-", "\\", "|" };
+            int spinnerIndex = 0;
             for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine(".");
+                Console.Write($"\r{spinner[spinnerIndex]}");
+                spinnerIndex = (spinnerIndex + 1) % spinner.Length;
                 Thread.Sleep(100);
             }
             Console.WriteLine();
@@ -147,11 +157,13 @@ namespace GoalTracker
                 }
 
                 Console.WriteLine("Goals loaded from file successfully!");
+
+                // Display the loaded goals
                 Console.WriteLine("List of all personal goals:");
                 foreach (PersonalGoal goal in personalGoals)
                 {
                     string completedMarker = goal.Completed ? "[O]" : "[X]";
-                    Console.WriteLine($"|{completedMarker}| Description: {goal.Description}| Score: {goal.Score}|");
+                    Console.WriteLine($"|{completedMarker}| {goal.Category} | {goal.Description}| {goal.Score}|");
                 }
             }
             else
