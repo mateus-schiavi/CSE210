@@ -130,7 +130,7 @@ namespace GoalTracker
                 foreach (PersonalGoal goal in personalGoals)
                 {
                     string completedMarker = goal.Completed ? "[O]" : "[X]";
-                    Console.WriteLine($"{completedMarker} Description: {goal.Description}, Score: {goal.Score}");
+                    Console.WriteLine($"|{completedMarker}| Description: {goal.Description}| Score: {goal.Score}|");
                 }
             }
             else
