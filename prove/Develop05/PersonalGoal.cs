@@ -62,9 +62,6 @@ namespace GoalTracker
             Console.WriteLine("Personal goal deleted successfully!");
         }
 
-
-
-
         public override void ViewAllGoals()
         {
             Console.WriteLine("List of all personal goals:");
@@ -74,8 +71,6 @@ namespace GoalTracker
                 Console.WriteLine($"{completedMarker} Category: {goal.Category}, Description: {goal.Description}");
             }
         }
-
-
 
         public override void CreateNewGoal()
         {
@@ -106,7 +101,6 @@ namespace GoalTracker
             }
             Console.WriteLine("Goals saved to file successfully!");
         }
-
 
         public override void LoadFromFile()
         {
@@ -142,8 +136,6 @@ namespace GoalTracker
                 Console.WriteLine("No saved goals found.");
             }
         }
-
-
 
         public override void RecordEvent()
         {
@@ -186,7 +178,6 @@ namespace GoalTracker
                 }
             }
         }
-
         public override void Quit()
         {
             Console.WriteLine("Saving goals to file...");
