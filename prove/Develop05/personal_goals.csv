@@ -1,3 +1,2 @@
-Daily    |    Watch Anime    | True | 100
-Monthly   |   Lose 1 weight   | True | 100
-Daily | Read Science Book | True | 100
+Category,Description,Completed,Score
+Daily,Read Books,True,100
