@@ -187,15 +187,19 @@ namespace GoalTracker
                 }
             }
 
-            // Save the score to the file
+            // Save the goals to the file
             using (StreamWriter writer = new StreamWriter(filePath))
             {
+                writer.WriteLine("Category,Description,Completed,Score");
                 foreach (PersonalGoal g in personalGoals)
                 {
-                    writer.WriteLine($"{g.Category} | {g.Description} | {g.Completed} | {g.Score}");
+                    writer.WriteLine($"{g.Category},{g.Description},{g.Completed},{g.Score}");
                 }
             }
+
+            Console.WriteLine("Goals saved to file successfully!");
         }
+
 
         public override void Quit()
         {
