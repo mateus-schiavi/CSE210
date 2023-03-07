@@ -113,12 +113,13 @@ namespace GoalTracker
                     while (!reader.EndOfStream)
                     {
                         string line = reader.ReadLine();
-                        string[] parts = line.Split(',');
+                        string[] parts = line.Split('|');
                         PersonalGoal goal = new PersonalGoal()
                         {
                             Category = parts[0],
                             Description = parts[1],
-                            Completed = bool.Parse(parts[2])
+                            Completed = bool.Parse(parts[2]),
+                            Score = int.Parse(parts[3])
                         };
                         personalGoals.Add(goal);
                     }
@@ -137,6 +138,7 @@ namespace GoalTracker
                 Console.WriteLine("No saved goals found.");
             }
         }
+
 
         public override void RecordEvent()
         {
