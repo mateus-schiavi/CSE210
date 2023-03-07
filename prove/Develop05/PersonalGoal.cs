@@ -191,44 +191,24 @@ namespace GoalTracker
             string eventDescription = Console.ReadLine();
             goal.Events.Add(eventDescription);
 
-            while (true)
-            {
-                Console.Write("Have you completed this goal? (yes/no): ");
-                string answer = Console.ReadLine().ToLower();
+            Console.Write("Has the goal been completed? (yes/no): ");
+            string response = Console.ReadLine();
 
-                if (answer == "yes")
-                {
-                    goal.Completed = true;
-                    Console.WriteLine("Congratulations! You have completed a personal goal.");
-                    goal.Score = 100;
-                    Console.WriteLine("You have earned 100 points!");
-                    break;
-                }
-                else if (answer == "no")
-                {
-                    Console.WriteLine("Event recorded successfully!");
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter either 'yes' or 'no'.");
-                }
+            if (response.ToLower() == "yes")
+            {
+                goal.Completed = true;
+            }
+            else if (response.ToLower() == "no")
+            {
+                goal.Completed = false;
+            }
+            else
+            {
+                Console.WriteLine("Invalid response. Goal completion status not updated.");
             }
 
-            // Save the goals to the file
-            using (StreamWriter writer = new StreamWriter(filePath))
-            {
-                writer.WriteLine("Category,Description,Completed,Score");
-                foreach (PersonalGoal g in personalGoals)
-                {
-                    writer.WriteLine($"{g.Category},{g.Description},{g.Completed},{g.Score}");
-                }
-            }
-
-            Console.WriteLine("Goals saved to file successfully!");
+            Console.WriteLine("Event recorded successfully!");
         }
-
-
         public override void Quit()
         {
             Console.WriteLine("Exiting program...");
