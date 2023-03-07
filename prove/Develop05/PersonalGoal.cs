@@ -10,7 +10,7 @@ namespace GoalTracker
     {
         private List<PersonalGoal> personalGoals = new List<PersonalGoal>();
 
-        private string filePath = "personal_goals.txt";
+        private string filePath = "personal_goals.csv";
 
         public override void AddGoal()
         {
@@ -94,13 +94,15 @@ namespace GoalTracker
         {
             using (StreamWriter writer = new StreamWriter(filePath))
             {
+                writer.WriteLine("Category,Description,Completed,Score");
                 foreach (PersonalGoal goal in personalGoals)
                 {
-                    writer.WriteLine($"{goal.Category} | {goal.Description} | {goal.Completed} | {goal.Score}");
+                    writer.WriteLine($"{goal.Category},{goal.Description},{goal.Completed},{goal.Score}");
                 }
             }
             Console.WriteLine("Goals saved to file successfully!");
         }
+
 
 
         public override void LoadFromFile()
@@ -110,10 +112,13 @@ namespace GoalTracker
                 personalGoals.Clear();
                 using (StreamReader reader = new StreamReader(filePath))
                 {
+                    // Skip the header row
+                    reader.ReadLine();
+
                     while (!reader.EndOfStream)
                     {
                         string line = reader.ReadLine();
-                        string[] parts = line.Split('|');
+                        string[] parts = line.Split(',');
                         PersonalGoal goal = new PersonalGoal()
                         {
                             Category = parts[0],
@@ -138,6 +143,7 @@ namespace GoalTracker
                 Console.WriteLine("No saved goals found.");
             }
         }
+
 
         public override void RecordEvent()
         {
