@@ -38,6 +38,9 @@ namespace GoalTracker
             set { score = value; }
         }
 
+        // new property
+        public DateTime Deadline { get; set; }
+
         public abstract void AddGoal();
 
         public abstract void DeleteGoal();
@@ -49,5 +52,11 @@ namespace GoalTracker
         public abstract void LoadFromFile();
         public abstract void RecordEvent();
         public abstract void Quit();
+
+        // new method
+        public bool IsPastDeadline()
+        {
+            return Deadline < DateTime.Now;
+        }
     }
 }
