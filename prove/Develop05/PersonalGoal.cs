@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 /*When the user types yes, a true statement is shown in the .txt file
 And when the user types no, a false statement is shown in the .txt file
+Also, when the user types complete to a goal, it is shown [O] and [X] when
+the user types not complete to a goal
 */
 namespace GoalTracker
 {
