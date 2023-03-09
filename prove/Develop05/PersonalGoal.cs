@@ -183,39 +183,44 @@ namespace GoalTracker
             string description = Console.ReadLine();
 
             // Find the first personal goal with a matching description
-            PersonalGoal goal = personalGoals.FirstOrDefault(g => g.Description == description);
+            PersonalGoal goal = personalGoals.FirstOrDefault(g => g.Description.Equals(description, StringComparison.OrdinalIgnoreCase));
 
             if (goal == null)
             {
-                Console.WriteLine("No personal goal found with the given description.");
+                Console.WriteLine($"Personal goal with description '{description}' not found.");
                 return;
             }
 
-            Console.Write("Enter the event description: ");
-            string eventDescription = Console.ReadLine();
-            goal.Events.Add(eventDescription);
+            Console.Write("Did you complete the goal? (yes/no): ");
+            string input = Console.ReadLine().ToLower();
 
-            Console.Write("Has the goal been completed? (yes/no): ");
-            string response = Console.ReadLine();
-
-            if (response.ToLower() == "yes")
+            switch (input)
             {
-                goal.Completed = true;
-            }
-            else if (response.ToLower() == "no")
-            {
-                goal.Completed = false;
-            }
-            else
-            {
-                Console.WriteLine("Invalid response. Goal completion status not updated.");
+                case "yes":
+                    goal.Completed = true;
+                    Console.WriteLine("Personal goal completed successfully!");
+                    break;
+                case "no":
+                    goal.Completed = false;
+                    Console.WriteLine("Personal goal not completed.");
+                    break;
+                default:
+                    Console.WriteLine("Invalid input.");
+                    break;
             }
 
-            Console.WriteLine("Event recorded successfully!");
+            SaveToFile();
         }
+
         public override void Quit()
         {
-            Console.WriteLine("Exiting program...");
+            string message = "Good Bye!";
+            foreach (char c in message)
+            {
+                Console.Write(c);
+                Thread.Sleep(50); // Pause for 50 milliseconds
+            }
+            Console.WriteLine();
             Environment.Exit(0);
         }
     }
