@@ -218,7 +218,7 @@ namespace GoalTracker
             foreach (char c in message)
             {
                 Console.Write(c);
-                Thread.Sleep(50); // Pause for 50 milliseconds
+                Thread.Sleep(100); // Pause for 100 milliseconds
             }
             Console.WriteLine();
             Environment.Exit(0);
