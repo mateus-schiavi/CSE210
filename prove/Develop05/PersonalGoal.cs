@@ -214,7 +214,7 @@ namespace GoalTracker
 
         public override void Quit()
         {
-            string message = "Good Bye!";
+            string message = "Thanks for using Goal Tracker! Have a Nice Week";
             foreach (char c in message)
             {
                 Console.Write(c);
