@@ -121,6 +121,7 @@ namespace GoalTracker
             Console.WriteLine("Goals saved to file successfully!");
         }
 
+
         public override void LoadFromFile()
         {
             Console.WriteLine("Loading Goals...");
