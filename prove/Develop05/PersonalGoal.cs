@@ -114,9 +114,10 @@ namespace GoalTracker
             using (StreamWriter writer = new StreamWriter(filePath))
             {
                 writer.WriteLine("Category,Description,Completed,Score");
-                foreach (PersonalGoal goal in personalGoals)
+                for(int i = 0; i < personalGoals.Count; i++)
                 {
-                    writer.WriteLine($"{goal.Category},{goal.Description},{goal.Completed},{goal.Score}");
+                    PersonalGoal goal = personalGoals[i];
+                    writer.WriteLine($"{i+1},{goal.Category},{goal.Description},{goal.Completed},{goal.Score}");
                 }
             }
             Console.WriteLine("Goals saved to file successfully!");
