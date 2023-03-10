@@ -197,28 +197,26 @@ namespace GoalTracker
                 return;
             }
 
-            Console.Write("Did you complete this goal? (yes/no): ");
-            string answer = Console.ReadLine().ToLower();
-            bool completed;
-            if (answer == "yes")
+            Console.Write($"Did you complete the goal '{goal.Description}'? (yes/no): ");
+            string input = Console.ReadLine();
+            switch (input.ToLower())
             {
-                completed = true;
-                Console.WriteLine("Congratulations on completing your goal!");
-            }
-            else if (answer == "no")
-            {
-                completed = false;
-                Console.WriteLine("Better luck next time!");
-            }
-            else
-            {
-                Console.WriteLine("Invalid answer. Please enter 'yes' or 'no'.");
-                return;
+                case "yes":
+                    goal.Completed = true;
+                    Console.WriteLine($"Congratulations! You have completed the goal '{goal.Description}' and earned 100 points!");
+                    goal.Score += 100;
+                    break;
+                case "no":
+                    Console.WriteLine($"You did not complete the goal '{goal.Description}'. Keep working on it!");
+                    break;
+                default:
+                    Console.WriteLine("Invalid input. Recording event cancelled.");
+                    return;
             }
 
-            goal.Completed = completed;
             SaveToFile();
         }
+
 
 
 
