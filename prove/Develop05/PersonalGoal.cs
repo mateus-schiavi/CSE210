@@ -177,9 +177,7 @@ namespace GoalTracker
                 Console.WriteLine("No saved goals found.");
             }
         }
-
-
-
+        
         public override void RecordEvent()
         {
             Console.Write("Enter the description of the personal goal you want to record an event for: ");
