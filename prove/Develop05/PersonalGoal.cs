@@ -122,6 +122,7 @@ namespace GoalTracker
         }
 
 
+
         public override void LoadFromFile()
         {
             Console.WriteLine("Loading Goals...");
