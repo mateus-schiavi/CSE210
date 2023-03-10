@@ -1,2 +1,4 @@
 Category,Description,Completed,Score
+Daily,Study Art,False,0
 Daily,Study C#,False,0
+Daily,Study Music,False,0
