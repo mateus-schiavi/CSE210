@@ -114,10 +114,10 @@ namespace GoalTracker
             using (StreamWriter writer = new StreamWriter(filePath))
             {
                 writer.WriteLine("Category,Description,Completed,Score");
-                for(int i = 0; i < personalGoals.Count; i++)
+                for (int i = 0; i < personalGoals.Count; i++)
                 {
                     PersonalGoal goal = personalGoals[i];
-                    writer.WriteLine($"{i+1},{goal.Category},{goal.Description},{goal.Completed},{goal.Score}");
+                    writer.WriteLine($"{i + 1},{goal.Category},{goal.Description},{goal.Completed},{goal.Score}");
                 }
             }
             Console.WriteLine("Goals saved to file successfully!");
@@ -157,7 +157,6 @@ namespace GoalTracker
                             Category = parts[0],
                             Description = parts[1],
                             Completed = bool.Parse(parts[2]),
-                            Score = int.Parse(parts[3])
                         };
                         personalGoals.Add(goal);
                     }
@@ -170,7 +169,7 @@ namespace GoalTracker
                 foreach (PersonalGoal goal in personalGoals)
                 {
                     string completedMarker = goal.Completed ? "[O]" : "[X]";
-                    Console.WriteLine($"|{completedMarker}| {goal.Category} | {goal.Description}| {goal.Score}|");
+                    Console.WriteLine($"{completedMarker} Category: {goal.Category}, Description: {goal.Description}");
                 }
             }
             else
@@ -178,6 +177,7 @@ namespace GoalTracker
                 Console.WriteLine("No saved goals found.");
             }
         }
+
 
 
         public override void RecordEvent()
