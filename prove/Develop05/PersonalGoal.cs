@@ -187,39 +187,35 @@ namespace GoalTracker
 
             // Find the first personal goal with a matching description
             PersonalGoal goal = personalGoals.FirstOrDefault(g => g.Description.Equals(description, StringComparison.OrdinalIgnoreCase));
-
             if (goal == null)
             {
                 Console.WriteLine($"Personal goal with description '{description}' not found.");
                 return;
             }
 
-            if (goal.Completed)
+            Console.Write("Did you complete this goal? (yes/no): ");
+            string answer = Console.ReadLine().ToLower();
+            bool completed;
+            if (answer == "yes")
             {
-                Console.WriteLine($"Personal goal with description '{description}' has already been completed.");
-                return;
+                completed = true;
+                Console.WriteLine("Congratulations on completing your goal!");
             }
-
-            Console.Write("Did you complete the goal? (yes/no): ");
-            string input = Console.ReadLine();
-
-            if (input.Equals("yes", StringComparison.OrdinalIgnoreCase))
+            else if (answer == "no")
             {
-                goal.Completed = true;
-                goal.Score += 100;
-                Console.WriteLine($"Congratulations! You have completed the '{goal.Description}' personal goal and earned 100 points.");
-            }
-            else if (input.Equals("no", StringComparison.OrdinalIgnoreCase))
-            {
-                Console.WriteLine($"Sorry to hear that you didn't complete the '{goal.Description}' personal goal.");
+                completed = false;
+                Console.WriteLine("Better luck next time!");
             }
             else
             {
-                Console.WriteLine("Invalid input.");
+                Console.WriteLine("Invalid answer. Please enter 'yes' or 'no'.");
+                return;
             }
 
+            goal.Completed = completed;
             SaveToFile();
         }
+
 
 
         public override void Quit()
