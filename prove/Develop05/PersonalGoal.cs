@@ -70,6 +70,14 @@ namespace GoalTracker
 
         public override void ViewAllGoals()
         {
+            LoadFromFile(); // Load goals from the file
+
+            if (personalGoals.Count == 0)
+            {
+                Console.WriteLine("No personal goals found.");
+                return;
+            }
+
             Console.WriteLine("List of all personal goals:");
             foreach (PersonalGoal goal in personalGoals)
             {
@@ -77,6 +85,7 @@ namespace GoalTracker
                 Console.WriteLine($"{completedMarker} Category: {goal.Category}, Description: {goal.Description}");
             }
         }
+
 
         public override void CreateNewGoal()
         {
@@ -113,14 +122,16 @@ namespace GoalTracker
 
             using (StreamWriter writer = new StreamWriter(filePath))
             {
-                writer.WriteLine("Category,Description,Completed,Score");
+                writer.WriteLine("Category,Description,Completed");
                 foreach (PersonalGoal goal in personalGoals)
                 {
-                    writer.WriteLine($"{goal.Category},{goal.Description},{goal.Completed},{goal.Score}");
+                    string completed = goal.Completed ? "true" : "false";
+                    writer.WriteLine($"{goal.Category},{goal.Description},{completed}");
                 }
             }
             Console.WriteLine("Goals saved to file successfully!");
         }
+
 
 
 
@@ -165,20 +176,13 @@ namespace GoalTracker
                 }
 
                 Console.WriteLine("Goals loaded from file successfully!");
-
-                // Display the loaded goals
-                Console.WriteLine("List of all personal goals:");
-                foreach (PersonalGoal goal in personalGoals)
-                {
-                    string completedMarker = goal.Completed ? "[O]" : "[X]";
-                    Console.WriteLine($"{completedMarker} Category: {goal.Category}, Description: {goal.Description}, Score: {goal.Score}");
-                }
             }
             else
             {
                 Console.WriteLine("No saved goals found.");
             }
         }
+
 
         public override void RecordEvent()
         {
