@@ -1,0 +1,2 @@
+Category,Description,Completed,Score
+Daily,Study Music,True,100
