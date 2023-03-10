@@ -111,17 +111,19 @@ namespace GoalTracker
             }
             Console.WriteLine();
 
+            personalGoals.Sort((goal1, goal2) => goal1.Description.CompareTo(goal2.Description));
+
             using (StreamWriter writer = new StreamWriter(filePath))
             {
                 writer.WriteLine("Category,Description,Completed,Score");
-                for (int i = 0; i < personalGoals.Count; i++)
+                foreach (PersonalGoal goal in personalGoals)
                 {
-                    PersonalGoal goal = personalGoals[i];
                     writer.WriteLine($"{goal.Category},{goal.Description},{goal.Completed},{goal.Score}");
                 }
             }
             Console.WriteLine("Goals saved to file successfully!");
         }
+
 
 
 
