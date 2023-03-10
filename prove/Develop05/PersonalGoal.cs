@@ -101,6 +101,7 @@ namespace GoalTracker
             // Display an animation while saving the goals
             string animation = "===========";
             int animationIndex = 0;
+            Score = 100;
             for (int i = 0; i < 10; i++)
             {
                 Console.Write($"\r{animation.Substring(0, animationIndex)}>");
@@ -127,6 +128,7 @@ namespace GoalTracker
             // Display an animation while loading the goals
             string animation = "===========";
             int animationIndex = 0;
+            Score = 100;
             for (int i = 0; i < 10; i++)
             {
                 Console.Write($"\r{animation.Substring(0, animationIndex)}>");
