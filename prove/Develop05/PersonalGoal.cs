@@ -14,7 +14,7 @@ namespace GoalTracker
     {
         private List<PersonalGoal> personalGoals = new List<PersonalGoal>();
 
-        private string filePath = "personal_goals.csv";
+        private string filePath = "personal_goals.txt";
 
         public override void AddGoal()
         {
@@ -117,7 +117,7 @@ namespace GoalTracker
                 for (int i = 0; i < personalGoals.Count; i++)
                 {
                     PersonalGoal goal = personalGoals[i];
-                    writer.WriteLine($"{i + 1},{goal.Category},{goal.Description},{goal.Completed},{goal.Score}");
+                    writer.WriteLine($"{goal.Category},{goal.Description},{goal.Completed},{goal.Score}");
                 }
             }
             Console.WriteLine("Goals saved to file successfully!");
@@ -157,6 +157,7 @@ namespace GoalTracker
                             Category = parts[0],
                             Description = parts[1],
                             Completed = bool.Parse(parts[2]),
+                            Score = int.Parse(parts[3]),
                         };
                         personalGoals.Add(goal);
                     }
@@ -177,7 +178,7 @@ namespace GoalTracker
                 Console.WriteLine("No saved goals found.");
             }
         }
-        
+
         public override void RecordEvent()
         {
             Console.Write("Enter the description of the personal goal you want to record an event for: ");
