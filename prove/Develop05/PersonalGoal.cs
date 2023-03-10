@@ -98,14 +98,13 @@ namespace GoalTracker
         {
             Console.WriteLine("Saving Goals...");
 
-            // Display an animation while saving the goals
-            string animation = "===========";
-            int animationIndex = 0;
-            Score = 100;
+            // Display a spinner while saving the goals
+            string[] spinner = { "/", "-", "\\", "|" };
+            int spinnerIndex = 0;
             for (int i = 0; i < 10; i++)
             {
-                Console.Write($"\r{animation.Substring(0, animationIndex)}>");
-                animationIndex = (animationIndex + 1) % animation.Length;
+                Console.Write($"\r{spinner[spinnerIndex]}");
+                spinnerIndex = (spinnerIndex + 1) % spinner.Length;
                 Thread.Sleep(100);
             }
             Console.WriteLine();
@@ -127,14 +126,13 @@ namespace GoalTracker
         {
             Console.WriteLine("Loading Goals...");
 
-            // Display an animation while loading the goals
-            string animation = "===========";
-            int animationIndex = 0;
-            Score = 100;
+            // Display a spinner while loading the goals
+            string[] spinner = { "/", "-", "\\", "|" };
+            int spinnerIndex = 0;
             for (int i = 0; i < 10; i++)
             {
-                Console.Write($"\r{animation.Substring(0, animationIndex)}>");
-                animationIndex = (animationIndex + 1) % animation.Length;
+                Console.Write($"\r{spinner[spinnerIndex]}");
+                spinnerIndex = (spinnerIndex + 1) % spinner.Length;
                 Thread.Sleep(100);
             }
             Console.WriteLine();
@@ -177,7 +175,6 @@ namespace GoalTracker
                 Console.WriteLine("No saved goals found.");
             }
         }
-
 
 
         public override void RecordEvent()
