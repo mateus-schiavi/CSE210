@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
+using System.Linq;
 /*When the user types yes, a true statement is shown in the .txt file
 And when the user types no, a false statement is shown in the .txt file
 Also, when the user types complete to a goal, it is shown [O] and [X] when
@@ -191,26 +193,33 @@ namespace GoalTracker
                 return;
             }
 
-            Console.Write("Did you complete the goal? (yes/no): ");
-            string input = Console.ReadLine().ToLower();
-
-            switch (input)
+            if (goal.Completed)
             {
-                case "yes":
-                    goal.Completed = true;
-                    Console.WriteLine("Personal goal completed successfully!");
-                    break;
-                case "no":
-                    goal.Completed = false;
-                    Console.WriteLine("Personal goal not completed.");
-                    break;
-                default:
-                    Console.WriteLine("Invalid input.");
-                    break;
+                Console.WriteLine($"Personal goal with description '{description}' has already been completed.");
+                return;
+            }
+
+            Console.Write("Did you complete the goal? (yes/no): ");
+            string input = Console.ReadLine();
+
+            if (input.Equals("yes", StringComparison.OrdinalIgnoreCase))
+            {
+                goal.Completed = true;
+                goal.Score += 100;
+                Console.WriteLine($"Congratulations! You have completed the '{goal.Description}' personal goal and earned 100 points.");
+            }
+            else if (input.Equals("no", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine($"Sorry to hear that you didn't complete the '{goal.Description}' personal goal.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid input.");
             }
 
             SaveToFile();
         }
+
 
         public override void Quit()
         {
