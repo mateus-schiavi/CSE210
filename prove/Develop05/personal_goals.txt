@@ -1,2 +1,2 @@
 Category,Description,Completed
-Daily,Read Magazine,false
+Daily,Watch Anime,false
