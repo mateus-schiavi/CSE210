@@ -156,6 +156,7 @@ namespace GoalTracker
                         };
                         personalGoals.Add(goal);
                     }
+                    SaveToFile();
                 }
 
                 Console.WriteLine("Goals loaded from file successfully!");
