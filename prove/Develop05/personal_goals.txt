@@ -1,2 +1,2 @@
-Category,Description,Completed,Score
-
+Category,Description,Completed
+Daily,fifty push up,true,100
