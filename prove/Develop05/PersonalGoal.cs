@@ -146,7 +146,6 @@ namespace GoalTracker
             if (File.Exists(filePath))
             {
                 personalGoals.Clear();
-                Console.ForegroundColor = ConsoleColor.Yellow;
                 using (StreamReader reader = new StreamReader(filePath))
                 {
                     // Skip the header row
