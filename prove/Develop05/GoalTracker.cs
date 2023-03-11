@@ -67,8 +67,6 @@ namespace GoalTracker
 
         public abstract void ViewAllGoals();
 
-        public abstract void CreateNewGoal();
-
         public abstract void ListGoals();
 
         public abstract void SaveToFile();

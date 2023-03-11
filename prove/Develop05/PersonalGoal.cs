@@ -86,16 +86,6 @@ namespace GoalTracker
             }
         }
 
-
-        public override void CreateNewGoal()
-        {
-            Console.Write("Enter description: ");
-            string description = Console.ReadLine();
-            PersonalGoal newGoal = new PersonalGoal() { Category = "Personal", Description = description, Completed = false };
-            personalGoals.Add(newGoal);
-            Console.WriteLine("Personal goal added successfully!");
-        }
-
         public override void ListGoals()
         {
             Console.WriteLine("List of all personal goals:");
@@ -168,8 +158,7 @@ namespace GoalTracker
                         {
                             Category = parts[0],
                             Description = parts[1],
-                            Completed = bool.Parse(parts[2]),
-                            Score = int.Parse(parts[3]),
+                            Completed = bool.Parse(parts[2])
                         };
                         personalGoals.Add(goal);
                     }
@@ -182,6 +171,7 @@ namespace GoalTracker
                 Console.WriteLine("No saved goals found.");
             }
         }
+
 
 
         public override void RecordEvent()
