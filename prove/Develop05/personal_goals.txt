@@ -1,2 +1,2 @@
 Category,Description,Completed
-Daily,Watch Anime,false
+Daily,Watch Movies,false
