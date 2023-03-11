@@ -81,6 +81,7 @@ namespace GoalTracker
             foreach (PersonalGoal goal in personalGoals)
             {
                 string completedMarker = goal.Completed ? "[O]" : "[X]";
+                int score = goal.Completed ? 100 : goal.Score;
                 Console.WriteLine($"{completedMarker} Category: {goal.Category}, Description: {goal.Description}, Score: {goal.Score}");
             }
         }
