@@ -115,7 +115,7 @@ namespace GoalTracker
                 foreach (PersonalGoal goal in personalGoals)
                 {
                     string completed = goal.Completed ? "true" : "false";
-                    writer.WriteLine($"{goal.Category},{goal.Description},{completed}");
+                    writer.WriteLine($"{goal.Category},{goal.Description},{completed},{goal.Score}");
                 }
             }
             Console.WriteLine("Goals saved to file successfully!");
