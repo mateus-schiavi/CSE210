@@ -85,6 +85,7 @@ namespace GoalTracker
             }
         }
 
+
         public override void ListGoals()
         {
             Console.WriteLine("List of all personal goals:");
