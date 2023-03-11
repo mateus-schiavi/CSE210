@@ -41,6 +41,7 @@ namespace GoalTracker
                     newGoal = new PersonalGoal() { Category = "Monthly", Description = description, Completed = false };
                     break;
                 default:
+                    Console.ForegroundColor = ConsoleColor.Gray;
                     Console.WriteLine("Invalid frequency selected.");
                     return;
             }
@@ -145,6 +146,7 @@ namespace GoalTracker
             if (File.Exists(filePath))
             {
                 personalGoals.Clear();
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 using (StreamReader reader = new StreamReader(filePath))
                 {
                     // Skip the header row
@@ -192,11 +194,13 @@ namespace GoalTracker
             switch (input.ToLower())
             {
                 case "yes":
+                    Console.ForegroundColor = ConsoleColor.Blue;
                     goal.Completed = true;
                     Console.WriteLine($"Congratulations! You have completed the goal '{goal.Description}' and earned 100 points!");
                     goal.Score += 100;
                     break;
                 case "no":
+                Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"You did not complete the goal '{goal.Description}'. Keep working on it!");
                     break;
                 default:

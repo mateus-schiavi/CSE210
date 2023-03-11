@@ -6,8 +6,6 @@ namespace GoalTracker
     {
         static void Main(string[] args)
         {
-            Console.BackgroundColor = ConsoleColor.Yellow;
-            Console.ForegroundColor = ConsoleColor.Blue;
             PersonalGoal personalGoal = new PersonalGoal();
 
             while (true)
@@ -54,6 +52,7 @@ namespace GoalTracker
                         break;
 
                     default:
+                        Console.ForegroundColor = ConsoleColor.Blue;
                         Console.WriteLine("Invalid choice, please enter a valid choice!");
                         break;
                 }
