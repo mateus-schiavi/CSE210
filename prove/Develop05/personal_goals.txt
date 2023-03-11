@@ -1,3 +1,2 @@
-Category,Description,Completed,Score
-Monthly,Lose 1 pound,True,100
-Daily,Study Engineer,True,100
+Category,Description,Completed
+Daily,Read Magazine,false
