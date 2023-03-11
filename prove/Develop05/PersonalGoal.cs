@@ -155,7 +155,8 @@ namespace GoalTracker
                         {
                             Category = parts[0],
                             Description = parts[1],
-                            Completed = bool.Parse(parts[2])
+                            Completed = bool.Parse(parts[2]),
+                            Score = int.Parse(parts[3])
                         };
                         personalGoals.Add(goal);
                     }
@@ -167,6 +168,7 @@ namespace GoalTracker
                 Console.WriteLine("No saved goals found.");
             }
         }
+
 
         public override void RecordEvent()
         {
