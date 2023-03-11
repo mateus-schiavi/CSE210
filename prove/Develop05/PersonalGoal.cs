@@ -41,8 +41,6 @@ namespace GoalTracker
                     newGoal = new PersonalGoal() { Category = "Monthly", Description = description, Completed = false };
                     break;
                 default:
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.BackgroundColor = ConsoleColor.White;
                     Console.WriteLine("Invalid frequency selected.");
                     return;
             }

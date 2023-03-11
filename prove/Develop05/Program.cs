@@ -52,7 +52,6 @@ namespace GoalTracker
                         break;
 
                     default:
-                        Console.ForegroundColor = ConsoleColor.Blue;
                         Console.WriteLine("Invalid choice, please enter a valid choice!");
                         break;
                 }
