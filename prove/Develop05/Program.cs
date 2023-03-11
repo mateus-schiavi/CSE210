@@ -6,6 +6,8 @@ namespace GoalTracker
     {
         static void Main(string[] args)
         {
+            Console.BackgroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Blue;
             PersonalGoal personalGoal = new PersonalGoal();
 
             while (true)
