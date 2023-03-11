@@ -1,4 +1,4 @@
 Category,Description,Completed
-Daily,Watch Movies,false
-Daily,Read Books,false
-Daily,Play Soccer,false
+Daily,Watch Movies,true
+Daily,Read Books,true
+Daily,Play Soccer,true
