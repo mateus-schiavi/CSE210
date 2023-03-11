@@ -1,4 +1,4 @@
-Category,Description,Completed
-Daily,Watch Movies,true
-Daily,Read Books,true
-Daily,Play Soccer,true
+Category,Description,Completed,Score
+Daily,Watch Movies,true,100
+Daily,Read Books,true,100
+Daily,Play Soccer,true,100
