@@ -49,7 +49,6 @@ namespace GoalTracker
             Console.WriteLine("Personal goal added successfully!");
         }
 
-
         public override void DeleteGoal()
         {
             Console.Write("Enter the description of the personal goal you want to delete: ");
@@ -122,11 +121,6 @@ namespace GoalTracker
             Console.WriteLine("Goals saved to file successfully!");
         }
 
-
-
-
-
-
         public override void LoadFromFile()
         {
             Console.WriteLine("Loading Goals...");
@@ -172,8 +166,6 @@ namespace GoalTracker
             }
         }
 
-
-
         public override void RecordEvent()
         {
             Console.Write("Enter the description of the personal goal you want to record an event for: ");
@@ -198,7 +190,7 @@ namespace GoalTracker
                     goal.Score += 100;
                     break;
                 case "no":
-                Console.ForegroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"You did not complete the goal '{goal.Description}'. Keep working on it!");
                     break;
                 default:
@@ -208,9 +200,6 @@ namespace GoalTracker
 
             SaveToFile();
         }
-
-
-
 
         public override void Quit()
         {
