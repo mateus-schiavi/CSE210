@@ -44,7 +44,11 @@ namespace GoalTracker
                     Console.WriteLine("Invalid frequency selected.");
                     return;
             }
+
+            personalGoals.Add(newGoal); // Add the new goal to the list
             Console.WriteLine("Personal goal added successfully!");
+
+            SaveToFile(); // Save the changes to the file
         }
 
         public override void DeleteGoal()
@@ -117,7 +121,7 @@ namespace GoalTracker
                 {
                     string completed = goal.Completed ? "true" : "false";
                     writer.WriteLine($"{goal.Category},{goal.Description},{completed},{goal.Score}");
-                }                
+                }
             }
             Console.WriteLine("Goals saved to file successfully!");
         }
@@ -182,27 +186,28 @@ namespace GoalTracker
                 return;
             }
 
-            Console.Write($"Did you complete the goal '{goal.Description}'? (yes/no): ");
-            string input = Console.ReadLine();
-            switch (input.ToLower())
+            Console.Write($"Did you complete the personal goal '{goal.Description}'? (yes/no) ");
+            string answer = Console.ReadLine().ToLower();
+
+            if (answer == "yes")
             {
-                case "yes":
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    goal.Completed = true;
-                    Console.WriteLine($"Congratulations! You have completed the goal '{goal.Description}' and earned 100 points!");
-                    goal.Score += 100;
-                    break;
-                case "no":
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"You did not complete the goal '{goal.Description}'. Keep working on it!");
-                    break;
-                default:
-                    Console.WriteLine("Invalid input. Recording event cancelled.");
-                    return;
+                goal.Completed = true;
+                Console.WriteLine($"Event recorded successfully for personal goal '{goal.Description}'.");
+            }
+            else if (answer == "no")
+            {
+                goal.Completed = false;
+                Console.WriteLine($"Event recorded successfully for personal goal '{goal.Description}'.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid answer. Please enter 'yes' or 'no'.");
+                return;
             }
 
-            SaveToFile();
+            SaveToFile(); // Save the changes to the file
         }
+
 
         public override void Quit()
         {
