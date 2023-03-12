@@ -1,0 +1,57 @@
+Polymorphism in C# refers to the ability of an object to take on many forms or behaviors.
+Poly = many, morphism = forms, so, when a code is developed with polymorphism, it means that it can have many forms.
+In object-oriented programming, polymorphism allows objects of different classes to be treated as if they were objects of the same class, 
+which can simplify code and make it more flexible.
+
+There are two types of polymorphism in C#:
+
+Compile-time polymorphism: This occurs when different methods have the same name but different parameters. This is also known as method overloading. 
+The compiler determines which method to call based on the arguments passed to it.
+
+Runtime polymorphism: This occurs when a subclass overrides a method of its superclass. 
+This is also known as method overriding. The method of the subclass is called instead of the method of the superclass when the method is called on an object of the subclass.
+Polymorphism is a key concept in object-oriented programming and can be used to create code that is more modular, extensible, and easier to maintain.
+
+[...]
+public abstract void AddGoal();
+
+        public abstract void DeleteGoal();
+
+        public abstract void ViewAllGoals();
+
+        public abstract void ListGoals();
+
+        public abstract void SaveToFile();
+
+        public abstract void LoadFromFile();
+
+        public abstract void RecordEvent();
+
+        public abstract void Quit();
+[...]
+
+[...]
+public override void AddGoal()
+[...]
+public override void DeleteGoal()
+[...]
+public override void ViewAllGoals()
+[...]
+public override void ListGoals()
+[...]
+public override void SaveToFile()
+[...]
+public override void LoadFromFile()
+[...]
+public override void RecordEvent()
+[...]
+public override void Quit()
+[...]
+
+The examples above is some methods of the code I've developed. As can be seen, the methods have the same name, put with two forms: one with abstract form, and the other with override form.
+Override is a keyword used to indicate that a method in a subclass is intended to override a method in its parent class, 
+and that the subclass method should be used instead of the parent class method when the method is called on an instance of the subclass.
+
+To be more clear, when a code has polymorphism, it means that its signature is different, but its behavior is the same.
+
+I didn't putted the whole code to not let it be boring.
