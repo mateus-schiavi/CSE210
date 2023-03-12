@@ -14,7 +14,7 @@ namespace GoalTracker
     {
         private List<PersonalGoal> personalGoals = new List<PersonalGoal>();
         private string filePath = "personal_goals.txt";
-        GoalFileVerifier verifier = new GoalFileVerifier("prove\\Develop05\\personal_goals.txt");
+        GoalFileVerifier verifier = new GoalFileVerifier("personal_goals.txt");
         public override void AddGoal()
         {
             verifier.VerifyFileIntegrity();
