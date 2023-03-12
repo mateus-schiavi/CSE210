@@ -99,7 +99,6 @@ namespace GoalTracker
 
         public override void SaveToFile()
         {
-            verifier.VerifyFileIntegrity();
             Console.WriteLine("Saving Goals...");
 
             // Display a spinner while saving the goals
