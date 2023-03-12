@@ -91,22 +91,22 @@ namespace GoalTracker
 
         public override void SaveToFile()
         {
-            throw new NotImplementedException();
+            SaveToFile();
         }
 
         public override void LoadFromFile()
         {
-            throw new NotImplementedException();
+            LoadFromFile();
         }
 
         public override void RecordEvent()
         {
-            throw new NotImplementedException();
+            RecordEvent();
         }
 
         public override void Quit()
         {
-            throw new NotImplementedException();
+            Quit();
         }
     }
 }
