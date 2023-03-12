@@ -14,90 +14,7 @@ namespace GoalTracker
     {
         private List<Personal> Personals = new List<Personal>();
         private string filePath = "personal_goals.txt";
-        GoalFileVerifier verifier = new GoalFileVerifier("personal_goals.txt");
-        public override void AddGoal()
-        {
-            verifier.VerifyFileIntegrity();
-            Console.WriteLine("Select goal frequency:");
-            Console.WriteLine("1. Daily Goal");
-            Console.WriteLine("2. Weekly Goal");
-            Console.WriteLine("3. Monthly Goal");
-            int frequency = int.Parse(Console.ReadLine());
-
-            Console.Write("Enter description: ");
-            string description = Console.ReadLine();
-
-            Personal newGoal;
-
-            switch (frequency)
-            {
-                case 1:
-                    newGoal = new Personal() { Category = "Daily", Description = description, Completed = false };
-                    break;
-                case 2:
-                    newGoal = new Personal() { Category = "Weekly", Description = description, Completed = false };
-                    break;
-                case 3:
-                    newGoal = new Personal() { Category = "Monthly", Description = description, Completed = false };
-                    break;
-                default:
-                    Console.WriteLine("Invalid frequency selected.");
-                    return;
-            }
-
-            Personals.Add(newGoal); // Add the new goal to the list
-            Console.WriteLine("Personal goal added successfully!");
-
-            //SaveToFile(); // Save the changes to the file
-        }
-
-        public override void DeleteGoal()
-        {
-            verifier.VerifyFileIntegrity();
-            Console.Write("Enter the description of the personal goal you want to delete: ");
-            string description = Console.ReadLine();
-
-            Personal goalToDelete = Personals.FirstOrDefault(goal => goal.Description.Equals(description, StringComparison.OrdinalIgnoreCase));
-            if (goalToDelete == null)
-            {
-                Console.WriteLine($"Personal goal with description '{description}' not found.");
-                return;
-            }
-
-            Personals.Remove(goalToDelete);
-            Console.WriteLine("Personal goal deleted successfully!");
-
-            SaveToFile();
-        }
-
-        public override void ViewAllGoals()
-        {
-            LoadFromFile(); // Load goals from the file
-
-            if (Personals.Count == 0)
-            {
-                Console.WriteLine("No personal goals found.");
-                return;
-            }
-
-            Console.WriteLine("List of all personal goals:");
-            foreach (Personal goal in Personals)
-            {
-                string completedMarker = goal.Completed ? "[O]" : "[X]";
-                int score = goal.Completed ? 100 : goal.Score;
-                Console.WriteLine($"{completedMarker} Category: {goal.Category}, Description: {goal.Description}, Score: {goal.Score}");
-            }
-        }
-
-
-        public override void ListGoals()
-        {
-            Console.WriteLine("List of all personal goals:");
-            for (int i = 0; i < Personals.Count; i++)
-            {
-                Console.WriteLine($"[{i}] {Personals[i].Description} ({Personals[i].Category})");
-            }
-        }
+        GoalFileVerifier verifier = new GoalFileVerifier("personal_goals.txt");  
 
         public override void SaveToFile()
         {
@@ -221,6 +138,26 @@ namespace GoalTracker
             }
             Console.WriteLine();
             Environment.Exit(0);
+        }
+
+        public override void AddGoal()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void DeleteGoal()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void ViewAllGoals()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void ListGoals()
+        {
+            throw new NotImplementedException();
         }
     }
 }
