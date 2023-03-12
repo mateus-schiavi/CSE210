@@ -114,9 +114,13 @@ namespace GoalTracker
             }
             Console.WriteLine();
 
-            using (StreamWriter writer = new StreamWriter(filePath))
+            using (StreamWriter writer = new StreamWriter(filePath, true)) // use FileMode.Append to save without replacing
             {
-                writer.WriteLine("Category,Description,Completed,Score");
+                // Only write the header row if the file is empty
+                if (new FileInfo(filePath).Length == 0)
+                {
+                    writer.WriteLine("Category,Description,Completed,Score");
+                }
 
                 foreach (PersonalGoal goal in personalGoals)
                 {
@@ -129,6 +133,7 @@ namespace GoalTracker
 
             Console.WriteLine("Goals saved to file successfully!");
         }
+
 
 
         public override void LoadFromFile()
