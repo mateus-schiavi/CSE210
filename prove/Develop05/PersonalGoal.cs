@@ -192,25 +192,22 @@ namespace GoalTracker
 
             Console.Write("Did you complete the goal? (yes/no): ");
             string input = Console.ReadLine();
-            bool completed = false;
-            switch (input.ToLower())
+            bool completed = input.Equals("yes", StringComparison.OrdinalIgnoreCase);
+
+            if (completed)
             {
-                case "yes":
-                    completed = true;
-                    break;
-                case "no":
-                    completed = false;
-                    break;
-                default:
-                    Console.WriteLine("Invalid input. The event was not recorded.");
-                    return;
+                Console.WriteLine("Congratulations, you completed the goal!");
+                goal.Completed = true;
+                goal.Score += 100;
+            }
+            else
+            {
+                Console.WriteLine("Goal not completed.");
             }
 
-            goal.Completed = completed;
-            Console.WriteLine($"Personal goal '{goal.Description}' has been marked as {(goal.Completed ? "completed" : "not completed")}.");
-
-            SaveToFile(); // Save the changes to the file
+            SaveToFile();
         }
+
 
 
 
