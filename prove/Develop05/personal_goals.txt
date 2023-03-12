@@ -1,2 +1,2 @@
 Category,Description,Completed,Score
-Daily,Study C#,false,0
+Daily,Study Engineer,false,0
