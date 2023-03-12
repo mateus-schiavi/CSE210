@@ -185,35 +185,36 @@ namespace GoalTracker
             Console.Write("Enter the description of the personal goal you want to record an event for: ");
             string description = Console.ReadLine();
 
-            // Find the first personal goal with a matching description
-            PersonalGoal goal = personalGoals.FirstOrDefault(g => g.Description.Equals(description, StringComparison.OrdinalIgnoreCase));
+            PersonalGoal goal = personalGoals.FirstOrDefault(goal => goal.Description.Equals(description, StringComparison.OrdinalIgnoreCase));
             if (goal == null)
             {
                 Console.WriteLine($"Personal goal with description '{description}' not found.");
                 return;
             }
 
-            Console.Write($"Did you complete the personal goal '{goal.Description}'? (yes/no) ");
-            string answer = Console.ReadLine().ToLower();
+            Console.Write("Did you complete the goal? (yes/no): ");
+            string input = Console.ReadLine();
+            bool completed = false;
+            switch (input.ToLower())
+            {
+                case "yes":
+                    completed = true;
+                    break;
+                case "no":
+                    completed = false;
+                    break;
+                default:
+                    Console.WriteLine("Invalid input. The event was not recorded.");
+                    return;
+            }
 
-            if (answer == "yes")
-            {
-                goal.Completed = true;
-                Console.WriteLine($"Event recorded successfully for personal goal '{goal.Description}'.");
-            }
-            else if (answer == "no")
-            {
-                goal.Completed = false;
-                Console.WriteLine($"Event recorded successfully for personal goal '{goal.Description}'.");
-            }
-            else
-            {
-                Console.WriteLine("Invalid answer. Please enter 'yes' or 'no'.");
-                return;
-            }
+            goal.Completed = completed;
+            Console.WriteLine($"Personal goal '{goal.Description}' has been marked as {(goal.Completed ? "completed" : "not completed")}.");
 
             SaveToFile(); // Save the changes to the file
         }
+
+
 
 
         public override void Quit()
