@@ -22,7 +22,7 @@ namespace GoalTracker
                 Console.WriteLine("5. Load from File ");
                 Console.WriteLine("6. Record an event for a personal goal");
                 Console.WriteLine("7. Exit");
-
+                
                 string input = Console.ReadLine();
                 switch (input)
                 {
