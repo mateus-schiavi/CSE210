@@ -47,8 +47,8 @@ namespace GoalTracker
                     recordEvent.SaveToFile();
                     break;
                 case "6":
-                    Console.WriteLine("Goodbye!");
-                    exit = true;
+                    PersonalGoal Quit = new PersonalGoal();
+                    Quit.Quit();
                     break;
                 default:
                     Console.WriteLine("Invalid option selected.");
