@@ -32,7 +32,6 @@ namespace GoalTracker
                     case "2":
                         PersonalGoal goalToDelete = new PersonalGoal();
                         goalToDelete.DeleteGoal();
-                        goalToDelete.SaveToFile();
                         break;
                     case "3":
                         PersonalGoal viewGoals = new PersonalGoal();
