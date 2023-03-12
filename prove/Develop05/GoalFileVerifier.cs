@@ -4,11 +4,15 @@ using System.IO;
 
 namespace GoalTracker
 {
-    class GoalFileVerifier
+    class GoalFileVerifier : FileVerifier
     {
-        private readonly string filePath = "personal_goals.txt";
 
-        public bool VerifyFileIntegrity()
+
+        public GoalFileVerifier(string filePath) : base(filePath)
+        {
+        }
+
+        public override bool VerifyFileIntegrity()
         {
             try
             {

@@ -13,8 +13,8 @@ namespace GoalTracker
     class PersonalGoal : Goal
     {
         private List<PersonalGoal> personalGoals = new List<PersonalGoal>();
-        GoalFileVerifier goalFileVerifier = new GoalFileVerifier();
         private string filePath = "personal_goals.txt";
+        GoalFileVerifier goalFileVerifier;
 
         public override void AddGoal()
         {
