@@ -142,22 +142,22 @@ namespace GoalTracker
 
         public override void AddGoal()
         {
-            AddGoal();
+            throw new NotImplementedException();
         }
 
         public override void DeleteGoal()
         {
-            DeleteGoal();
+            throw new NotImplementedException();
         }
 
         public override void ViewAllGoals()
         {
-            ViewAllGoals();
+            throw new NotImplementedException();
         }
 
         public override void ListGoals()
         {
-            ListGoals();
+            throw new NotImplementedException();
         }
     }
 }
