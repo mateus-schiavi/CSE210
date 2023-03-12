@@ -48,7 +48,7 @@ namespace GoalTracker
             personalGoals.Add(newGoal); // Add the new goal to the list
             Console.WriteLine("Personal goal added successfully!");
 
-            SaveToFile(); // Save the changes to the file
+            //SaveToFile(); // Save the changes to the file
         }
 
         public override void DeleteGoal()

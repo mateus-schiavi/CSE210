@@ -1,3 +1,2 @@
 Category,Description,Completed,Score
-
-'
+Daily,Study C#,false,0
