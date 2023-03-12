@@ -118,10 +118,8 @@ namespace GoalTracker
             {
                 writer.WriteLine("Category,Description,Completed,Score");
 
-                // Iterate over the personalGoals list by index
-                for (int i = 0; i < personalGoals.Count; i++)
+                foreach (PersonalGoal goal in personalGoals)
                 {
-                    PersonalGoal goal = personalGoals[i];
                     string completed = goal.Completed ? "true" : "false";
                     writer.WriteLine($"{goal.Category},{goal.Description},{completed},{goal.Score}");
                 }
