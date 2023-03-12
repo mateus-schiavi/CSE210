@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace GoalTracker
 {
-    class PersonalGoal : Goal
+    class PersonalGoal : Personal
     {
         private List<PersonalGoal> _goals = new List<PersonalGoal>();
 
@@ -87,26 +87,6 @@ namespace GoalTracker
             {
                 Console.WriteLine($"[{i}] {_goals[i].Description} ({_goals[i].Category})");
             }
-        }
-
-        public override void SaveToFile()
-        {
-            SaveToFile();
-        }
-
-        public override void LoadFromFile()
-        {
-            LoadFromFile();
-        }
-
-        public override void RecordEvent()
-        {
-            RecordEvent();
-        }
-
-        public override void Quit()
-        {
-            Quit();
         }
     }
 }
