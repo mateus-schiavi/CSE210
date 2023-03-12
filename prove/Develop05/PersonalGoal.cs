@@ -14,11 +14,10 @@ namespace GoalTracker
     {
         private List<PersonalGoal> personalGoals = new List<PersonalGoal>();
         private string filePath = "personal_goals.txt";
-        GoalFileVerifier goalFileVerifier;
-
+        GoalFileVerifier verifier = new GoalFileVerifier("prove\\Develop05\\personal_goals.txt");
         public override void AddGoal()
         {
-            goalFileVerifier.VerifyFileIntegrity();
+            verifier.VerifyFileIntegrity();
             Console.WriteLine("Select goal frequency:");
             Console.WriteLine("1. Daily Goal");
             Console.WriteLine("2. Weekly Goal");
@@ -52,7 +51,7 @@ namespace GoalTracker
 
         public override void DeleteGoal()
         {
-            goalFileVerifier.VerifyFileIntegrity();
+            verifier.VerifyFileIntegrity();
             Console.Write("Enter the description of the personal goal you want to delete: ");
             string description = Console.ReadLine();
 
@@ -100,7 +99,7 @@ namespace GoalTracker
 
         public override void SaveToFile()
         {
-            goalFileVerifier.VerifyFileIntegrity();
+            verifier.VerifyFileIntegrity();
             Console.WriteLine("Saving Goals...");
 
             // Display a spinner while saving the goals
@@ -129,7 +128,7 @@ namespace GoalTracker
 
         public override void LoadFromFile()
         {
-            goalFileVerifier.VerifyFileIntegrity();
+            verifier.VerifyFileIntegrity();
             Console.WriteLine("Loading Goals...");
 
             // Display a spinner while loading the goals
