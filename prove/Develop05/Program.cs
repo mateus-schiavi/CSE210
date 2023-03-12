@@ -8,6 +8,8 @@ namespace GoalTracker
         {
             Console.WriteLine("Welcome to the Goal Tracker app!");
 
+            PersonalGoal goalTracker = new PersonalGoal();
+
             bool exit = false;
             while (!exit)
             {
@@ -25,34 +27,26 @@ namespace GoalTracker
                 switch (input)
                 {
                     case "1":
-                        PersonalGoal newGoal = new PersonalGoal();
-                        newGoal.AddGoal();
-                        newGoal.SaveToFile();
+                        goalTracker.AddGoal();
                         break;
                     case "2":
-                        PersonalGoal goalToDelete = new PersonalGoal();
-                        goalToDelete.DeleteGoal();
+                        goalTracker.DeleteGoal();
                         break;
                     case "3":
-                        PersonalGoal viewGoals = new PersonalGoal();
-                        viewGoals.ViewAllGoals();
+                        goalTracker.ViewAllGoals();
                         break;
                     case "4":
-                        PersonalGoal SaveGoals = new PersonalGoal();
-                        SaveGoals.SaveToFile();
+                        goalTracker.SaveToFile();
                         break;
                     case "5":
-                        PersonalGoal loadFile = new PersonalGoal();
-                        loadFile.LoadFromFile();
+                        goalTracker.LoadFromFile();
                         break;
                     case "6":
-                        PersonalGoal recordEvent = new PersonalGoal();
-                        recordEvent.RecordEvent();
+                        goalTracker.RecordEvent();
                         break;
                     case "7":
-                        PersonalGoal quit = new PersonalGoal();
-                        quit.Quit();
-                        break;
+                        goalTracker.Quit();
+                        return;
                     default:
                         Console.WriteLine("Invalid option selected.");
                         break;
@@ -60,5 +54,4 @@ namespace GoalTracker
             }
         }
     }
-
 }
