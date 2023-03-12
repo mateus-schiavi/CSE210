@@ -212,11 +212,7 @@ namespace GoalTracker
 
             SaveToFile();
         }
-
-
-
-
-
+        
         public override void Quit()
         {
             string message = "Thanks for using Goal Tracker! Have a Nice Week";
