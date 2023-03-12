@@ -1,2 +1,0 @@
-Category,Description,Completed,Score
-Daily,Read Books,true,100
