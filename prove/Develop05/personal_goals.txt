@@ -1,2 +1,2 @@
 Category,Description,Completed,Score
-Daily,Study Italian,false,0
+Daily,Study Italian,true,0
