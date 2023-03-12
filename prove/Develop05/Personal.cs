@@ -10,9 +10,9 @@ the user types not complete to a goal
 */
 namespace GoalTracker
 {
-    class PersonalGoal : Goal
+    class Personal : Goal
     {
-        private List<PersonalGoal> personalGoals = new List<PersonalGoal>();
+        private List<Personal> Personals = new List<Personal>();
         private string filePath = "personal_goals.txt";
         GoalFileVerifier verifier = new GoalFileVerifier("personal_goals.txt");
         public override void AddGoal()
@@ -27,25 +27,25 @@ namespace GoalTracker
             Console.Write("Enter description: ");
             string description = Console.ReadLine();
 
-            PersonalGoal newGoal;
+            Personal newGoal;
 
             switch (frequency)
             {
                 case 1:
-                    newGoal = new PersonalGoal() { Category = "Daily", Description = description, Completed = false };
+                    newGoal = new Personal() { Category = "Daily", Description = description, Completed = false };
                     break;
                 case 2:
-                    newGoal = new PersonalGoal() { Category = "Weekly", Description = description, Completed = false };
+                    newGoal = new Personal() { Category = "Weekly", Description = description, Completed = false };
                     break;
                 case 3:
-                    newGoal = new PersonalGoal() { Category = "Monthly", Description = description, Completed = false };
+                    newGoal = new Personal() { Category = "Monthly", Description = description, Completed = false };
                     break;
                 default:
                     Console.WriteLine("Invalid frequency selected.");
                     return;
             }
 
-            personalGoals.Add(newGoal); // Add the new goal to the list
+            Personals.Add(newGoal); // Add the new goal to the list
             Console.WriteLine("Personal goal added successfully!");
 
             //SaveToFile(); // Save the changes to the file
@@ -57,14 +57,14 @@ namespace GoalTracker
             Console.Write("Enter the description of the personal goal you want to delete: ");
             string description = Console.ReadLine();
 
-            PersonalGoal goalToDelete = personalGoals.FirstOrDefault(goal => goal.Description.Equals(description, StringComparison.OrdinalIgnoreCase));
+            Personal goalToDelete = Personals.FirstOrDefault(goal => goal.Description.Equals(description, StringComparison.OrdinalIgnoreCase));
             if (goalToDelete == null)
             {
                 Console.WriteLine($"Personal goal with description '{description}' not found.");
                 return;
             }
 
-            personalGoals.Remove(goalToDelete);
+            Personals.Remove(goalToDelete);
             Console.WriteLine("Personal goal deleted successfully!");
 
             SaveToFile();
@@ -74,14 +74,14 @@ namespace GoalTracker
         {
             LoadFromFile(); // Load goals from the file
 
-            if (personalGoals.Count == 0)
+            if (Personals.Count == 0)
             {
                 Console.WriteLine("No personal goals found.");
                 return;
             }
 
             Console.WriteLine("List of all personal goals:");
-            foreach (PersonalGoal goal in personalGoals)
+            foreach (Personal goal in Personals)
             {
                 string completedMarker = goal.Completed ? "[O]" : "[X]";
                 int score = goal.Completed ? 100 : goal.Score;
@@ -93,9 +93,9 @@ namespace GoalTracker
         public override void ListGoals()
         {
             Console.WriteLine("List of all personal goals:");
-            for (int i = 0; i < personalGoals.Count; i++)
+            for (int i = 0; i < Personals.Count; i++)
             {
-                Console.WriteLine($"[{i}] {personalGoals[i].Description} ({personalGoals[i].Category})");
+                Console.WriteLine($"[{i}] {Personals[i].Description} ({Personals[i].Category})");
             }
         }
 
@@ -122,7 +122,7 @@ namespace GoalTracker
                     writer.WriteLine("Category,Description,Completed,Score");
                 }
 
-                foreach (PersonalGoal goal in personalGoals)
+                foreach (Personal goal in Personals)
                 {
                     string completed = goal.Completed ? "true" : "false";
                     writer.WriteLine($"{goal.Category},{goal.Description},{completed},{goal.Score}");
@@ -154,7 +154,7 @@ namespace GoalTracker
 
             if (File.Exists(filePath))
             {
-                personalGoals.Clear();
+                Personals.Clear();
                 using (StreamReader reader = new StreamReader(filePath))
                 {
                     // Skip the header row
@@ -164,14 +164,14 @@ namespace GoalTracker
                     {
                         string line = reader.ReadLine();
                         string[] parts = line.Split(',');
-                        PersonalGoal goal = new PersonalGoal()
+                        Personal goal = new Personal()
                         {
                             Category = parts[0],
                             Description = parts[1],
                             Completed = bool.Parse(parts[2]),
                             Score = int.Parse(parts[3])
                         };
-                        personalGoals.Add(goal);
+                        Personals.Add(goal);
                     }
                 }
                 Console.WriteLine("Goals loaded from file successfully!");
@@ -188,7 +188,7 @@ namespace GoalTracker
             Console.Write("Enter the description of the personal goal you want to record an event for: ");
             string description = Console.ReadLine();
 
-            PersonalGoal goal = personalGoals.FirstOrDefault(goal => goal.Description.Equals(description, StringComparison.OrdinalIgnoreCase));
+            Personal goal = Personals.FirstOrDefault(goal => goal.Description.Equals(description, StringComparison.OrdinalIgnoreCase));
             if (goal == null)
             {
                 Console.WriteLine($"Personal goal with description '{description}' not found.");

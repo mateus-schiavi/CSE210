@@ -8,7 +8,7 @@ namespace GoalTracker
         {
             Console.WriteLine("Welcome to the Goal Tracker app!");
 
-            PersonalGoal goalTracker = new PersonalGoal();
+            Personal goalTracker = new Personal();
 
             bool exit = false;
             while (!exit)
