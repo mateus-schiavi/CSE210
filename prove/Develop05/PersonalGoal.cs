@@ -44,8 +44,6 @@ namespace GoalTracker
                     Console.WriteLine("Invalid frequency selected.");
                     return;
             }
-
-            personalGoals.Add(newGoal);
             Console.WriteLine("Personal goal added successfully!");
         }
 
@@ -119,7 +117,7 @@ namespace GoalTracker
                 {
                     string completed = goal.Completed ? "true" : "false";
                     writer.WriteLine($"{goal.Category},{goal.Description},{completed},{goal.Score}");
-                }
+                }                
             }
             Console.WriteLine("Goals saved to file successfully!");
         }
