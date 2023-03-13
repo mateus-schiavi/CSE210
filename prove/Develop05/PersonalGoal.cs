@@ -8,7 +8,7 @@ namespace GoalTracker
     {
         private List<PersonalGoal> _goals = new List<PersonalGoal>();
         private string filePath = "personal_goals.txt";
-        GoalFileVerifier verifier = new GoalFileVerifier("personal_goals.txt");  
+        GoalFileVerifier verifier = new GoalFileVerifier("personal_goals.txt");
         public PersonalGoal(string category, string description)
         {
             Category = category;
@@ -163,9 +163,11 @@ namespace GoalTracker
                             Completed = bool.Parse(parts[2]),
                             Score = int.Parse(parts[3])
                         };
-                     }
-                    
+
+                        _goals.Add(goal); // add the loaded goal to the list
+                    }
                 }
+
                 Console.WriteLine("Goals loaded from file successfully!");
             }
             else
@@ -204,7 +206,7 @@ namespace GoalTracker
 
             SaveToFile();
         }
-        
+
         public override void Quit()
         {
             string message = "Thanks for using Goal Tracker! Have a Nice Week";
