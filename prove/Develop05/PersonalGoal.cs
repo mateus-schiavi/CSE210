@@ -148,6 +148,7 @@ namespace GoalTracker
             {
                 Console.WriteLine($"File not found: {filePath}");
                 throw new FileNotFoundException();
+                
             }
 
             try
@@ -181,6 +182,8 @@ namespace GoalTracker
                 Console.WriteLine($"An error occurred while loading the file: {ex.Message}");
                 throw new FileNotFoundException();
             }
+
+            return;
         }
 
 
