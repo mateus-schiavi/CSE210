@@ -144,9 +144,14 @@ namespace GoalTracker
             }
             Console.WriteLine();
 
-            if (File.Exists(filePath))
+            if (!File.Exists(filePath))
             {
-                Console.Clear();
+                Console.WriteLine($"File not found: {filePath}");
+                return; // exit the program
+            }
+
+            try
+            {
                 using (StreamReader reader = new StreamReader(filePath))
                 {
                     // Skip the header row
@@ -169,12 +174,14 @@ namespace GoalTracker
                 }
 
                 Console.WriteLine("Goals loaded from file successfully!");
+
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("No saved goals found.");
+                Console.WriteLine($"An error occurred while loading the file: {ex.Message}");
             }
         }
+
 
 
         public override void RecordEvent()
