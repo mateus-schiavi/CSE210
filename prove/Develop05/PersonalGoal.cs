@@ -116,7 +116,7 @@ namespace GoalTracker
                     writer.WriteLine("Category,Description,Completed,Score");
                 }
 
-                foreach (PersonalGoal goal in ListGoals)
+                foreach (PersonalGoal goal in _goals)
                 {
                     string completed = goal.Completed ? "true" : "false";
                     writer.WriteLine($"{goal.Category},{goal.Description},{completed},{goal.Score}");
@@ -180,7 +180,7 @@ namespace GoalTracker
             Console.Write("Enter the description of the personal goal you want to record an event for: ");
             string description = Console.ReadLine();
 
-            PersonalGoal goal = PersonalGoal.FirstOrDefault(goal => goal.Description.Equals(description, StringComparison.OrdinalIgnoreCase));
+            PersonalGoal goal = _goals.FirstOrDefault(goal => goal.Description.Equals(description, StringComparison.OrdinalIgnoreCase));
             if (goal == null)
             {
                 Console.WriteLine($"Personal goal with description '{description}' not found.");
