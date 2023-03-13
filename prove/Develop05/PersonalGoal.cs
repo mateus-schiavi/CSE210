@@ -90,7 +90,7 @@ namespace GoalTracker
             Console.WriteLine("List of all personal goals:");
             for (int i = 0; i < _goals.Count; i++)
             {
-                Console.WriteLine($"[{i}] {_goals[i].Description} ({_goals[i].Category})");
+                Console.WriteLine($"[{i}] {_goals[i].Description} {_goals[i].Category}");
             }
         }
         public override void SaveToFile()
