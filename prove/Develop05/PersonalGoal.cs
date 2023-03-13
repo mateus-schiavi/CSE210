@@ -7,8 +7,8 @@ namespace GoalTracker
     class PersonalGoal : Goal
     {
         private List<PersonalGoal> _goals = new List<PersonalGoal>();
-        private string filePath = "personal_goals.txt";
-        GoalFileVerifier verifier = new GoalFileVerifier("personal_goals.txt");
+        private string filePath = "personal_goals";
+        GoalFileVerifier verifier = new GoalFileVerifier("personal_goals");
         public PersonalGoal(string category, string description)
         {
             Category = category;
@@ -131,20 +131,28 @@ namespace GoalTracker
         public override void LoadFromFile()
         {
             verifier.VerifyFileIntegrity();
-            Console.WriteLine("Loading Goals...");
 
-            // Display a spinner while loading the goals
-            string[] spinner = { "/", "-", "\\", "|" };
-            int spinnerIndex = 0;
-            for (int i = 0; i < 10; i++)
+            if(!File.Exists(filePath))
             {
-                Console.Write($"\r{spinner[spinnerIndex]}");
-                spinnerIndex = (spinnerIndex + 1) % spinner.Length;
-                Thread.Sleep(100);
+                Console.WriteLine($"File {filePath} not found");
+                return;
             }
+
             Console.WriteLine();
             try
             {
+                Console.WriteLine("Loading Goals...");
+
+                // Display a spinner while loading the goals
+                string[] spinner = { "/", "-", "\\", "|" };
+                int spinnerIndex = 0;
+
+                for (int i = 0; i < 10; i++)
+                {
+                    Console.Write($"\r{spinner[spinnerIndex]}");
+                    spinnerIndex = (spinnerIndex + 1) % spinner.Length;
+                    Thread.Sleep(100);
+                }
                 using (StreamReader reader = new StreamReader(filePath))
                 {
                     // Skip the header row
