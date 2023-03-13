@@ -179,7 +179,7 @@ namespace GoalTracker
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred while loading the file: {ex.Message}");
-                Environment.Exit(0);
+                throw new FileNotFoundException();
             }
         }
 
