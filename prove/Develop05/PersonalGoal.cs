@@ -8,7 +8,7 @@ namespace GoalTracker
     {
         private List<PersonalGoal> _goals = new List<PersonalGoal>();
         private string filePath = "personal_goals.txt";
-        GoalFileVerifier verifier = new GoalFileVerifier("personal_goals.txt");
+        GoalFileVerifier verifier = new GoalFileVerifier("personal_goals");
         public PersonalGoal(string category, string description)
         {
             Category = category;
