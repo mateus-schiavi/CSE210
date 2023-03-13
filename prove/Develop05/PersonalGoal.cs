@@ -132,7 +132,7 @@ namespace GoalTracker
         {
             verifier.VerifyFileIntegrity();
 
-            if(!File.Exists(filePath))
+            if (!File.Exists(filePath))
             {
                 Console.WriteLine($"File {filePath} not found");
                 return;
@@ -203,19 +203,19 @@ namespace GoalTracker
             string input = Console.ReadLine();
             bool completed = input.Equals("yes", StringComparison.OrdinalIgnoreCase);
 
+            goal.Completed = completed;
             if (completed)
             {
-                Console.WriteLine("Congratulations, you completed the goal!");
-                goal.Completed = true;
-                goal.Score += 100;
+                goal.Score += 100; // Add 100 points for completing the goal
+                Console.WriteLine($"Congratulations! You completed the '{goal.Description}' goal and earned 100 points.");
             }
             else
             {
-                Console.WriteLine("Goal not completed.");
+                Console.WriteLine($"The '{goal.Description}' goal was not completed.");
             }
-
-            SaveToFile();
         }
+
+
 
         public override void Quit()
         {
