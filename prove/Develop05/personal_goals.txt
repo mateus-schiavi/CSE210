@@ -1,2 +1,2 @@
 Category,Description,Completed,Score
-Weekly,Read 1 book,false,0
+Weekly,Read 1 book,true,100
