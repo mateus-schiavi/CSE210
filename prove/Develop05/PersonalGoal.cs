@@ -7,8 +7,8 @@ namespace GoalTracker
     class PersonalGoal : Goal
     {
         private List<PersonalGoal> _goals = new List<PersonalGoal>();
-        private string filePath = "personal_goals";
-        GoalFileVerifier verifier = new GoalFileVerifier("personal_goals");
+        private string filePath = "personal_goals.txt";
+        GoalFileVerifier verifier = new GoalFileVerifier("personal_goals.txt");
         public PersonalGoal(string category, string description)
         {
             Category = category;
