@@ -147,7 +147,7 @@ namespace GoalTracker
             if (!File.Exists(filePath))
             {
                 Console.WriteLine($"File not found: {filePath}");
-                return; // exit the program
+                Environment.Exit(0);
             }
 
             try
@@ -181,6 +181,7 @@ namespace GoalTracker
                 Console.WriteLine($"An error occurred while loading the file: {ex.Message}");
             }
         }
+
 
 
 
