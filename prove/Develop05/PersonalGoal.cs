@@ -8,7 +8,7 @@ namespace GoalTracker
     {
         private List<PersonalGoal> _goals = new List<PersonalGoal>();
         private string filePath = "personal_goals.txt";
-        GoalFileVerifier verifier = new GoalFileVerifier("personal_goals");
+        GoalFileVerifier verifier = new GoalFileVerifier("personal_goals.txt");
         public PersonalGoal(string category, string description)
         {
             Category = category;
@@ -147,7 +147,7 @@ namespace GoalTracker
             if (!File.Exists(filePath))
             {
                 Console.WriteLine($"File not found: {filePath}");
-                Environment.Exit(0);
+                throw new FileNotFoundException();
             }
 
             try
@@ -182,6 +182,7 @@ namespace GoalTracker
                 Environment.Exit(0);
             }
         }
+
 
 
 
