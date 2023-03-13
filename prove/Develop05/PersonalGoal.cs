@@ -143,13 +143,6 @@ namespace GoalTracker
                 Thread.Sleep(100);
             }
             Console.WriteLine();
-
-            if (!File.Exists(filePath))
-            {
-                Console.WriteLine($"File not found: {filePath}");
-                return; // exit the method without attempting to read from the file
-            }
-
             try
             {
                 using (StreamReader reader = new StreamReader(filePath))
@@ -179,10 +172,7 @@ namespace GoalTracker
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred while loading the file: {ex.Message}");
-                throw new FileNotFoundException();
             }
-
-            return;
         }
 
 
