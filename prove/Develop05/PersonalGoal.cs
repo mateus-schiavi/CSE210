@@ -108,6 +108,32 @@ namespace GoalTracker
             }
             Console.WriteLine();
 
+            var existingGoals = new List<PersonalGoal>();
+            if (File.Exists(filePath))
+            {
+                // Load existing goals from the file
+                using (StreamReader reader = new StreamReader(filePath))
+                {
+                    // Skip the header row
+                    reader.ReadLine();
+
+                    while (!reader.EndOfStream)
+                    {
+                        string line = reader.ReadLine();
+                        string[] parts = line.Split(',');
+                        PersonalGoal goal = new PersonalGoal()
+                        {
+                            Category = parts[0],
+                            Description = parts[1],
+                            Completed = bool.Parse(parts[2]),
+                            Score = int.Parse(parts[3])
+                        };
+
+                        existingGoals.Add(goal);
+                    }
+                }
+            }
+
             using (StreamWriter writer = new StreamWriter(filePath, true)) // use FileMode.Append to save without replacing
             {
                 // Only write the header row if the file is empty
@@ -116,10 +142,14 @@ namespace GoalTracker
                     writer.WriteLine("Category,Description,Completed,Score");
                 }
 
+                // Write the new goals that don't already exist in the file
                 foreach (PersonalGoal goal in _goals)
                 {
-                    string completed = goal.Completed ? "true" : "false";
-                    writer.WriteLine($"{goal.Category},{goal.Description},{completed},{goal.Score}");
+                    if (!existingGoals.Any(g => g.Description == goal.Description))
+                    {
+                        string completed = goal.Completed ? "true" : "false";
+                        writer.WriteLine($"{goal.Category},{goal.Description},{completed},{goal.Score}");
+                    }
                 }
 
                 writer.Flush(); // flush the stream to persist changes
@@ -127,6 +157,7 @@ namespace GoalTracker
 
             Console.WriteLine("Goals saved to file successfully!");
         }
+
 
         public override void LoadFromFile()
         {
