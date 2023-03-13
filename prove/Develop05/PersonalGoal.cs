@@ -147,8 +147,7 @@ namespace GoalTracker
             if (!File.Exists(filePath))
             {
                 Console.WriteLine($"File not found: {filePath}");
-                throw new FileNotFoundException();
-                
+                return; // exit the method without attempting to read from the file
             }
 
             try
