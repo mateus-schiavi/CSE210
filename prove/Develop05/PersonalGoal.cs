@@ -208,6 +208,7 @@ namespace GoalTracker
             {
                 Console.WriteLine($"The '{goal.Description}' goal was not completed.");
             }
+            SaveToFile();
         }
 
 
