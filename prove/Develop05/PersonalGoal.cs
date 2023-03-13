@@ -108,48 +108,16 @@ namespace GoalTracker
             }
             Console.WriteLine();
 
-            var existingGoals = new List<PersonalGoal>();
-            if (File.Exists(filePath))
+            using (StreamWriter writer = new StreamWriter(filePath))
             {
-                // Load existing goals from the file
-                using (StreamReader reader = new StreamReader(filePath))
-                {
-                    // Skip the header row
-                    reader.ReadLine();
+                // Write the header row
+                writer.WriteLine("Category,Description,Completed,Score");
 
-                    while (!reader.EndOfStream)
-                    {
-                        string line = reader.ReadLine();
-                        string[] parts = line.Split(',');
-                        PersonalGoal goal = new PersonalGoal()
-                        {
-                            Category = parts[0],
-                            Description = parts[1],
-                            Completed = bool.Parse(parts[2]),
-                            Score = int.Parse(parts[3])
-                        };
-
-                        existingGoals.Add(goal);
-                    }
-                }
-            }
-
-            using (StreamWriter writer = new StreamWriter(filePath, true)) // use FileMode.Append to save without replacing
-            {
-                // Only write the header row if the file is empty
-                if (new FileInfo(filePath).Length == 0)
-                {
-                    writer.WriteLine("Category,Description,Completed,Score");
-                }
-
-                // Write the new goals that don't already exist in the file
+                // Write each goal to the file
                 foreach (PersonalGoal goal in _goals)
                 {
-                    if (!existingGoals.Any(g => g.Description == goal.Description))
-                    {
-                        string completed = goal.Completed ? "true" : "false";
-                        writer.WriteLine($"{goal.Category},{goal.Description},{completed},{goal.Score}");
-                    }
+                    string completed = goal.Completed ? "true" : "false";
+                    writer.WriteLine($"{goal.Category},{goal.Description},{completed},{goal.Score}");
                 }
 
                 writer.Flush(); // flush the stream to persist changes
@@ -213,10 +181,6 @@ namespace GoalTracker
                 Console.WriteLine($"An error occurred while loading the file: {ex.Message}");
             }
         }
-
-
-
-
 
         public override void RecordEvent()
         {
