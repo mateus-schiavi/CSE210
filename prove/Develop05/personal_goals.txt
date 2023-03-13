@@ -2,3 +2,6 @@ Category,Description,Completed,Score
 Daily,Play Games,false,0
 Daily,Jump Rope,false,0
 Daily,Study charity,false,0
+Daily,Play Games,true,100
+Daily,Jump Rope,false,0
+Daily,Study charity,false,0
