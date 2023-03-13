@@ -147,7 +147,7 @@ namespace GoalTracker
             if (!File.Exists(filePath))
             {
                 Console.WriteLine($"File not found: {filePath}");
-                Environment.Exit(0);
+                Quit();
             }
 
             try
