@@ -1,0 +1,13 @@
+I want to let clear that, although I have a strong testimony of the veracity of the Restored Gospel, I'm also a big lover of exact sciences, specially physics and chemistry.
+Last semester, during the Programming with Functions course, I've developed a code in Python that performs operation with complex numbers, then, I decided to 'recicle' this idea and do it in C# but with another classes.
+Down below is the classes of my final project (in total are eight classes, including the class Program):
+Class 1: PhysicalCalculator: will be responsible to calculate physical properties, which includes force, mass, volume and area.
+There are two methods in it: CalculateDensity, with two overloads: mass and volume, and CalculatePressure, with two overloads: force and area.
+Class 2: ChemicalCalculator: will be responsible to calculate chemical properties, which includes moles, volume and hydrogen Ion concentration.
+There are two methods in this class: CalculateMolarity, with two overloads: moles and volume, and CalculatepH, with only one overload: hydrogenIonConcentration.
+class 3: Calculator - will work as an abstract base class for all calculators.
+It will have only one method: Calculate, with two overloads: value1 and value2.
+class 4: DensityCalculator - calculates density using the Calculator base class
+it will have only one method, called Calculate, with two overloads: mass and volume.
+
+
