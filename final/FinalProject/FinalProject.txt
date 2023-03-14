@@ -14,6 +14,6 @@ It will have only one method, called Calculate, with two overloads: mole and vol
 class 6: MolarityCalculator: calculates the molarity using the Calculator base class.
 It will have only one method, called Calculate, with two overloads: moles and volume
 class 7: pHCalculator: calculates the pH, using the calculator base class.
-It will have two methods: one constructor with one overload, called pKw, and a method called Calculate with one overload called hydrogenIonConcentration.
+It will have only one method, called Calculate, with two overloads: hydrogenIonConcentration and unused.
 class 8: prorgram: shows a menu allowing the user to choose which kind of operation he/she wants to performs.
 It will have a method called Main, with one overload:  string[] args;
