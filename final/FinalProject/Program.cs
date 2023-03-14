@@ -80,6 +80,9 @@ public class Program
             if (!quit)
             {
                 Console.WriteLine();
+                Console.WriteLine("Press Enter to Continue...");
+                Console.ReadKey();
+                Console.Clear();
             }
         }
     }
