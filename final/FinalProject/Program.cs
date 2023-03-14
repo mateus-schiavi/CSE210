@@ -5,24 +5,61 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        // Example usage of the DensityCalculator class
+        // Create instances of the calculators
         DensityCalculator densityCalculator = new DensityCalculator();
-        double density = densityCalculator.Calculate(10.0, 5.0);
-        Console.WriteLine($"Density: {density}");
-
-        // Example usage of the PressureCalculator class
         PressureCalculator pressureCalculator = new PressureCalculator();
-        double pressure = pressureCalculator.Calculate(20.0, 2.0);
-        Console.WriteLine($"Pressure: {pressure}");
-
-        // Example usage of the MolarityCalculator class
         MolarityCalculator molarityCalculator = new MolarityCalculator();
-        double molarity = molarityCalculator.Calculate(5.0, 0.5);
-        Console.WriteLine($"Molarity: {molarity}");
-
-        // Example usage of the pHCalculator class
         pHCalculator pHCalculator = new pHCalculator();
-        double pH = pHCalculator.Calculate(1.0e-7, 0.0);
-        Console.WriteLine($"pH: {pH}");
+
+        // Prompt the user to choose an operation
+        Console.WriteLine("Choose an operation:");
+        Console.WriteLine("1. Calculate density");
+        Console.WriteLine("2. Calculate pressure");
+        Console.WriteLine("3. Calculate molarity");
+        Console.WriteLine("4. Calculate pH");
+        Console.Write("Enter your choice (1-4): ");
+        int choice = int.Parse(Console.ReadLine());
+
+        // Perform the chosen operation
+        switch (choice)
+        {
+            case 1:
+                // Calculate density
+                Console.Write("Enter mass in kg: ");
+                double mass = double.Parse(Console.ReadLine());
+                Console.Write("Enter volume in m^3: ");
+                double volume = double.Parse(Console.ReadLine());
+                double density = densityCalculator.Calculate(mass, volume);
+                Console.WriteLine($"Density: {density} kg/m^3");
+                break;
+            case 2:
+                // Calculate pressure
+                Console.Write("Enter force in N: ");
+                double force = double.Parse(Console.ReadLine());
+                Console.Write("Enter area in m^2: ");
+                double area = double.Parse(Console.ReadLine());
+                double pressure = pressureCalculator.Calculate(force, area);
+                Console.WriteLine($"Pressure: {pressure} Pa");
+                break;
+            case 3:
+                // Calculate molarity
+                Console.Write("Enter moles of solute: ");
+                double moles = double.Parse(Console.ReadLine());
+                Console.Write("Enter volume of solution in L: ");
+                double solnVolume = double.Parse(Console.ReadLine());
+                double molarity = molarityCalculator.Calculate(moles, solnVolume);
+                Console.WriteLine($"Molarity: {molarity} mol/L");
+                break;
+            case 4:
+                // Calculate pH
+                Console.Write("Enter hydrogen ion concentration in mol/L: ");
+                double hydrogenIonConcentration = double.Parse(Console.ReadLine());
+                double pH = pHCalculator.Calculate(hydrogenIonConcentration, 0.0);
+                Console.WriteLine($"pH: {pH}");
+                break;
+            default:
+                Console.WriteLine("Invalid choice.");
+                break;
+        }
     }
 }
