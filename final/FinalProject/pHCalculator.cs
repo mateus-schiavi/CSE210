@@ -1,4 +1,8 @@
+using System;
+
 // Class 7: pHCalculator - calculates pH using the Calculator base classpublic class pHCalculator : Calculator
+public class pHCalculator : Calculator
+
 {
     public override double Calculate(double hydrogenIonConcentration, double unused)
     {
