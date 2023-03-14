@@ -63,8 +63,12 @@ public class Program
                     break;
                 case 5:
                     // Quit
-                    Console.WriteLine("Thanks for using Physics & Chemistry Calculator! Have a Nice Week");
-                    Thread.Sleep(100);
+                    string message = "Thanks for using Physics & Chemistry Calculator! Have a nice week";
+                    foreach(char c in message)
+                    {
+                        Console.Write(c);
+                        Thread.Sleep(100);
+                    }
                     quit = true;
                     break;
                 default:
