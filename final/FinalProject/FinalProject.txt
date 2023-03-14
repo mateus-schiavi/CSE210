@@ -5,9 +5,15 @@ Class 1: PhysicalCalculator: will be responsible to calculate physical propertie
 There are two methods in it: CalculateDensity, with two overloads: mass and volume, and CalculatePressure, with two overloads: force and area.
 Class 2: ChemicalCalculator: will be responsible to calculate chemical properties, which includes moles, volume and hydrogen Ion concentration.
 There are two methods in this class: CalculateMolarity, with two overloads: moles and volume, and CalculatepH, with only one overload: hydrogenIonConcentration.
-class 3: Calculator - will work as an abstract base class for all calculators.
+class 3: Calculator: will work as an abstract base class for all calculators.
 It will have only one method: Calculate, with two overloads: value1 and value2.
-class 4: DensityCalculator - calculates density using the Calculator base class
+class 4: DensityCalculator: calculates density using the Calculator base class
 it will have only one method, called Calculate, with two overloads: mass and volume.
-
-
+class 5: PressureCalculator: calculates pressure using the Calculator base class
+It will have only one method, called Calculate, with two overloads: mole and volume.
+class 6: MolarityCalculator: calculates the molarity using the Calculator base class.
+It will have only one method, called Calculate, with two overloads: moles and volume
+class 7: pHCalculator: calculates the pH, using the calculator base class.
+It will have two methods: one constructor with one overload, called pKw, and a method called Calculate with one overload called hydrogenIonConcentration.
+class 8: prorgram: shows a menu allowing the user to choose which kind of operation he/she wants to performs.
+It will have a method called Main, with one overload:  string[] args;
