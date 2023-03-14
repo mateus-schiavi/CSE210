@@ -1,8 +1,11 @@
-// Class 7: pHCalculator - calculates pH using the Calculator base class
-public class pHCalculator : Calculator
+// Class 7: pHCalculator - calculates pH using the Calculator base classpublic class pHCalculator : Calculator
 {
     public override double Calculate(double hydrogenIonConcentration, double unused)
     {
-        return -Math.Log10(hydrogenIonConcentration);
+        double pH = -Math.Log10(hydrogenIonConcentration);
+        double pOH = 14 - pH;
+        Console.WriteLine("pH = " + pH);
+        Console.WriteLine("pOH = " + pOH);
+        return pH;
     }
 }
