@@ -110,8 +110,11 @@ namespace GoalTracker
 
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
-                // Write the header row
-                writer.WriteLine("Category,Description,Completed,Score");
+                // Check if file exists and write header row if it does not
+                if (writer.BaseStream.Length == 0)
+                {
+                    writer.WriteLine("Category,Description,Completed,Score");
+                }
 
                 // Write each goal to the file
                 foreach (PersonalGoal goal in _goals)
@@ -125,6 +128,7 @@ namespace GoalTracker
 
             Console.WriteLine("Goals saved to file successfully!");
         }
+
 
 
         public override void LoadFromFile()
