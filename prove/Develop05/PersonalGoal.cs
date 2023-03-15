@@ -210,33 +210,30 @@ namespace GoalTracker
                 return;
             }
 
-            Console.Write("Did you complete the goal? (yes/no): ");
-            string input = Console.ReadLine();
-            bool completed = input.Equals("yes", StringComparison.OrdinalIgnoreCase);
+            Console.Write("Did you complete the goal? (Y/N): ");
+            string input = Console.ReadLine().ToLower();
 
-            if (completed)
+            if (input == "y")
             {
-                Console.Write("Enter the score (0-100): ");
-                string scoreInput = Console.ReadLine();
-                int score;
-                if (!int.TryParse(scoreInput, out score))
-                {
-                    Console.WriteLine("Invalid score. Please enter a number between 0 and 100.");
-                    return;
-                }
-
                 goal.Completed = true;
-                goal.Score = score;
 
-                Console.Write("Event recorded successfully! Press any key to continue...");
-                Console.ReadKey();
+                Console.Write("Enter the score for this completion: ");
+                int score = int.Parse(Console.ReadLine());
+                goal.Score += score;
+            }
+            else if (input == "n")
+            {
+                goal.Completed = false;
             }
             else
             {
-                Console.WriteLine("Event not recorded.");
+                Console.WriteLine("Invalid input. Please enter 'Y' or 'N'.");
+                return;
             }
 
+            Console.WriteLine("Event recorded successfully!");
         }
+
 
 
 
