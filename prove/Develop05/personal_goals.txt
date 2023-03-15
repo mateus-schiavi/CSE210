@@ -1,3 +1,4 @@
 Category,Description,Completed,Score
 Daily,Play Guitar,false,0
 Monthly,Go to the temple,false,0
+Daily,Study the scriptures,false,0
