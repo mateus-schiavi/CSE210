@@ -1,2 +1,2 @@
 Category,Description,Completed,Score
-Weekly,Read 1 book,true,100
+Daily,Play Guitar,false,0
