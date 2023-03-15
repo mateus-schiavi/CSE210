@@ -1,3 +1,4 @@
 Category,Description,Completed,Score
 Daily,Watch Anime,true,150
 Weekly,Lose 1 pound,false,0
+
