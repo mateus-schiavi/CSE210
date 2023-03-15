@@ -1,2 +1,3 @@
 Category,Description,Completed,Score
 Daily,Listen Music,false,0
+Daily,Listen Music,true,652
