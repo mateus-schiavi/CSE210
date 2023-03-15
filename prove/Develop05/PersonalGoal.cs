@@ -158,6 +158,13 @@ namespace GoalTracker
                     while (!reader.EndOfStream)
                     {
                         string line = reader.ReadLine();
+
+                        // Skip any blank lines
+                        if (string.IsNullOrWhiteSpace(line))
+                        {
+                            continue;
+                        }
+
                         string[] parts = line.Split(',');
                         PersonalGoal goal = new PersonalGoal()
                         {
@@ -179,6 +186,7 @@ namespace GoalTracker
                 Console.WriteLine($"An error occurred while loading the file: {ex.Message}");
             }
         }
+
 
 
 
