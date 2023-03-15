@@ -156,6 +156,7 @@ namespace GoalTracker
                     spinnerIndex = (spinnerIndex + 1) % spinner.Length;
                     Thread.Sleep(100);
                 }
+
                 using (StreamReader reader = new StreamReader(filePath))
                 {
                     // Skip the header row
@@ -185,6 +186,7 @@ namespace GoalTracker
                 Console.WriteLine($"An error occurred while loading the file: {ex.Message}");
             }
         }
+
 
         public override void RecordEvent()
         {
