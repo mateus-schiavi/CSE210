@@ -21,8 +21,9 @@ namespace GoalTracker
                 Console.WriteLine("4. Save to a File");
                 Console.WriteLine("5. Load from File ");
                 Console.WriteLine("6. Record an event for a personal goal");
-                Console.WriteLine("7. Exit");
-                
+                Console.WriteLine("7. Backup");
+                Console.WriteLine("8. Exit");
+
                 string input = Console.ReadLine();
                 switch (input)
                 {
@@ -45,6 +46,9 @@ namespace GoalTracker
                         goalTracker.RecordEvent();
                         break;
                     case "7":
+                        goalTracker.BackupFile();
+                        break;
+                    case "8":
                         goalTracker.Quit();
                         return;
                     default:

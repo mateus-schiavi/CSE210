@@ -75,7 +75,7 @@ namespace GoalTracker
         public abstract void LoadFromFile();
 
         public abstract void RecordEvent();
-
+        public abstract void BackupFile();
         public abstract void Quit();
     }
 }

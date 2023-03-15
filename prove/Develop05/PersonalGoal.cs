@@ -211,6 +211,12 @@ namespace GoalTracker
             SaveToFile();
         }
 
+        public override void BackupFile()
+        {
+            string backupFilePath = $"{Path.GetFileNameWithoutExtension(filePath)}_backup{Path.GetExtension(filePath)}";
+            File.Copy(filePath, backupFilePath, true);
+            Console.WriteLine($"Backup file created successfully at {backupFilePath}");
+        }
 
 
         public override void Quit()
