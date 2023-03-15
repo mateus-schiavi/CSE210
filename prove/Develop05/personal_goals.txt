@@ -1,3 +1,4 @@
 Category,Description,Completed,Score
 Monthly,Go to the Temple,false,0
 Daily,Watch Anime,false,0
+Daily,1 hour of exercises,false,0
