@@ -217,6 +217,8 @@ namespace GoalTracker
             goal.Completed = completed;
 
             Console.WriteLine("Event recorded successfully!");
+
+            SaveToFile();
         }
 
 
