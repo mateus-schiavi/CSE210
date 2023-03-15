@@ -1,4 +1,0 @@
-Category,Description,Completed,Score
-
-
-Monthly,Go to the Temple,false,0
