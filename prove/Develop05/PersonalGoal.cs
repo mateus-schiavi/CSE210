@@ -110,6 +110,12 @@ namespace GoalTracker
 
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
+                if (writer.BaseStream.Length == 0)
+                {
+                    writer.Write("Category,Description,Completed,Score");
+                    writer.WriteLine(); // add newline character after header row
+                }
+
                 foreach (PersonalGoal goal in _goals)
                 {
                     string completed = goal.Completed ? "true" : "false";
@@ -121,6 +127,7 @@ namespace GoalTracker
 
             Console.WriteLine("Goals saved to file successfully!");
         }
+
 
 
 
