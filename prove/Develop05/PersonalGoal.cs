@@ -70,6 +70,7 @@ namespace GoalTracker
             Console.WriteLine("Personal goal deleted successfully!");
         }
 
+
         public override void ViewAllGoals()
         {
             if (_goals.Count == 0)
