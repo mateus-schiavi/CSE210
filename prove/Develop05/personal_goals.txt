@@ -1,2 +1,4 @@
 Category,Description,Completed,Score
 Daily,Play Guitar,false,0
+Category,Description,Completed,Score
+Monthly,Go to the temple,false,0
