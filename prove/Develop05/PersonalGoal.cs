@@ -108,29 +108,27 @@ namespace GoalTracker
                 Thread.Sleep(100);
             }
 
+            // Write header row if file is empty
+            if (new FileInfo(filePath).Length == 0)
+            {
+                using (StreamWriter writer = new StreamWriter(filePath, true))
+                {
+                    writer.WriteLine("Category,Description,Completed,Score");
+                }
+            }
+
+            // Append goals to file
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
-                if (writer.BaseStream.Length == 0)
-                {
-                    writer.Write("Category,Description,Completed,Score");
-                }
-
                 foreach (PersonalGoal goal in _goals)
                 {
                     string completed = goal.Completed ? "true" : "false";
                     writer.WriteLine($"{goal.Category},{goal.Description},{completed},{goal.Score}");
                 }
-
-                writer.Flush(); // flush the stream to persist changes
             }
 
             Console.WriteLine("Goals saved to file successfully!");
         }
-
-
-
-
-
 
         public override void LoadFromFile()
         {
