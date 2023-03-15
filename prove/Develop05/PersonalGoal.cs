@@ -106,7 +106,6 @@ namespace GoalTracker
                 spinnerIndex = (spinnerIndex + 1) % spinner.Length;
                 Thread.Sleep(100);
             }
-            Console.WriteLine();
 
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
