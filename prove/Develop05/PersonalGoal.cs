@@ -228,7 +228,7 @@ namespace GoalTracker
             {
                 Console.WriteLine("Event not recorded.");
             }
-            SaveToFile();
+            
         }
 
 
