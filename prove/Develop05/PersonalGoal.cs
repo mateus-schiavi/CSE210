@@ -134,8 +134,7 @@ namespace GoalTracker
                 Console.WriteLine($"File {filePath} not found");
                 return;
             }
-
-            Console.WriteLine();
+            
             try
             {
                 Console.WriteLine("Loading Goals...");
