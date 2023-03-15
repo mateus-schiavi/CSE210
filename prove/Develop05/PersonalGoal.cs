@@ -203,15 +203,21 @@ namespace GoalTracker
             bool completed = input.Equals("yes", StringComparison.OrdinalIgnoreCase);
 
             goal.Completed = completed;
+
             if (completed)
             {
-                goal.Score += 100; // Add 100 points for completing the goal
-                Console.WriteLine($"Congratulations! You completed the '{goal.Description}' goal and earned 100 points.");
+                Console.Write("Enter the score you want to record for this goal (0-1000): ");
+                int score = int.Parse(Console.ReadLine());
+                if (score < 0 || score > 1000)
+                {
+                    Console.WriteLine("Invalid score entered.");
+                    return;
+                }
+
+                goal.Score = score;
+                Console.WriteLine($"Score {score} recorded for the goal '{goal.Description}'.");
             }
-            else
-            {
-                Console.WriteLine($"The '{goal.Description}' goal was not completed.");
-            }
+
             SaveToFile();
         }
 
