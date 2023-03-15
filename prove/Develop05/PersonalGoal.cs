@@ -134,7 +134,7 @@ namespace GoalTracker
                 Console.WriteLine($"File {filePath} not found");
                 return;
             }
-            
+
             try
             {
                 Console.WriteLine("Loading Goals...");
@@ -168,7 +168,9 @@ namespace GoalTracker
                         };
 
                         _goals.Add(goal); // add the loaded goal to the list
+                        Console.WriteLine($"Category: {goal.Category}, Description: {goal.Description}, Completed: {goal.Completed}, Score: {goal.Score}");
                     }
+
                 }
 
                 Console.WriteLine("Goals loaded from file successfully!");
