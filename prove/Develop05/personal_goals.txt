@@ -1,2 +1,6 @@
 Category,Description,Completed,Score
 
+Monthly,Go to the Temple,false,0
+Monthly,Go to the Temple,false,0
+Daily,Watch Anime,false,0
+Daily,Play Guitar,false,0
