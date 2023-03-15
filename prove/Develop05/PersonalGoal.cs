@@ -120,7 +120,7 @@ namespace GoalTracker
                 foreach (PersonalGoal goal in _goals)
                 {
                     string completed = goal.Completed ? "true" : "false";
-                    writer.WriteLine($"{goal.Category},{goal.Description},{completed},{goal.Score}");
+                    //writer.WriteLine($"{goal.Category},{goal.Description},{completed},{goal.Score}");
                 }
 
                 writer.Flush(); // flush the stream to persist changes
