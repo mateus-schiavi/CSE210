@@ -215,7 +215,13 @@ namespace GoalTracker
         {
             string backupFilePath = $"{Path.GetFileNameWithoutExtension(filePath)}_backup{Path.GetExtension(filePath)}";
             File.Copy(filePath, backupFilePath, true);
-            Console.WriteLine($"Backup file created successfully at {backupFilePath}");
+            string advice = $"Backup file created successfully at {backupFilePath}";
+
+            foreach (char x in advice)
+            {
+                Console.Write(x);
+                Thread.Sleep(100);
+            }
         }
 
 
