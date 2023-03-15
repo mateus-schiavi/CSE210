@@ -210,16 +210,26 @@ namespace GoalTracker
             if (completed)
             {
                 Console.Write("Enter the score (0-100): ");
-                int score = int.Parse(Console.ReadLine());
-                goal.Score += score;
+                string scoreInput = Console.ReadLine();
+                int score;
+                if (!int.TryParse(scoreInput, out score))
+                {
+                    Console.WriteLine("Invalid score. Please enter a number between 0 and 100.");
+                    return;
+                }
+
+                goal.Completed = true;
+                goal.Score = score;
+
+                Console.Write("Event recorded successfully! Press any key to continue...");
+                Console.ReadKey();
             }
-
-            goal.Completed = completed;
-
-            Console.WriteLine("Event recorded successfully!");
-
-            SaveToFile();
+            else
+            {
+                Console.WriteLine("Event not recorded.");
+            }
         }
+
 
 
 
