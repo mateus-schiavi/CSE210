@@ -1,2 +1,4 @@
 Category,Description,Completed,Score
 
+Category,Description,Completed,Score
+Daily,Watch Anime,false,0
