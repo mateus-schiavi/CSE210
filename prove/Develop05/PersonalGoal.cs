@@ -207,23 +207,18 @@ namespace GoalTracker
             string input = Console.ReadLine();
             bool completed = input.Equals("yes", StringComparison.OrdinalIgnoreCase);
 
-            goal.Completed = completed;
-
             if (completed)
             {
-                Console.Write("Enter the score you want to record for this goal (0-1000): ");
+                Console.Write("Enter the score (0-100): ");
                 int score = int.Parse(Console.ReadLine());
-                if (score < 0 || score > 1000)
-                {
-                    Console.WriteLine("Invalid score entered.");
-                    return;
-                }
-
-                goal.Score = score;
+                goal.Score += score;
             }
+
+            goal.Completed = completed;
 
             Console.WriteLine("Event recorded successfully!");
         }
+
 
 
         public override void BackupFile()
