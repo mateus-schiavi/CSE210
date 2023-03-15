@@ -120,15 +120,27 @@ namespace GoalTracker
             // Append goals to file
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
-                foreach (PersonalGoal goal in _goals)
+                for (int i = 0; i < _goals.Count; i++)
                 {
+                    PersonalGoal goal = _goals[i];
                     string completed = goal.Completed ? "true" : "false";
-                    writer.WriteLine($"{goal.Category},{goal.Description},{completed},{goal.Score}");
+                    writer.Write($"{goal.Category},{goal.Description},{completed},{goal.Score}");
+
+                    // Check if this is the first goal being written to the file
+                    if (i == 0 && new FileInfo(filePath).Length == "Category,Description,Completed,Score\r\n".Length)
+                    {
+                        // Skip writing the new line character after the header row
+                    }
+                    else
+                    {
+                        writer.Write(Environment.NewLine);
+                    }
                 }
             }
 
             Console.WriteLine("Goals saved to file successfully!");
         }
+
 
         public override void LoadFromFile()
         {
