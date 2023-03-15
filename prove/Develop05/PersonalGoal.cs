@@ -113,7 +113,6 @@ namespace GoalTracker
                 if (writer.BaseStream.Length == 0)
                 {
                     writer.Write("Category,Description,Completed,Score");
-                    writer.WriteLine(); // add newline character after header row
                 }
 
                 foreach (PersonalGoal goal in _goals)
