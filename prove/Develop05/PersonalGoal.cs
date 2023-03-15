@@ -108,7 +108,7 @@ namespace GoalTracker
             }
             Console.WriteLine();
 
-            using (StreamWriter writer = new StreamWriter(filePath))
+            using (StreamWriter writer = new StreamWriter(filePath, true))
             {
                 // Write the header row
                 writer.WriteLine("Category,Description,Completed,Score");
