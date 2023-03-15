@@ -231,6 +231,7 @@ namespace GoalTracker
                 Console.WriteLine("Invalid input. Please enter 'Y' or 'N'.");
                 return;
             }
+            SaveToFile();
 
             Console.WriteLine("Event recorded successfully!");
         }
