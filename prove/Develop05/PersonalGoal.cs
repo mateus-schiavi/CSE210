@@ -211,11 +211,11 @@ namespace GoalTracker
                 }
 
                 goal.Score = score;
-                Console.WriteLine($"Score {score} recorded for the goal '{goal.Description}'.");
             }
 
-            SaveToFile();
+            Console.WriteLine("Event recorded successfully!");
         }
+
 
         public override void BackupFile()
         {
