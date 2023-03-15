@@ -168,9 +168,7 @@ namespace GoalTracker
                         };
 
                         _goals.Add(goal); // add the loaded goal to the list
-                        Console.WriteLine($"Category: {goal.Category}, Description: {goal.Description}, Completed: {goal.Completed}, Score: {goal.Score}");
                     }
-
                 }
 
                 Console.WriteLine("Goals loaded from file successfully!");
@@ -181,6 +179,7 @@ namespace GoalTracker
                 Console.WriteLine($"An error occurred while loading the file: {ex.Message}");
             }
         }
+
 
 
         public override void RecordEvent()
