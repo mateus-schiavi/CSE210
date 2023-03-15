@@ -53,6 +53,7 @@ namespace GoalTracker
             Console.WriteLine("Personal goal added successfully!");
         }
 
+
         public override void DeleteGoal()
         {
             Console.Write("Enter the description of the personal goal you want to delete: ");
@@ -228,7 +229,7 @@ namespace GoalTracker
             {
                 Console.WriteLine("Event not recorded.");
             }
-            
+
         }
 
 
