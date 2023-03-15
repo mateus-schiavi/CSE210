@@ -159,8 +159,8 @@ namespace GoalTracker
                     {
                         string line = reader.ReadLine();
 
-                        // Skip any blank lines
-                        if (string.IsNullOrWhiteSpace(line))
+                        // Skip any blank or invalid lines
+                        if (string.IsNullOrWhiteSpace(line) || line.Split(',').Length < 4)
                         {
                             continue;
                         }
@@ -186,6 +186,7 @@ namespace GoalTracker
                 Console.WriteLine($"An error occurred while loading the file: {ex.Message}");
             }
         }
+
 
 
 
