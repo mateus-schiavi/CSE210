@@ -108,38 +108,28 @@ namespace GoalTracker
                 Thread.Sleep(100);
             }
 
-            // Write header row if file is empty
-            if (new FileInfo(filePath).Length == 0)
+            // Create the file if it doesn't exist
+            if (!File.Exists(filePath))
             {
-                using (StreamWriter writer = new StreamWriter(filePath, true))
+                using (StreamWriter writer = File.CreateText(filePath))
                 {
                     writer.WriteLine("Category,Description,Completed,Score");
                 }
             }
 
-            // Append goals to file
-            using (StreamWriter writer = new StreamWriter(filePath, true))
+            // Append new goals to the file
+            using (StreamWriter writer = File.AppendText(filePath))
             {
-                for (int i = 0; i < _goals.Count; i++)
+                foreach (PersonalGoal goal in _goals)
                 {
-                    PersonalGoal goal = _goals[i];
                     string completed = goal.Completed ? "true" : "false";
-                    writer.Write($"{goal.Category},{goal.Description},{completed},{goal.Score}");
-
-                    // Check if this is the first goal being written to the file
-                    if (i == 0 && new FileInfo(filePath).Length == "Category,Description,Completed,Score\r\n".Length)
-                    {
-                        // Skip writing the new line character after the header row
-                    }
-                    else
-                    {
-                        writer.Write(Environment.NewLine);
-                    }
+                    writer.WriteLine($"{goal.Category},{goal.Description},{completed},{goal.Score}");
                 }
             }
 
             Console.WriteLine("Goals saved to file successfully!");
         }
+
 
 
         public override void LoadFromFile()
