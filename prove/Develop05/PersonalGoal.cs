@@ -69,8 +69,9 @@ namespace GoalTracker
             _goals.Remove(goalToDelete);
             Console.WriteLine("Personal goal deleted successfully!");
 
-            SaveToFile();
+            SaveToFile(); // Save changes to file
         }
+
 
 
         public override void ViewAllGoals()
