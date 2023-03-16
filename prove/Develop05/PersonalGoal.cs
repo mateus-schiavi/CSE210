@@ -118,18 +118,35 @@ namespace GoalTracker
                 }
             }
 
-            // Append new goals to the file
-            using (StreamWriter writer = File.AppendText(filePath))
+            // Update existing goals in the file
+            List<string> lines = File.ReadAllLines(filePath).ToList();
+            for (int i = 1; i < lines.Count; i++) // skip header row
             {
-                foreach (PersonalGoal goal in _goals)
+                string[] parts = lines[i].Split(',');
+                string description = parts[1];
+
+                PersonalGoal goal = _goals.FirstOrDefault(g => g.Description == description);
+                if (goal != null)
                 {
                     string completed = goal.Completed ? "true" : "false";
-                    writer.Write($"{goal.Category},{goal.Description},{completed},{goal.Score}");
+                    int score = goal.Completed ? goal.Score : 0;
+                    lines[i] = $"{goal.Category},{goal.Description},{completed},{score}";
                 }
             }
 
+            // Append new goals to the file
+            foreach (PersonalGoal goal in _goals.Where(g => !lines.Any(line => line.Contains(g.Description))))
+            {
+                string completed = goal.Completed ? "true" : "false";
+                int score = goal.Completed ? goal.Score : 0;
+                lines.Add($"{goal.Category},{goal.Description},{completed},{score}");
+            }
+
+            File.WriteAllLines(filePath, lines);
+
             Console.WriteLine("Goals saved to file successfully!");
         }
+
 
 
 
