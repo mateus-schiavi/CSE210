@@ -1,3 +1,2 @@
 Category,Description,Completed,Score
 Daily,Watch Anime,true,100
-Weekly,run 10 km,false,0
