@@ -75,19 +75,37 @@ namespace GoalTracker
 
         public override void ViewAllGoals()
         {
-            if (_goals.Count == 0)
+            verifier.VerifyFileIntegrity();
+
+            if (!File.Exists(filePath))
             {
-                Console.WriteLine("No personal goals found.");
+                Console.WriteLine($"File {filePath} not found.");
                 return;
             }
 
             Console.WriteLine("List of all personal goals:");
-            foreach (PersonalGoal goal in _goals)
+            using (StreamReader reader = new StreamReader(filePath))
             {
-                string completedMarker = goal.Completed ? "[O]" : "[X]";
-                Console.WriteLine($"{completedMarker} Category: {goal.Category}, Description: {goal.Description}");
+                // Skip the header row
+                reader.ReadLine();
+
+                while (!reader.EndOfStream)
+                {
+                    string line = reader.ReadLine();
+
+                    // Skip any blank or invalid lines
+                    if (string.IsNullOrWhiteSpace(line) || line.Split(',').Length < 4)
+                    {
+                        continue;
+                    }
+
+                    string[] parts = line.Split(',');
+                    string completedMarker = bool.Parse(parts[2]) ? "[O]" : "[X]";
+                    Console.WriteLine($"{completedMarker} Category: {parts[0]}, Description: {parts[1]}");
+                }
             }
         }
+
 
         public override void ListGoals()
         {
