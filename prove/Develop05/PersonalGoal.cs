@@ -69,8 +69,17 @@ namespace GoalTracker
             _goals.Remove(goalToDelete);
             Console.WriteLine("Personal goal deleted successfully!");
 
-            SaveToFile(); // Save changes to file
+            // Delete the goal from the file
+            var lines = File.ReadAllLines(filePath).ToList();
+            var goalLine = lines.FirstOrDefault(line => line.Split(',')[1].Equals(description, StringComparison.OrdinalIgnoreCase));
+            if (goalLine != null)
+            {
+                lines.Remove(goalLine);
+                File.WriteAllLines(filePath, lines);
+                Console.WriteLine("Personal goal removed from file.");
+            }
         }
+
 
 
 
