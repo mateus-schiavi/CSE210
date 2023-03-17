@@ -4,7 +4,8 @@ using System;
 public class pHCalculator : Calculator
 
 {
-    public override double Calculate(double hydrogenIonConcentration, double unused)
+    double hydrogenIonConcentration;
+    public override double Calculate()
     {
         double pH = -Math.Log10(hydrogenIonConcentration);
         double pOH = 14 - pH;
