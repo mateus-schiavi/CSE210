@@ -1,9 +1,7 @@
 // Class 5: PressureCalculator - calculates pressure using the Calculator base class
 public class PressureCalculator : Calculator
 {
-    double force;
-    double area;
-    public override double Calculate()
+    public override double Calculate(double force, double area)
     {
         return force / area;
     }

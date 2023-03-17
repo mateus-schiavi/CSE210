@@ -33,7 +33,7 @@ public class Program
                     double mass = double.Parse(Console.ReadLine());
                     Console.Write("Enter volume in m^3: ");
                     double volume = double.Parse(Console.ReadLine());
-                    double density = densityCalculator.Calculate();
+                    double density = densityCalculator.Calculate(mass, volume);
                     Console.WriteLine($"Density: {density} kg/m^3");
                     break;
                 case 2:
@@ -42,7 +42,7 @@ public class Program
                     double force = double.Parse(Console.ReadLine());
                     Console.Write("Enter area in m^2: ");
                     double area = double.Parse(Console.ReadLine());
-                    double pressure = pressureCalculator.Calculate();
+                    double pressure = pressureCalculator.Calculate(force, area);
                     Console.WriteLine($"Pressure: {pressure} Pa");
                     break;
                 case 3:
@@ -51,14 +51,14 @@ public class Program
                     double moles = double.Parse(Console.ReadLine());
                     Console.Write("Enter volume of solution in L: ");
                     double solnVolume = double.Parse(Console.ReadLine());
-                    double molarity = molarityCalculator.Calculate();
+                    double molarity = molarityCalculator.Calculate(moles, solnVolume);
                     Console.WriteLine($"Molarity: {molarity} mol/L");
                     break;
                 case 4:
                     // Calculate pH
                     Console.Write("Enter hydrogen ion concentration in mol/L: ");
                     double hydrogenIonConcentration = double.Parse(Console.ReadLine());
-                    double pH = pHCalculator.Calculate();
+                    double pH = pHCalculator.Calculate(hydrogenIonConcentration, 0.0);
                     Console.WriteLine($"pH: {pH}");
                     break;
                 case 5:
