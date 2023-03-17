@@ -2,5 +2,5 @@
 public abstract class Calculator
 {
     // Abstract method to calculate a property
-    public abstract double Calculate(double value1, double value2, double value3);
+    public abstract double Calculate(double value1, double value2);
 }
