@@ -30,5 +30,5 @@ It will have a method called Main, with one overload:  string[] args;
 
 All the classes will use only one type of variable: double.
 
-*the overload double unused in the class 7 is not used, although is there just to fill spacr, because all the over overloads of the other classes have two parameters.
+*the overload double unused in the class 7 is not used, although is there just to fill space, because all the over overloads of the other classes have two parameters.
 
