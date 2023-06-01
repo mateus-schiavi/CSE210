@@ -1,5 +1,5 @@
 public abstract class Exercise
-{
+{ 
     public string _exerciseName;
     public string _exerciseResume;
     protected int _initialTime;

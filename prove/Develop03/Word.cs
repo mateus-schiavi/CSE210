@@ -1,5 +1,5 @@
 class Word
-{
+{ 
     private char character;
     private bool isHidden;
     private bool isWordHidden;

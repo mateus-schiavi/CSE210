@@ -15,4 +15,4 @@ namespace GoalTracker
 
         public abstract bool VerifyFileIntegrity();
     }
-}
+} 

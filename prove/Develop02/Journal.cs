@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 namespace Develop02
-{
+{ 
     class Journal
     {
         public List<Entry> Input { get; set; }

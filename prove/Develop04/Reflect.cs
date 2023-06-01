@@ -2,7 +2,7 @@ public class Reflection : Exercise
 {
     private string[] _prompts;
     private string _currentPrompt;
-
+ 
     public Reflection()
 {
     _exerciseName = "Reflection";

@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using System.IO;
 class Program
-{
+{ 
     static void Main(string[] args)
     {
         try

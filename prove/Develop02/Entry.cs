@@ -15,7 +15,7 @@ class Entry
         "Japanese food or Brazilian food?"};
 
 
-    
+     
     public Entry(string prompt, string response, DateTime date)
     {
         Prompt = prompt;

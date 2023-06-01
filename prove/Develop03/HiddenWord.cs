@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
-
+ 
 class HiddenWord
 {
     private List<Word> words;

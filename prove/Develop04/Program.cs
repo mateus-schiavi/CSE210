@@ -1,6 +1,6 @@
 using System;
 class Program
-{
+{ 
     static void Main(string[] args)
     {
         int choice = 0;

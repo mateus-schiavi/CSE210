@@ -1,5 +1,5 @@
 public class Breath : Exercise
-{
+{ 
     private string _breatheIn;
     private string _breatheOut;
 

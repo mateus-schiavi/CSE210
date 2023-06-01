@@ -1,6 +1,6 @@
 using System;
 namespace GoalTracker
-{
+{ 
     public abstract class Goal
     {
         private string category;

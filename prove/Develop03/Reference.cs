@@ -2,7 +2,7 @@ using System;
 using System.IO;
 
 public class Reference
-{
+{ 
     private string _stamp;
     private string _section;
     private string _firstQuote;

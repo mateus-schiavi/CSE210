@@ -1,5 +1,5 @@
 using System.Threading;
-
+ 
 class Scripture
 {
     private string reference;
