@@ -14,4 +14,4 @@ public class PhysicalCalculator
     {
         return force / area;
     }
-}
+} 

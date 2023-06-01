@@ -12,4 +12,4 @@ public class ChemicalCalculator
     {
         return -Math.Log10(hydrogenIonConcentration);
     }
-}
+} 

@@ -17,4 +17,4 @@ public abstract class Calculator
     }
     // Abstract method to calculate a property
     public abstract double Calculate(double value1, double value2);
-}
+} 

@@ -21,4 +21,4 @@ public class PressureCalculator : Calculator
         Area = area;
         return force / area;
     }
-}
+} 
