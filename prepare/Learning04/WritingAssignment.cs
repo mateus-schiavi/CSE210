@@ -1,7 +1,7 @@
 public class WritingAssignment : Assignment
 {
     private string _title;
-
+ 
     // Notice the syntax here that the WritingAssignment constructor has 3 parameters and then
     // it passes 2 of them directly to the "base" constructor, which is the "Assignment" class constructor.
     public WritingAssignment(string studentName, string topic, string title)
