@@ -1,7 +1,8 @@
 This project is open-ended, so, down below is a resume of the project I decided to develop.
 
 I want to let clear that, although I have a strong testimony of the veracity of the Restored Gospel, I'm also a big lover of exact sciences, specially physics and chemistry.
-Last semester, during the Programming with Functions course, I've developed a code in Python that performs operation with complex numbers, then, I decided to 'recicle' this idea and do it in C# but with another classes.
+Last semester, during the Programming with Functions course, I've developed a code in Python that performs operation with complex numbers, then, 
+I decided to 'recicle' this idea and do it in C# but with another classes.
 Down below is the classes of my final project (in total are eight classes, including the class Program):
 
 Class 1: PhysicalCalculator: will be responsible to calculate physical properties, which includes force, mass, volume and area.
